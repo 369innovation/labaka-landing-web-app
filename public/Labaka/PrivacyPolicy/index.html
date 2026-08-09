@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Labaka</title>
+  <meta name="description" content="Labaka Privacy Policy — Your privacy matters to us. Learn what data we collect, why we collect it, and how we protect it. Compliant with India's DPDP Act 2023." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6D53F4;
+      --brand-light: #8B73FF;
+      --brand-dark: #5A3FD6;
+      --text: #0d1b2a;
+      --text-secondary: #5a6175;
+      --bg: #F7F5FF;
+      --white: #ffffff;
+      --border: rgba(109, 83, 244, 0.12);
+      --shadow: 0 2px 16px rgba(109, 83, 244, 0.08);
+      --shadow-lg: 0 8px 32px rgba(109, 83, 244, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white); color: var(--text); font-size: 15px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navbar ─────────────────────────────────────── */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1100; padding: 12px 24px; }
+    .navbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: 60px; padding: 10px 24px;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 4px 24px rgba(109,83,244,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo span { font-weight: 500; letter-spacing: 0.2em; color: #1a1a2e; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.06em; transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; border-radius: 1px; background: var(--brand); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--brand); }
+    .nav-links a:hover::after { width: 80%; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.active::after { width: 80%; }
+    .nav-cta {
+      display: inline-flex; align-items: center; background: var(--brand); color: #fff;
+      border: none; border-radius: 28px; padding: 8px 24px; font-weight: 700;
+      font-size: 0.88rem; cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(109,83,244,0.35); transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    /* ─── Sub Navbar ─────────────────────────────────── */
+    .sub-navbar {
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 1090; padding: 6px 24px;
+      display: flex; justify-content: center;
+    }
+    .sub-navbar-inner {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(109, 83, 244, 0.1);
+      border: 1px solid rgba(109, 83, 244, 0.15);
+    }
+    .sub-navbar-inner a {
+      text-decoration: none; font-weight: 600; font-size: 0.82rem;
+      padding: 6px 18px; border-radius: 20px; color: #5a6175;
+      transition: all 0.25s ease;
+    }
+    .sub-navbar-inner a:hover {
+      color: var(--brand); background: rgba(109, 83, 244, 0.06);
+    }
+    .sub-navbar-inner a.active {
+      color: #fff; background: var(--brand);
+      box-shadow: 0 2px 10px rgba(109, 83, 244, 0.3);
+    }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 160px 24px 80px; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 30%, var(--brand) 60%, var(--brand-light) 100%);
+    }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero-orb-1 { width: 400px; height: 400px; top: -120px; right: -100px; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); }
+    .hero-orb-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%); }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px; padding: 6px 20px; font-size: 0.85rem; color: rgba(255,255,255,0.8);
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    /* ─── Content ────────────────────────────────────── */
+    .content { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* ─── Effective Date ─────────────────────────────── */
+    .effective-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.08), rgba(139,115,255,0.12));
+      border: 1px solid rgba(109,83,244,0.2); border-radius: 28px;
+      padding: 8px 20px; font-size: 0.85rem; color: var(--brand); font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* ─── Callout Boxes ──────────────────────────────── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.1));
+      border: 1px solid rgba(109,83,244,0.15); border-radius: 16px;
+      padding: 24px; margin-bottom: 32px;
+    }
+    .highlight-box p { font-size: 0.9rem; color: var(--brand-dark); line-height: 1.8; margin: 0; }
+    .highlight-box strong { color: var(--text); }
+
+    .warning-box {
+      background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 14px;
+      padding: 20px 24px; margin-bottom: 16px;
+    }
+    .warning-box p { font-size: 0.9rem; color: #92400E; line-height: 1.75; margin: 0; }
+    .warning-box strong { color: #7C2D12; }
+
+    .green-box {
+      background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px;
+      padding: 20px 24px; margin-bottom: 16px;
+    }
+    .green-box p { font-size: 0.9rem; color: #14532D; line-height: 1.75; margin: 0; }
+    .green-box strong { color: #14532D; }
+
+    .blue-box {
+      background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 14px;
+      padding: 20px 24px; margin-bottom: 16px;
+    }
+    .blue-box p { font-size: 0.9rem; color: #1E40AF; line-height: 1.75; margin: 0; }
+    .blue-box strong { color: #1E3A8A; }
+
+    /* ─── TOC ────────────────────────────────────────── */
+    .toc {
+      background: var(--white); border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px; box-shadow: var(--shadow); margin-bottom: 40px;
+    }
+    .toc-title {
+      font-size: 0.75rem; font-weight: 700; color: var(--brand);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
+    }
+    .toc-list { display: flex; flex-direction: column; gap: 10px; }
+    .toc-item { font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px; }
+    .toc-num {
+      font-size: 0.75rem; font-weight: 700; color: var(--brand-light);
+      min-width: 28px; text-align: center;
+    }
+
+    /* ─── Section ────────────────────────────────────── */
+    .sec { margin-bottom: 40px; }
+    .sec-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--brand); text-transform: uppercase; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sec-eyebrow::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(109,83,244,0.2), transparent); }
+    .sec h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+
+    .new-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 12px; border-radius: 20px; vertical-align: middle; margin-left: 8px;
+    }
+
+    /* ─── Clause ─────────────────────────────────────── */
+    .clause {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px; margin-bottom: 16px; transition: border-color 0.2s;
+    }
+    .clause:hover { border-color: rgba(109,83,244,0.25); }
+    .clause h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .clause-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .clause p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 10px; }
+    .clause p:last-child { margin-bottom: 0; }
+    .clause ul { padding-left: 20px; margin-top: 8px; }
+    .clause ul li { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .clause strong { color: var(--text); }
+
+    /* ─── Data Table ─────────────────────────────────── */
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; border-radius: 12px; overflow: hidden; }
+    .data-table th {
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); font-size: 0.8rem; font-weight: 700;
+      padding: 12px 16px; text-align: left; letter-spacing: 0.03em;
+    }
+    .data-table td {
+      font-size: 0.85rem; color: var(--text-secondary); padding: 12px 16px;
+      border-bottom: 1px solid rgba(109,83,244,0.06); line-height: 1.6; vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(109,83,244,0.02); }
+
+    /* ─── Rights Grid ────────────────────────────────── */
+    .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .right-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px; border-top: 3px solid var(--brand); transition: box-shadow 0.2s;
+    }
+    .right-card:hover { box-shadow: var(--shadow); }
+    .right-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .right-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+
+    /* ─── Security Grid ──────────────────────────────── */
+    .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .sec-tip {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px; display: flex; gap: 14px; align-items: flex-start; transition: box-shadow 0.2s;
+    }
+    .sec-tip:hover { box-shadow: var(--shadow); }
+    .sec-tip-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .sec-tip-text h5 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .sec-tip-text p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .footer { background: #0d1b2a; padding: 60px 24px; text-align: center; }
+    .footer-inner { max-width: 860px; margin: 0 auto; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+    .footer-logo img { height: 40px; filter: brightness(0) invert(1); }
+    .footer-logo span { font-weight: 500; letter-spacing: 0.2em; color: #fff; font-size: 1.1rem; }
+    .footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 24px; line-height: 1.7; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--brand-light); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+    /* ─── Mobile Hamburger & Drawer ─────────────────── */
+    .nav-hamburger {
+      display: none; background: none; border: none; color: var(--brand);
+      font-size: 26px; cursor: pointer; padding: 4px; align-items: center; justify-content: center;
+    }
+    .mobile-backdrop {
+      position: fixed; inset: 0; background: rgba(13, 27, 42, 0.4);
+      backdrop-filter: blur(4px); z-index: 1200; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-backdrop.active { opacity: 1; pointer-events: auto; }
+    .mobile-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: 280px; max-width: 85vw;
+      background: linear-gradient(180deg, #ffffff 0%, #F7F5FF 100%);
+      z-index: 1201; transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 24px 20px; display: flex; flex-direction: column;
+      box-shadow: -8px 0 32px rgba(109, 83, 244, 0.15);
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .mobile-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-close {
+      background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; padding: 4px;
+    }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 6px; }
+    .mobile-drawer-links a {
+      text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem;
+      padding: 10px 14px; border-radius: 12px; transition: all 0.2s ease;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a.active {
+      background: rgba(109, 83, 244, 0.08); color: var(--brand);
+    }
+    .mobile-drawer-cta { margin-top: auto; padding-top: 20px; }
+    .mobile-drawer-cta .nav-cta { width: 100%; justify-content: center; padding: 12px 24px; }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 1.75rem; }
+      .content { padding: 32px 16px 60px; }
+      .rights-grid, .security-grid { grid-template-columns: 1fr; }
+      .data-table { font-size: 0.8rem; }
+      .data-table th, .data-table td { padding: 10px 12px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .sec { animation: fadeInUp 0.6s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" />
+      <span>LABAKA</span>
+    </a>
+    <div class="nav-links">
+      <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+      <a href="/Labaka/Upgrade/">UPGRADE</a>
+      <a href="/Labaka/AboutUs/">ABOUT US</a>
+      <a href="/Labaka/ContactUs/">CONTACT US</a>
+    </div>
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Sub Navbar -->
+<div class="sub-navbar">
+  <div class="sub-navbar-inner">
+    <a href="/Labaka/PrivacyPolicy/" class="active">Privacy Policy</a>
+    <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+    <a href="/Labaka/Faqs/">FAQ</a>
+  </div>
+</div>
+
+<!-- Mobile Drawer -->
+<div class="mobile-backdrop" id="drawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-header">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" style="height:36px;" />
+      <span style="font-size:0.9rem;">LABAKA</span>
+    </a>
+    <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Menu">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+  <div class="mobile-drawer-links">
+    <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+    <div style="padding-left: 16px; display: flex; flex-direction: column; gap: 8px; margin: -4px 0 8px;">
+      <a href="/Labaka/PrivacyPolicy/" style="font-size: 0.85rem; color: var(--brand); font-weight: 600;">• Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/" style="font-size: 0.85rem; opacity: 0.8;">• Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/" style="font-size: 0.85rem; opacity: 0.8;">• FAQ</a>
+    </div>
+    <a href="/Labaka/Upgrade/">UPGRADE</a>
+    <a href="/Labaka/AboutUs/">ABOUT US</a>
+    <a href="/Labaka/ContactUs/">CONTACT US</a>
+  </div>
+  <div class="mobile-drawer-cta">
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+  </div>
+</aside>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-badge">🔒 Your Data, Protected</div>
+  <h1>Privacy Policy</h1>
+  <p>Your privacy matters to us. This policy explains what data we collect, why we collect it, and how we protect it.</p>
+</section>
+
+<!-- Content -->
+<div class="content">
+
+  <div class="effective-badge">📅 Effective Date: July 2, 2026</div>
+
+  <div class="highlight-box">
+    <p><strong>This Privacy Policy ("Policy") describes how Labaka ("we", "us", "our"), operated by 369innovation, collects, uses, stores, shares, and protects your personal data when you use the Labaka application. This Policy is compliant with India's Digital Personal Data Protection Act, 2023 (DPDP Act). By using Labaka, you consent to the practices described in this Policy.</strong></p>
+  </div>
+
+  <!-- TOC -->
+  <div class="sec">
+    <div class="sec-eyebrow">Contents</div>
+    <div class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <div class="toc-list">
+        <div class="toc-item"><span class="toc-num">01</span> Who We Are &amp; How to Contact Us</div>
+        <div class="toc-item"><span class="toc-num">02</span> What Data We Collect</div>
+        <div class="toc-item"><span class="toc-num">03</span> Photo Data &amp; Profile Image Usage</div>
+        <div class="toc-item"><span class="toc-num">04</span> Why We Collect Your Data</div>
+        <div class="toc-item"><span class="toc-num">05</span> Location Data &amp; Real-Time Nearby</div>
+        <div class="toc-item"><span class="toc-num">06</span> Chat, Video &amp; Communications Data</div>
+        <div class="toc-item"><span class="toc-num">07</span> Content Moderation</div>
+        <div class="toc-item"><span class="toc-num">08</span> Content Visibility After Deletion</div>
+        <div class="toc-item"><span class="toc-num">09</span> LBK Wallet &amp; Payment Data</div>
+        <div class="toc-item"><span class="toc-num">10</span> Stories, Posts &amp; Opportunity Data</div>
+        <div class="toc-item"><span class="toc-num">11</span> How We Share Your Data</div>
+        <div class="toc-item"><span class="toc-num">12</span> Data Retention &amp; Inactive Accounts</div>
+        <div class="toc-item"><span class="toc-num">13</span> Data Security &amp; Your Responsibilities</div>
+        <div class="toc-item"><span class="toc-num">14</span> Your Rights Under DPDP Act 2023</div>
+        <div class="toc-item"><span class="toc-num">15</span> Banned Accounts &amp; Data</div>
+        <div class="toc-item"><span class="toc-num">16</span> Children's Privacy</div>
+        <div class="toc-item"><span class="toc-num">17</span> Cookies &amp; Tracking</div>
+        <div class="toc-item"><span class="toc-num">18</span> Cross-Border Data Transfers</div>
+        <div class="toc-item"><span class="toc-num">19</span> Changes to This Policy</div>
+        <div class="toc-item"><span class="toc-num">20</span> Contact &amp; Grievance Officer</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 01 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 01</div>
+    <h2>Who We Are &amp; How to Contact Us</h2>
+    <div class="clause">
+      <h3><span class="clause-num">1.1</span> Data Fiduciary</h3>
+      <p>Under India's Digital Personal Data Protection Act, 2023, Labaka operated by 369innovation is the "Data Fiduciary" — the entity responsible for determining the purpose and means of processing your personal data.</p>
+      <ul>
+        <li><strong>Application:</strong> Labaka</li>
+        <li><strong>Operated by:</strong> 369innovation</li>
+        <li><strong>Privacy Contact:</strong> laabaakaa@gmail.com</li>
+        <li><strong>Grievance Officer:</strong> laabaakaa@gmail.com</li>
+        <li><strong>Jurisdiction:</strong> Puducherry, India</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 02 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 02</div>
+    <h2>What Data We Collect</h2>
+    <div class="clause">
+      <h3><span class="clause-num">2.1</span> Data You Provide Directly</h3>
+      <div style="overflow-x:auto; margin-top:8px;">
+        <table class="data-table">
+          <tr><th>Data Type</th><th>Examples</th><th>When Collected</th></tr>
+          <tr><td>Identity Data</td><td>Full name, date of birth, gender, profile photo</td><td>Registration &amp; profile setup</td></tr>
+          <tr><td>Contact Data</td><td>Phone number, email address</td><td>Registration</td></tr>
+          <tr><td>Profile Data</td><td>Interests, hobbies, profession, bio, looking-for details, mode (Casual/Formal)</td><td>Profile creation &amp; editing</td></tr>
+          <tr><td>Verification Data</td><td>Government ID documents (optional, for verified badge)</td><td>If user opts for verification</td></tr>
+          <tr><td>Content Data</td><td>Stories, posts, opportunity listings, event postings, offer listings</td><td>When content is created</td></tr>
+          <tr><td>Communications Data</td><td>Chat messages, images, files shared in chat</td><td>When using chat feature</td></tr>
+          <tr><td>Payment Data</td><td>Transaction history, LBK coin balance, subscription tier</td><td>When purchasing coins or plans</td></tr>
+          <tr><td>Support Data</td><td>Emails, messages, and records from support interactions</td><td>When you contact support</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">2.2</span> Data We Collect Automatically</h3>
+      <div style="overflow-x:auto; margin-top:8px;">
+        <table class="data-table">
+          <tr><th>Data Type</th><th>Examples</th><th>Purpose</th></tr>
+          <tr><td>Location Data</td><td>Real-time GPS coordinates, approximate location</td><td>Nearby People, Explore Nearby, Events &amp; Offers features</td></tr>
+          <tr><td>Device Data</td><td>Device model, OS version, unique device identifiers, IP address</td><td>Security, fraud prevention, app optimization</td></tr>
+          <tr><td>Usage Data</td><td>Features used, time spent, pages viewed, connection activity, QR scans, photo engagement metrics</td><td>Product improvement, analytics, photo ordering</td></tr>
+          <tr><td>Log Data</td><td>Error logs, crash reports, access timestamps</td><td>Technical troubleshooting</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">2.3</span> Profile Information at Your Own Risk</h3>
+      <p>Any personal information you choose to include in your Labaka profile — including your name, photo, profession, interests, bio, and any other detail — is shared with other users of the platform as part of the discovery and connection experience. <strong>You share your profile information entirely at your own risk.</strong> Labaka is not responsible for how other users perceive, use, save, or react to your profile information once it has been viewed. Exercise discretion in what you choose to include on your public profile.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 03 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 03 — New</div>
+    <h2>Photo Data &amp; Profile Image Usage <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">3.1</span> How We Use Your Photos</h3>
+      <p>Profile photos you upload to Labaka are displayed to other users as part of your profile in Nearby, Global Discovery, and Explore features. Beyond display, Labaka may analyze engagement data associated with your profile photos — such as which photo receives more views, taps, or connection requests — to help optimize your profile's presentation and ordering within the app. This analysis is conducted to improve your experience on the platform.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">3.2</span> Photo Ordering &amp; Optimization</h3>
+      <p>Based on engagement data, Labaka may suggest or automatically reorder your profile photos to improve your visibility and connection rate. You retain full control over your photos at all times and can manually reorder, add, or remove photos from your profile through the profile settings. You may opt out of automatic photo ordering at any time through Settings → Profile → Photo Preferences.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">3.3</span> Photo Data Limitations</h3>
+      <p>Labaka does not use facial recognition technology on your photos. Photo engagement data is used solely for profile optimization purposes within the platform and is not shared with third parties for advertising or commercial purposes. Photo data is deleted along with your account upon account deletion.</p>
+    </div>
+    <div class="blue-box">
+      <p><strong>Your Control:</strong> You can add, remove, or reorder your profile photos at any time. Opting out of photo optimization does not affect your ability to use any other Labaka feature.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 04 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 04</div>
+    <h2>Why We Collect Your Data</h2>
+    <div class="clause">
+      <h3><span class="clause-num">4.1</span> Lawful Purposes</h3>
+      <p>We collect and process your personal data only for the following lawful purposes:</p>
+      <ul>
+        <li><strong>To provide the service</strong> — account creation, profile display, connections, chat, video calls, stories, posts, events, offers, and opportunity features</li>
+        <li><strong>To personalize your experience</strong> — showing relevant nearby people, events, and opportunities based on your location, mode, and preferences</li>
+        <li><strong>To optimize your profile</strong> — analyzing photo engagement to improve your profile's presentation and visibility</li>
+        <li><strong>To enable payments</strong> — processing LBK coin purchases, subscription billing, and transaction history</li>
+        <li><strong>To ensure safety</strong> — detecting prohibited content, fraud, fake accounts, and policy violations through both automated and human moderation</li>
+        <li><strong>To improve the platform</strong> — analytics, feature development, and performance monitoring</li>
+        <li><strong>To comply with law</strong> — responding to legal obligations, court orders, or law enforcement requests under Indian law</li>
+        <li><strong>To communicate with you</strong> — service notifications, policy updates, support responses, and push notifications</li>
+      </ul>
+    </div>
+    <div class="green-box">
+      <p><strong>Our Commitment:</strong> We do not sell your personal data to advertisers or third parties for commercial gain. Your data is used solely to operate and improve Labaka.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 05 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 05</div>
+    <h2>Location Data &amp; Real-Time Nearby</h2>
+    <div class="clause">
+      <h3><span class="clause-num">5.1</span> How We Use Location</h3>
+      <p>Labaka's core features — Real-Time Nearby People, Global Discovery, Explore Nearby, Events, and Offers — depend on your device location. We collect precise GPS location when the app is open and in use. Labaka is a location-based application and location access is integral to its core functionality. We do not collect location data when the app is closed unless you have explicitly enabled background location in your device settings.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">5.2</span> Location Visibility to Other Users</h3>
+      <p>Your approximate location — not exact GPS coordinates — is displayed to other users through Nearby People and Explore Nearby features. Exact coordinates are never shared with other users. By using location-based features, you acknowledge and accept that your approximate proximity will be visible to nearby Labaka users.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">5.3</span> Location Data Retention</h3>
+      <p>Real-time location data used for Nearby features is not permanently stored. It is used transiently to generate proximity results and is discarded after each session. Aggregated, non-identifiable location analytics may be retained for platform improvement purposes only.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>Important:</strong> While we protect your precise location, enabling Real-Time Nearby means your approximate location is visible to other Labaka users in your vicinity. Exercise personal judgment about your usage of location-based features at all times.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 06 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 06</div>
+    <h2>Chat, Video &amp; Communications Data</h2>
+    <div class="clause">
+      <h3><span class="clause-num">6.1</span> Chat Data</h3>
+      <p>Messages exchanged via Labaka's chat feature are stored on our secure servers to deliver the chat experience and enable message history. Chat data is not routinely accessed by Labaka staff. When a report is submitted, relevant chat records may be reviewed by our Trust &amp; Safety team for investigation purposes only.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">6.2</span> Video Calls</h3>
+      <p>Video calls on Labaka are transmitted in real-time and are not recorded or stored by Labaka. We do not retain video call content. Call metadata — duration, timestamp, and participants — may be logged for technical and safety purposes only.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">6.3</span> Trust &amp; Safety Review</h3>
+      <p>By using Labaka's communication features, you acknowledge and consent that in the event of a reported violation, Labaka's Trust &amp; Safety team may access relevant communications strictly for investigation and enforcement purposes. This access is limited, purpose-bound, and logged internally.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 07 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 07 — New</div>
+    <h2>Content Moderation <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">7.1</span> Automated Moderation</h3>
+      <p>Labaka uses automated moderation tools — including AI-based content detection systems — to proactively identify and flag prohibited content across the platform. This includes automated scanning of profile photos, story content, post listings, and public-facing text for nudity, hate speech, spam, and other prohibited content as defined in our Terms &amp; Conditions. Automated moderation operates continuously and does not require a user report to be triggered.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">7.2</span> Human Moderation</h3>
+      <p>In addition to automated tools, Labaka employs human Trust &amp; Safety reviewers who may review content flagged by automated systems or reported by users. Human review is conducted for the sole purpose of enforcing Labaka's Community Standards and Terms &amp; Conditions. Reviewers are bound by strict confidentiality obligations and may only access content in the context of an active moderation review.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">7.3</span> Moderation of Private Communications</h3>
+      <p>Private chat messages are not subject to routine proactive automated scanning. However, where a chat is reported by a participant for a violation, the relevant messages may be reviewed by our Trust &amp; Safety team. By using Labaka's chat feature, you consent to this limited, report-triggered review.</p>
+    </div>
+    <div class="blue-box">
+      <p><strong>Why We Moderate:</strong> Proactive moderation of public-facing content — profiles, stories, posts, and listings — is how we keep Labaka safe for all users. This is standard practice across leading social platforms and is done in full compliance with applicable Indian law.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 08 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 08 — New</div>
+    <h2>Content Visibility After Deletion <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">8.1</span> Platform Removal vs. User Copies</h3>
+      <p>When you delete a story, post, opportunity listing, profile photo, or any other content from Labaka, that content is removed from public view on our platform promptly. However, <strong>Labaka cannot guarantee or control whether other users have already captured, screenshotted, copied, downloaded, or otherwise retained your content before its deletion.</strong></p>
+      <p>Once another user has viewed your content and saved a copy — through any means including screenshots, screen recordings, or external downloads — that copy exists outside of Labaka's control. Labaka is not responsible for the continued existence, sharing, or redistribution of any such copied content.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">8.2</span> Stories Specific Notice</h3>
+      <p>Stories are particularly subject to this limitation. Because stories are actively viewed by connected users during their active period, the risk of capture is higher than with other content types. Users are strongly advised to exercise discretion in what they post to Stories, understanding that Labaka cannot prevent or reverse the capture of story content by viewers during its active period.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">8.3</span> Profile Content After Account Deletion</h3>
+      <p>Upon account deletion, your Labaka profile is removed from the platform immediately. However, other users who previously viewed, connected with, or saved information from your profile may retain copies of that information. Labaka is not liable for any third-party retention of your profile information that occurred prior to your account deletion.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>Think before you post:</strong> Once content is viewed by others on Labaka, it may exist beyond your control. Labaka strongly encourages all users to share only content they are comfortable with being permanently retained by others, regardless of deletion.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 09 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 09</div>
+    <h2>LBK Wallet &amp; Payment Data</h2>
+    <div class="clause">
+      <h3><span class="clause-num">9.1</span> What We Store</h3>
+      <p>We store your LBK coin balance, coin transaction history, reward history, and subscription plan details. We do not store full payment card numbers, CVV codes, or full bank account details. All financial transactions are processed by third-party payment processors who maintain their own security and compliance standards.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">9.2</span> Payment Processor Data</h3>
+      <p>When you make a purchase, your payment details are submitted directly to our third-party payment processor. Labaka receives only a transaction confirmation and tokenized payment reference. Your full financial data is governed by the payment processor's own privacy policy.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">9.3</span> Fraud Prevention</h3>
+      <p>Transaction data may be used to detect and prevent fraudulent activity, abuse of the LBK coin system, or manipulation of rewards. Accounts found abusing the rewards system may be suspended and coin balances forfeited.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 10</div>
+    <h2>Stories, Posts &amp; Opportunity Data</h2>
+    <div class="clause">
+      <h3><span class="clause-num">10.1</span> Stories</h3>
+      <p>Story content is stored temporarily and made visible to your connected and super-liked users for its active duration. Stories are deleted from our servers after expiry. However, Labaka cannot control whether other users have captured your story content during its active period. See Section 08 for full details on content visibility after deletion.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">10.2</span> Opportunity Posts &amp; Content</h3>
+      <p>Content you post in the Opportunity feature is stored on our servers and may be visible to other users based on your location and settings. You may delete your own posts at any time through the app. Deleted post data is removed from public view immediately and purged from our servers within 30 days.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">10.3</span> Reported Content</h3>
+      <p>Content that has been reported for a violation may be preserved beyond normal retention periods for the purpose of investigating the report and cooperating with law enforcement if required. This preservation is limited to the specific content flagged in the report.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 11</div>
+    <h2>How We Share Your Data</h2>
+    <div class="clause">
+      <h3><span class="clause-num">11.1</span> With Other Users</h3>
+      <p>Your profile information — including name, photo, bio, interests, profession, and mode — is visible to other Labaka users as part of the discovery and connection experience. Your exact location is never shared; only your approximate proximity is shown in Nearby features.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.2</span> With Service Providers</h3>
+      <p>We share data with trusted third-party service providers including cloud hosting providers, payment processors, analytics services, moderation tools, and customer support tools. All service providers are bound by data processing agreements restricting use of your data to the specific stated purpose.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.3</span> With Law Enforcement</h3>
+      <p>We may disclose your personal data to law enforcement agencies, courts, or government authorities when required by applicable Indian law, court order, or legal process — including the IT Act, 2000, the DPDP Act, 2023, and POCSO, 2012. We will notify you of such disclosures where legally permitted.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.4</span> Business Transfers</h3>
+      <p>In the event of a merger, acquisition, or sale of Labaka's business, your personal data may be transferred to the acquiring entity. We will notify you prior to such transfer and your continued use constitutes consent to the transfer.</p>
+    </div>
+    <div class="green-box">
+      <p><strong>We Do NOT:</strong> Sell your personal data to advertisers · Share your data with third parties for their own marketing · Disclose your precise location to other users · Share your chat content with anyone except in response to a valid legal request or reported violation investigation.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 12</div>
+    <h2>Data Retention &amp; Inactive Accounts <span class="new-badge">UPDATED</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">12.1</span> Retention Periods</h3>
+      <div style="overflow-x:auto; margin-top:8px;">
+        <table class="data-table">
+          <tr><th>Data Type</th><th>Retention Period</th></tr>
+          <tr><td>Account &amp; profile data</td><td>Duration of account + 90 days post-deletion</td></tr>
+          <tr><td>Chat messages</td><td>Duration of connection + 30 days post-account deletion</td></tr>
+          <tr><td>Stories</td><td>Deleted after story expiry or immediately upon user deletion</td></tr>
+          <tr><td>Opportunity posts</td><td>Active until deleted by user + 30 days from deletion</td></tr>
+          <tr><td>Location data (real-time)</td><td>Not permanently stored — transient session use only</td></tr>
+          <tr><td>Payment &amp; transaction records</td><td>7 years (as required by Indian financial regulations)</td></tr>
+          <tr><td>Reported content</td><td>Retained until investigation is complete + applicable legal period</td></tr>
+          <tr><td>Device &amp; log data</td><td>90 days rolling</td></tr>
+          <tr><td>Support communications</td><td>6 years from date of interaction</td></tr>
+          <tr><td>Photo engagement data</td><td>Duration of account + 30 days post-deletion</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">12.2</span> Inactive Account Policy <span class="new-badge">NEW</span></h3>
+      <p>If your Labaka account remains inactive — meaning you have not logged in or used the platform in any way — for a continuous period of <strong>4 years</strong>, Labaka reserves the right to initiate an account deletion process. We will attempt to notify you via your registered email address at least 30 days before initiating deletion. If no response is received and no login activity occurs within that 30-day notice period, your account and associated data will be permanently deleted in accordance with this Policy.</p>
+      <p>You may prevent account deletion due to inactivity simply by logging into the app before the end of the 4-year inactivity period. If you wish to retain your account without regular use, we recommend logging in at least once annually.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">12.3</span> Support Communication Records <span class="new-badge">NEW</span></h3>
+      <p>All communications between you and Labaka's support team — including emails, in-app support messages, grievance submissions, and appeal records — are retained for a period of <strong>6 years</strong> from the date of the interaction. This retention is maintained for legal compliance, audit purposes, dispute resolution, and to provide continuity of support history. Support records are stored securely and are not shared with other users or third parties except where required by law.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">12.4</span> Account Deletion</h3>
+      <p>When you delete your Labaka account, your public profile and content are removed from the platform immediately. Residual data is purged from our servers within 90 days, except where retention is required by law or for ongoing investigations. Transaction data is retained for the statutory period required under Indian financial law.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 13</div>
+    <h2>Data Security &amp; Your Responsibilities <span class="new-badge">UPDATED</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">13.1</span> Our Security Measures</h3>
+      <p>Labaka implements industry-standard technical and organizational security measures to protect your personal data including:</p>
+      <ul>
+        <li>Encryption of data in transit using TLS/SSL protocols</li>
+        <li>Encryption of sensitive data at rest</li>
+        <li>Access controls limiting staff access to personal data on a need-to-know basis</li>
+        <li>Regular security audits and vulnerability assessments</li>
+        <li>Secure third-party payment processing with no storage of full card details</li>
+        <li>Two-factor authentication options for account security</li>
+        <li>Automated content moderation systems to detect and remove harmful content</li>
+      </ul>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">13.2</span> Your Security Responsibilities <span class="new-badge">NEW</span></h3>
+      <p>While Labaka implements strong security measures, your account security is a shared responsibility. You are responsible for taking the following steps to protect your account:</p>
+      <div class="security-grid">
+        <div class="sec-tip">
+          <div class="sec-tip-icon">🔒</div>
+          <div class="sec-tip-text">
+            <h5>Use a strong password</h5>
+            <p>Choose a unique password not used on any other platform. Change it periodically.</p>
+          </div>
+        </div>
+        <div class="sec-tip">
+          <div class="sec-tip-icon">🚪</div>
+          <div class="sec-tip-text">
+            <h5>Log out after each session</h5>
+            <p>Always log out when using shared or public devices.</p>
+          </div>
+        </div>
+        <div class="sec-tip">
+          <div class="sec-tip-icon">🚫</div>
+          <div class="sec-tip-text">
+            <h5>Never share your credentials</h5>
+            <p>Do not share your Labaka password or OTP with anyone — including support agents.</p>
+          </div>
+        </div>
+        <div class="sec-tip">
+          <div class="sec-tip-icon">⚠️</div>
+          <div class="sec-tip-text">
+            <h5>Report suspicious activity</h5>
+            <p>If you notice unauthorized access, contact us at laabaakaa@gmail.com immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">13.3</span> Data Breach Response</h3>
+      <p>In the event of a personal data breach that poses a risk to your rights and freedoms, Labaka will notify affected users and the relevant authority as required under the DPDP Act, 2023 within the prescribed timeframe. We will provide details of the breach, data affected, and steps taken to mitigate harm.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>Limitation:</strong> While we implement strong security measures, no system is completely impenetrable. Labaka is not liable for breaches resulting from your failure to secure your login credentials or your use of unsecured networks.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 14</div>
+    <h2>Your Rights Under DPDP Act 2023</h2>
+    <div class="clause">
+      <h3><span class="clause-num">14.1</span> Your Data Rights</h3>
+      <p>As a Data Principal under India's Digital Personal Data Protection Act, 2023, you have the following rights:</p>
+      <div class="rights-grid">
+        <div class="right-card">
+          <h4>Right to Access</h4>
+          <p>Request a summary of personal data we hold about you and how it is being processed.</p>
+        </div>
+        <div class="right-card">
+          <h4>Right to Correction</h4>
+          <p>Request correction of inaccurate, incomplete, or outdated personal data.</p>
+        </div>
+        <div class="right-card">
+          <h4>Right to Erasure</h4>
+          <p>Request deletion of your personal data where it is no longer necessary for the stated purpose.</p>
+        </div>
+        <div class="right-card">
+          <h4>Right to Grievance</h4>
+          <p>Lodge a grievance with our Grievance Officer and receive a response within the prescribed period.</p>
+        </div>
+        <div class="right-card">
+          <h4>Right to Nominate</h4>
+          <p>Nominate an individual to exercise your rights in the event of your death or incapacity.</p>
+        </div>
+        <div class="right-card">
+          <h4>Right to Withdraw Consent</h4>
+          <p>Withdraw consent for data processing at any time, noting that this may limit platform features.</p>
+        </div>
+      </div>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">14.2</span> How to Exercise Your Rights</h3>
+      <p>Contact our Grievance Officer at laabaakaa@gmail.com with your registered email and specific request. We will respond within 30 days as required under the DPDP Act, 2023. You also have the right to escalate unresolved grievances to the Data Protection Board of India.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 15 — New</div>
+    <h2>Banned Accounts &amp; Data <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">15.1</span> Data Retention Post-Ban</h3>
+      <p>When an account is permanently terminated by Labaka for a violation of our Terms &amp; Conditions, we may retain certain data associated with that account — including the registered phone number, email address, device identifiers, and IP addresses used — for the purpose of preventing that user from creating new accounts on the platform.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">15.2</span> Ban Enforcement Across New Accounts</h3>
+      <p>Labaka uses retained identifiers from banned accounts to detect and block ban circumvention attempts. If a banned user attempts to create a new Labaka account using different credentials but the same device, phone number, IP address, or other identifiable signals, Labaka may terminate the new account immediately. <strong>The creation of a new account following a ban is itself a violation of our Terms and justifies immediate re-termination without appeal.</strong></p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">15.3</span> Violation Evidence Retention</h3>
+      <p>Where a termination was based on a serious violation — including but not limited to sexually explicit content, conduct involving minors, fraud, or incitement of violence — Labaka may retain the specific content or communication evidence that formed the basis of the termination for a period necessary to cooperate with any law enforcement investigation or legal proceedings, regardless of our standard retention periods.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>Note:</strong> Retention of banned account identifiers is conducted solely for platform safety and abuse prevention purposes and is not used for any commercial or advertising purpose.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 16 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 16</div>
+    <h2>Children's Privacy</h2>
+    <div class="clause">
+      <h3><span class="clause-num">16.1</span> No Data from Minors</h3>
+      <p>Labaka is strictly intended for users aged 18 and above. We do not knowingly collect personal data from anyone under the age of 18. If we become aware that a user is a minor, we will immediately terminate their account and delete all associated data. If you believe a minor has created an account on Labaka, please report it immediately to laabaakaa@gmail.com.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 17 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 17</div>
+    <h2>Cookies &amp; Tracking</h2>
+    <div class="clause">
+      <h3><span class="clause-num">17.1</span> App-Based Tracking</h3>
+      <p>As a mobile application, Labaka uses device identifiers and in-app analytics tools rather than traditional browser cookies. We use analytics SDKs to collect usage data for improving platform performance and user experience. This data is aggregated and anonymized where possible.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.2</span> Opting Out</h3>
+      <p>You may opt out of analytics tracking through your device's privacy settings or by contacting us at laabaakaa@gmail.com. Opting out of analytics does not affect your ability to use the platform.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 18 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 18</div>
+    <h2>Cross-Border Data Transfers</h2>
+    <div class="clause">
+      <h3><span class="clause-num">18.1</span> International Transfers</h3>
+      <p>Labaka's primary data storage is in India. In certain circumstances, data may be processed by our service providers in other countries. Where personal data is transferred outside India, we ensure such transfers comply with the DPDP Act, 2023 and that appropriate safeguards — including contractual data protection clauses — are in place to protect your data to an equivalent standard.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 19 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 19</div>
+    <h2>Changes to This Policy</h2>
+    <div class="clause">
+      <h3><span class="clause-num">19.1</span> Policy Updates</h3>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, features, or applicable law. We will notify you of material changes via in-app notification or email to your registered address. Your continued use of Labaka following notification of changes constitutes your acceptance of the updated Policy. We recommend reviewing this Policy periodically.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 20 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 20</div>
+    <h2>Contact &amp; Grievance Officer</h2>
+    <div class="clause">
+      <h3><span class="clause-num">20.1</span> Privacy Contacts</h3>
+      <p>For any privacy-related queries, data requests, or grievances under the DPDP Act, 2023:</p>
+      <ul>
+        <li><strong>All Privacy &amp; Grievance Queries:</strong> laabaakaa@gmail.com</li>
+        <li><strong>Company:</strong> Labaka, operated by 369innovation</li>
+        <li><strong>Jurisdiction:</strong> Puducherry, India</li>
+        <li><strong>Response Time:</strong> Within 30 days of receipt</li>
+      </ul>
+      <p style="margin-top:12px;">If your grievance is not resolved to your satisfaction, you may escalate the matter to the <strong>Data Protection Board of India</strong> as established under the DPDP Act, 2023.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka" />
+      <span>LABAKA</span>
+    </div>
+    <div class="footer-tag">Privacy Policy · Effective July 2, 2026<br>Operated by 369innovation · Compliant with DPDP Act 2023 · 20 Sections</div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="/Labaka/home">Home</a>
+      <a href="/Labaka/AboutUs/">About Us</a>
+      <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/">FAQs</a>
+    </div>
+    <div class="footer-copy">© 2026 Labaka · 369innovation. All rights reserved.<br>Your data is protected. Your privacy is our responsibility.</div>
+  </div>
+  <script>
+    (function() {
+      const btn = document.getElementById('hamburgerBtn');
+      const closeBtn = document.getElementById('drawerCloseBtn');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('mobileDrawer');
+      if (!btn || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+    })();
+  </script>
+</body>
+</html>

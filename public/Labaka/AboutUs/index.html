@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Labaka</title>
+  <meta name="description" content="Meet Labaka — The all-in-one connection platform. Discover our story, casual & formal modes, features, and core values. Powered by 369innovation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6D53F4;
+      --brand-light: #8B73FF;
+      --brand-dark: #5A3FD6;
+      --text: #0d1b2a;
+      --text-secondary: #5a6175;
+      --bg: #F7F5FF;
+      --white: #ffffff;
+      --border: rgba(109, 83, 244, 0.12);
+      --shadow: 0 2px 16px rgba(109, 83, 244, 0.08);
+      --shadow-lg: 0 8px 32px rgba(109, 83, 244, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navbar ─────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+      padding: 12px 24px;
+    }
+    .navbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: 60px; padding: 10px 24px;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 4px 24px rgba(109,83,244,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: all 0.35s ease;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo span {
+      font-weight: 500; letter-spacing: 0.2em; color: #1a1a2e; font-size: 1rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.06em; transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; border-radius: 1px; background: var(--brand); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--brand); }
+    .nav-links a:hover::after { width: 80%; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.active::after { width: 80%; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--brand); color: #fff; border: none; border-radius: 28px;
+      padding: 8px 24px; font-weight: 700; font-size: 0.88rem; cursor: pointer;
+      text-decoration: none; box-shadow: 0 4px 16px rgba(109,83,244,0.35);
+      transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(109,83,244,0.45); }
+
+    /* Mobile Nav Toggle */
+    .nav-toggle { display: none; background: none; border: none; font-size: 24px; color: var(--brand); cursor: pointer; }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 140px 24px 80px; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 30%, var(--brand) 60%, var(--brand-light) 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 400px; height: 400px; top: -120px; right: -100px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    }
+    .hero-orb-2 {
+      width: 300px; height: 300px; bottom: -80px; left: -60px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px; padding: 6px 20px; font-size: 0.85rem; color: rgba(255,255,255,0.85);
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff;
+      margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .hero h1 em { font-style: normal; background: linear-gradient(135deg, #fff 0%, #C9BBFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.8); max-width: 580px; margin: 0 auto; line-height: 1.7; }
+
+    /* ─── Content Container ──────────────────────────── */
+    .content { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* ─── Section Card Styling ───────────────────────── */
+    .sec {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sec:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .sec-eyebrow {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+      color: var(--brand); text-transform: uppercase; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sec-eyebrow::after {
+      content: ''; flex: 1; height: 1px; background: rgba(109, 83, 244, 0.15);
+    }
+    .sec h2 {
+      font-size: 1.75rem; font-weight: 800; color: var(--text);
+      margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;
+    }
+    .sec p {
+      font-size: 0.98rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px;
+    }
+    .sec p:last-child { margin-bottom: 0; }
+
+    /* ─── Quote Card ─────────────────────────────────── */
+    .quote-card {
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 40%, var(--brand) 100%);
+      border-radius: 24px; padding: 36px 32px; color: #fff;
+      position: relative; overflow: hidden; margin-bottom: 32px;
+      box-shadow: 0 12px 36px rgba(109,83,244,0.25);
+    }
+    .quote-card::before {
+      content: '“'; position: absolute; top: -10px; left: 20px;
+      font-size: 120px; color: rgba(255,255,255,0.08); font-family: Georgia, serif; line-height: 1;
+    }
+    .quote-card p {
+      font-size: 1.2rem; font-weight: 600; line-height: 1.6; color: #fff; position: relative; z-index: 1;
+    }
+    .quote-card span {
+      display: block; margin-top: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.8);
+      font-weight: 500; letter-spacing: 0.04em; position: relative; z-index: 1;
+    }
+
+    /* ─── Mode Cards Grid ────────────────────────────── */
+    .mode-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .mc {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 24px; transition: all 0.3s ease;
+    }
+    .mc:hover { transform: translateY(-4px); background: #fff; box-shadow: var(--shadow); }
+    .mc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .mc-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .mc-dot.casual { background: #6D53F4; box-shadow: 0 0 12px rgba(109, 83, 244, 0.4); }
+    .mc-dot.formal { background: #1AF0D1; box-shadow: 0 0 12px rgba(26, 240, 209, 0.4); }
+    .mc h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .mc p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+    .mc-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .mc-tag.casual { background: rgba(109,83,244,0.1); color: var(--brand); }
+    .mc-tag.formal { background: rgba(26,240,209,0.15); color: #059669; }
+
+    /* ─── Feature Pills & Highlight Box ──────────────── */
+    .feat-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 24px; }
+    .feat-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 24px; padding: 8px 16px;
+      font-size: 0.85rem; font-weight: 600; color: var(--text);
+    }
+    .feat-pill i { font-size: 16px; color: var(--brand); }
+
+    .feat-highlight {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 24px;
+    }
+    .fh-row { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+    .fh-row:last-child { margin-bottom: 0; }
+    .fh-icon {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: rgba(109,83,244,0.1); color: var(--brand);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .fh-text h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .fh-text p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0; }
+    .fh-divider { height: 1px; background: rgba(109,83,244,0.1); margin: 16px 0; }
+
+    /* ─── Core Values Strip ─────────────────────────── */
+    .val-strip {
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+      background: var(--bg);
+    }
+    .val-row {
+      display: flex; align-items: center; gap: 16px; padding: 18px 24px;
+      border-bottom: 1px solid rgba(109,83,244,0.08); background: #fff;
+      transition: background 0.2s ease;
+    }
+    .val-row:last-child { border-bottom: none; }
+    .val-row:hover { background: var(--bg); }
+    .val-num { font-size: 0.85rem; font-weight: 800; color: var(--brand); min-width: 24px; }
+    .val-info h5 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .val-info p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0; }
+    .val-icon { margin-left: auto; font-size: 22px; color: var(--brand); opacity: 0.8; }
+
+    /* ─── Powered By Banner ──────────────────────────── */
+    .powered-box {
+      background: linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.12));
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 24px 28px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px; margin-top: 12px;
+    }
+    .powered-info h4 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .powered-info p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0; }
+    .powered-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--brand); color: #fff; border-radius: 24px;
+      padding: 8px 20px; font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; transition: all 0.2s ease;
+    }
+    .powered-badge:hover { opacity: 0.9; transform: translateY(-1px); color: #fff; }
+
+    /* ─── Ready To Connect Section ───────────────────── */
+    .connect-cta-sec {
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+    .connect-cta-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #230865 url('/AboutBG.png') no-repeat center center / cover;
+      padding: 56px 48px;
+      box-shadow: 0 20px 60px rgba(58, 20, 142, 0.4);
+      color: #fff;
+    }
+    .connect-glow-orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .connect-glow-orb.orb-1 {
+      width: 450px; height: 450px; top: -100px; right: -50px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(99, 102, 241, 0) 70%);
+    }
+    .connect-glow-orb.orb-2 {
+      width: 350px; height: 350px; bottom: -80px; left: -60px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    }
+
+    .connect-cta-content {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .connect-brand-logo {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px;
+    }
+    .connect-brand-logo img { height: 36px; width: auto; filter: brightness(1.2); }
+    .connect-brand-logo span {
+      font-weight: 800; letter-spacing: 0.18em; font-size: 1.1rem; color: #fff;
+    }
+
+    .connect-title {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+    .connect-title-gradient {
+      background: linear-gradient(90deg, #D8B4FE 0%, #C084FC 50%, #E879F9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .connect-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .connect-btn-row {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #ffffff; color: #000000;
+      padding: 10px 22px; border-radius: 14px;
+      text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+      background: #ffffff;
+    }
+    .store-btn-icon {
+      width: 24px; height: 26px; object-fit: contain; flex-shrink: 0;
+    }
+    .store-btn-text {
+      display: flex; flex-direction: column; text-align: left;
+    }
+    .store-btn-text .sub {
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #333333; line-height: 1.1;
+    }
+    .store-btn-text .main {
+      font-size: 1.05rem; font-weight: 800; color: #000000; line-height: 1.2; letter-spacing: -0.01em;
+    }
+
+    /* Right Column: Interactive Mockup & Avatars */
+    .connect-cta-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 480px;
+    }
+
+    .orbit-rings-svg {
+      position: absolute;
+      width: 115%; height: 115%;
+      top: -7.5%; left: -7.5%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .phone-mockup-wrap {
+      position: relative; z-index: 2;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .phone-mockup-img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45));
+      animation: floatPhone 5s ease-in-out infinite;
+    }
+
+    @keyframes floatPhone {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Floating Avatars Styling */
+    .avatar-floating {
+      position: absolute; z-index: 3;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #C084FC 0%, #818CF8 100%);
+      box-shadow: 0 0 24px rgba(192, 132, 252, 0.75), 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      animation: floatAvatar 4s ease-in-out infinite alternate;
+    }
+    .avatar-floating img {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
+    }
+
+    @keyframes floatAvatar {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(-8px) scale(1.04); }
+    }
+
+    /* Avatar positions around phone mockup */
+    .avatar-left-1 { top: 6%; left: 16%; animation-delay: 0s; }
+    .avatar-left-2 { top: 40%; left: 18%; animation-delay: 0.8s; }
+    .avatar-left-3 { bottom: 10%; left: 14%; animation-delay: 1.6s; }
+
+    .avatar-right-1 { top: 18%; right: 4%; animation-delay: 0.4s; }
+    .avatar-right-2 { top: 48%; right: 2%; animation-delay: 1.2s; }
+    .avatar-right-3 { bottom: 12%; right: 4%; animation-delay: 2.0s; }
+
+    @media (max-width: 992px) {
+      .connect-cta-content { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .connect-brand-logo { justify-content: center; }
+      .connect-desc { margin-left: auto; margin-right: auto; }
+      .connect-btn-row { justify-content: center; }
+      .connect-cta-card { padding: 40px 24px; }
+      .avatar-left-1 { left: 4%; }
+      .avatar-left-2 { left: 2%; }
+      .avatar-left-3 { left: 4%; }
+      .avatar-right-1 { right: 4%; }
+      .avatar-right-2 { right: 2%; }
+      .avatar-right-3 { right: 4%; }
+    }
+    @media (max-width: 576px) {
+      .avatar-floating { width: 48px; height: 48px; }
+      .phone-mockup-img { max-width: 200px; }
+      .connect-cta-right { min-height: 380px; }
+    }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .footer {
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 30%, var(--brand) 60%, var(--brand-light) 100%);
+      color: #fff; padding: 60px 24px 30px; position: relative; overflow: hidden;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; text-align: left; margin-bottom: 40px; }
+    .footer-col h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .footer-col p { font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; max-width: 300px; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; margin-bottom: 14px; }
+    .footer-logo img { height: 38px; filter: brightness(1.2); }
+    .footer-logo span { font-weight: 800; letter-spacing: 0.15em; font-size: 1.2rem; }
+    .social-icons { display: flex; gap: 10px; }
+    .social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; font-size: 18px; transition: all 0.3s ease; }
+    .social-icon-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+    .footer-col-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col-links a:hover { color: #fff; text-decoration: underline; }
+    .footer-contact-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 12px; }
+    .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Mobile Hamburger & Drawer ─────────────────── */
+    .nav-hamburger {
+      display: none; background: none; border: none; color: var(--brand);
+      font-size: 26px; cursor: pointer; padding: 4px; align-items: center; justify-content: center;
+    }
+    .mobile-backdrop {
+      position: fixed; inset: 0; background: rgba(13, 27, 42, 0.4);
+      backdrop-filter: blur(4px); z-index: 1200; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-backdrop.active { opacity: 1; pointer-events: auto; }
+    .mobile-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: 280px; max-width: 85vw;
+      background: linear-gradient(180deg, #ffffff 0%, #F7F5FF 100%);
+      z-index: 1201; transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 24px 20px; display: flex; flex-direction: column;
+      box-shadow: -8px 0 32px rgba(109, 83, 244, 0.15);
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .mobile-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-close {
+      background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; padding: 4px;
+    }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 6px; }
+    .mobile-drawer-links a {
+      text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem;
+      padding: 10px 14px; border-radius: 12px; transition: all 0.2s ease;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a.active {
+      background: rgba(109, 83, 244, 0.08); color: var(--brand);
+    }
+    .mobile-drawer-cta { margin-top: auto; padding-top: 20px; }
+    .mobile-drawer-cta .nav-cta { width: 100%; justify-content: center; padding: 12px 24px; }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .navbar { padding: 8px 16px; }
+      .navbar-inner { padding: 8px 16px; border-radius: 40px; }
+      .nav-links, .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .hero { padding: 120px 16px 60px; }
+      .sec { padding: 24px 20px; border-radius: 18px; }
+      .quote-card { padding: 24px 20px; border-radius: 18px; }
+      .quote-card p { font-size: 1.05rem; }
+      .footer { padding: 48px 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glass Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/Labaka/home" class="nav-logo">
+        <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" />
+        <span>LABAKA</span>
+      </a>
+      <div class="nav-links">
+        <a href="/Labaka/PrivacyPolicy/">POLICY &amp; FAQ</a>
+        <a href="/Labaka/Upgrade/">UPGRADE</a>
+        <a href="/Labaka/AboutUs/" class="active">ABOUT US</a>
+        <a href="/Labaka/ContactUs/">CONTACT US</a>
+      </div>
+      <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Menu">
+        <i class="ti ti-menu-2"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="/Labaka/home" class="nav-logo">
+        <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" style="height:36px;" />
+        <span style="font-size:0.9rem;">LABAKA</span>
+      </a>
+      <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Menu">
+        <i class="ti ti-x"></i>
+      </button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="/Labaka/PrivacyPolicy/">POLICY &amp; FAQ</a>
+      <a href="/Labaka/Upgrade/">UPGRADE</a>
+      <a href="/Labaka/AboutUs/" class="active">ABOUT US</a>
+      <a href="/Labaka/ContactUs/">CONTACT US</a>
+    </div>
+    <div class="mobile-drawer-cta">
+      <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+    </div>
+  </aside>
+
+  <!-- Hero Banner -->
+  <header class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-badge"><i class="ti ti-sparkles" aria-hidden="true"></i> Meet Labaka</div>
+    <h1>The world is full of<br><em>people worth knowing.</em></h1>
+    <p>We built Labaka so that the right person — right next to you or halfway across the world — is never more than a tap away.</p>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="content">
+
+    <!-- OUR STORY SECTION -->
+    <section class="sec">
+      <div class="sec-eyebrow">Our Story</div>
+      <h2>Born from a simple question — why is it so hard to connect?</h2>
+      <p>Every day, thousands of interesting people pass each other by. At events, on streets, in cafés — potential friendships, collaborations, and communities that never happen simply because there was no bridge.</p>
+      <p>We asked: what if your phone could be that bridge? Not in a cold, algorithmic way — but in a way that felt human, warm, and real. That question became <strong>Labaka</strong>.</p>
+    </section>
+
+    <!-- QUOTE CARD -->
+    <div class="quote-card">
+      <p>Labaka isn't just an app. It's the belief that every person you haven't met yet is a connection waiting to happen.</p>
+      <span>— The Labaka Team</span>
+    </div>
+
+    <!-- TWO MODES SECTION -->
+    <section class="sec">
+      <div class="sec-eyebrow">Two Modes, One You</div>
+      <h2>Connect on your terms.</h2>
+      <p>Life isn't one-dimensional — and neither is Labaka. Switch modes seamlessly based on how you want to show up today.</p>
+      
+      <div class="mode-cards">
+        <div class="mc">
+          <div class="mc-header">
+            <div class="mc-dot casual"></div>
+            <h3>Casual Mode</h3>
+          </div>
+          <p>Free-flowing discovery. Meet people, share stories, explore good vibes — no pressure, just connection.</p>
+          <span class="mc-tag casual">Good vibes only</span>
+        </div>
+        <div class="mc">
+          <div class="mc-header">
+            <div class="mc-dot formal"></div>
+            <h3>Formal Mode</h3>
+          </div>
+          <p>Professional energy. Network, collaborate, and build with people who match your ambition.</p>
+          <span class="mc-tag formal">Career-focused</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="sec">
+      <div class="sec-eyebrow">How It Works</div>
+      <h2>Your world, expanded.</h2>
+      
+      <div class="feat-pill-row">
+        <div class="feat-pill"><i class="ti ti-map-pin"></i> Nearby People</div>
+        <div class="feat-pill"><i class="ti ti-world"></i> Global Discovery</div>
+        <div class="feat-pill"><i class="ti ti-compass"></i> Explore Local</div>
+        <div class="feat-pill"><i class="ti ti-qrcode"></i> QR Share</div>
+        <div class="feat-pill"><i class="ti ti-wallet"></i> LBK Wallet</div>
+        <div class="feat-pill"><i class="ti ti-star"></i> Super Like</div>
+      </div>
+
+      <div class="feat-highlight">
+        <div class="fh-row">
+          <div class="fh-icon"><i class="ti ti-map-pin"></i></div>
+          <div class="fh-text">
+            <h4>Real-Time Nearby</h4>
+            <p>See who's around you right now in real time and connect before the moment passes.</p>
+          </div>
+        </div>
+        <div class="fh-divider"></div>
+        <div class="fh-row">
+          <div class="fh-icon"><i class="ti ti-video"></i></div>
+          <div class="fh-text">
+            <h4>Chat, Call &amp; Stories</h4>
+            <p>Every match opens a full chat with video calling. Share stories with your circle.</p>
+          </div>
+        </div>
+        <div class="fh-divider"></div>
+        <div class="fh-row">
+          <div class="fh-icon"><i class="ti ti-compass"></i></div>
+          <div class="fh-text">
+            <h4>Explore Nearby</h4>
+            <p>Local events, flat listings, car deals, opportunities — your neighbourhood, alive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE VALUES SECTION -->
+    <section class="sec">
+      <div class="sec-eyebrow">What Drives Us</div>
+      <h2>Built with intention.</h2>
+      
+      <div class="val-strip">
+        <div class="val-row">
+          <div class="val-num">01</div>
+          <div class="val-info">
+            <h5>Authenticity</h5>
+            <p>Verified profiles. Real people. No fakes, no noise.</p>
+          </div>
+          <i class="ti ti-user-check val-icon"></i>
+        </div>
+        <div class="val-row">
+          <div class="val-num">02</div>
+          <div class="val-info">
+            <h5>Inclusivity</h5>
+            <p>Every person, every place, every context — welcome here.</p>
+          </div>
+          <i class="ti ti-heart val-icon"></i>
+        </div>
+        <div class="val-row">
+          <div class="val-num">03</div>
+          <div class="val-info">
+            <h5>Privacy</h5>
+            <p>Your data is yours. We protect it like our own.</p>
+          </div>
+          <i class="ti ti-lock val-icon"></i>
+        </div>
+        <div class="val-row">
+          <div class="val-num">04</div>
+          <div class="val-info">
+            <h5>Innovation</h5>
+            <p>We keep evolving — because how people connect evolves too.</p>
+          </div>
+          <i class="ti ti-bolt val-icon"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- READY TO CONNECT SECTION -->
+    <section class="connect-cta-sec">
+      <div class="connect-cta-card">
+        <!-- Background Orbs -->
+        <div class="connect-glow-orb orb-1"></div>
+        <div class="connect-glow-orb orb-2"></div>
+        
+        <div class="connect-cta-content">
+          <!-- Left Column -->
+          <div class="connect-cta-left">
+            <div class="connect-brand-logo">
+              <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" />
+              <span>LABAKA</span>
+            </div>
+            <h2 class="connect-title">
+              Ready to connect<br>
+              <span class="connect-title-gradient">with people nearby?</span>
+            </h2>
+            <p class="connect-desc">
+              Download LaBaKa today and start discovering people, opportunities, and experiences around you.
+            </p>
+            <div class="connect-btn-row">
+              <a href="/Labaka/home#download" class="store-btn">
+                <img src="/Apple.svg" alt="Apple Logo" class="store-btn-icon" />
+                <div class="store-btn-text">
+                  <span class="sub">GET IT ON</span>
+                  <span class="main">App Store</span>
+                </div>
+              </a>
+              <a href="/Labaka/home#download" class="store-btn">
+                <img src="/GooglePlayLogo.svg" alt="Google Play Logo" class="store-btn-icon" />
+                <div class="store-btn-text">
+                  <span class="sub">GET IT ON</span>
+                  <span class="main">Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Phone Mockup & Floating Avatars -->
+          <div class="connect-cta-right">
+            <!-- Glowing Orbit Rings SVG -->
+            <svg class="orbit-rings-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="250" cy="250" rx="210" ry="140" stroke="url(#ringGrad1)" stroke-width="1.5" opacity="0.6" transform="rotate(-15 250 250)" />
+              <ellipse cx="250" cy="250" rx="190" ry="220" stroke="url(#ringGrad2)" stroke-width="1.5" opacity="0.5" transform="rotate(25 250 250)" />
+              <defs>
+                <linearGradient id="ringGrad1" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#C084FC" stop-opacity="0.8"/>
+                  <stop offset="0.5" stop-color="#818CF8" stop-opacity="0.3"/>
+                  <stop offset="1" stop-color="#E879F9" stop-opacity="0.9"/>
+                </linearGradient>
+                <linearGradient id="ringGrad2" x1="500" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818CF8" stop-opacity="0.9"/>
+                  <stop offset="0.5" stop-color="#C084FC" stop-opacity="0.2"/>
+                  <stop offset="1" stop-color="#A855F7" stop-opacity="0.8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Floating Avatars Left Side -->
+            <div class="avatar-floating avatar-left-1">
+              <img src="/AboutUsAvatar1.svg" alt="User Avatar 1" />
+            </div>
+            <div class="avatar-floating avatar-left-2">
+              <img src="/AboutUsAvatar2.svg" alt="User Avatar 2" />
+            </div>
+            <div class="avatar-floating avatar-left-3">
+              <img src="/AboutUsAvatar3.svg" alt="User Avatar 3" />
+            </div>
+
+            <!-- Central Phone Mockup -->
+            <div class="phone-mockup-wrap">
+              <img src="/AboutUsPhoneMockup.png" alt="Labaka App Phone Mockup" class="phone-mockup-img" />
+            </div>
+
+            <!-- Floating Avatars Right Side -->
+            <div class="avatar-floating avatar-right-1">
+              <img src="/AboutUsAvatar4.svg" alt="User Avatar 4" />
+            </div>
+            <div class="avatar-floating avatar-right-2">
+              <img src="/AboutUsAvatar5.svg" alt="User Avatar 5" />
+            </div>
+            <div class="avatar-floating avatar-right-3">
+              <img src="/AboutUsAvatar6.svg" alt="User Avatar 6" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POWERED BY BANNER -->
+    <div class="powered-box">
+      <div class="powered-info">
+        <h4>Powered by 369innovation</h4>
+        <p>Building next-generation digital platforms for global connections.</p>
+      </div>
+      <a href="https://www.369innovation.com" target="_blank" rel="noopener noreferrer" class="powered-badge">
+        <i class="ti ti-rocket"></i> 369innovation
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-col">
+          <a href="/Labaka/home" class="footer-logo">
+            <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka" />
+            <span>LABAKA</span>
+          </a>
+          <p>The all-in-one platform to meet people, discover events, find opportunities, and build communities.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="ti ti-brand-twitter"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-col-links">
+            <a href="/Labaka/home#features">Features</a>
+            <a href="/Labaka/home#download">Download</a>
+          </div>
+        </div>
+
+        <!-- Legal Column -->
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <div class="footer-col-links">
+            <a href="/Labaka/AboutUs/">About Us</a>
+            <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+            <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+            <a href="/Labaka/Faqs/">FAQ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        © 2026 Labaka. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      const btn = document.getElementById('hamburgerBtn');
+      const closeBtn = document.getElementById('drawerCloseBtn');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('mobileDrawer');
+      if (!btn || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+    })();
+  </script>
+</body>
+</html>

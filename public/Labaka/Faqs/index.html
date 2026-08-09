@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & FAQs — Labaka</title>
+  <meta name="description" content="Everything you need to know about Labaka — answered clearly and quickly. Find answers about Account, Features, Chat, LBK Wallet, Plans, Safety, and Privacy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6D53F4;
+      --brand-light: #8B73FF;
+      --brand-dark: #5A3FD6;
+      --text: #0d1b2a;
+      --text-secondary: #5a6175;
+      --bg: #F7F5FF;
+      --white: #ffffff;
+      --border: rgba(109, 83, 244, 0.12);
+      --shadow: 0 2px 16px rgba(109, 83, 244, 0.08);
+      --shadow-lg: 0 8px 32px rgba(109, 83, 244, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navbar ─────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+      padding: 12px 24px;
+    }
+    .navbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: 60px; padding: 10px 24px;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 4px 24px rgba(109,83,244,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: all 0.35s ease;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo span {
+      font-weight: 500; letter-spacing: 0.2em; color: #1a1a2e; font-size: 1rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.06em; transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; border-radius: 1px; background: var(--brand); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--brand); }
+    .nav-links a:hover::after { width: 80%; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.active::after { width: 80%; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--brand); color: #fff; border: none; border-radius: 28px;
+      padding: 8px 24px; font-weight: 700; font-size: 0.88rem; cursor: pointer;
+      text-decoration: none; box-shadow: 0 4px 16px rgba(109,83,244,0.35);
+      transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(109,83,244,0.45); }
+
+    /* ─── Sub Navbar ─────────────────────────────────── */
+    .sub-navbar {
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 1090; padding: 6px 24px;
+      display: flex; justify-content: center;
+    }
+    .sub-navbar-inner {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(109, 83, 244, 0.1);
+      border: 1px solid rgba(109, 83, 244, 0.15);
+    }
+    .sub-navbar-inner a {
+      text-decoration: none; font-weight: 600; font-size: 0.82rem;
+      padding: 6px 18px; border-radius: 20px; color: #5a6175;
+      transition: all 0.25s ease;
+    }
+    .sub-navbar-inner a:hover {
+      color: var(--brand); background: rgba(109, 83, 244, 0.06);
+    }
+    .sub-navbar-inner a.active {
+      color: #fff; background: var(--brand);
+      box-shadow: 0 2px 10px rgba(109, 83, 244, 0.3);
+    }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 160px 24px 80px; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 30%, var(--brand) 60%, var(--brand-light) 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 400px; height: 400px; top: -120px; right: -100px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    }
+    .hero-orb-2 {
+      width: 300px; height: 300px; bottom: -80px; left: -60px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px; padding: 6px 20px; font-size: 0.85rem; color: rgba(255,255,255,0.8);
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #fff;
+      margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 500px;
+      margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ─── Content ────────────────────────────────────── */
+    .content { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* ─── Search Bar ─────────────────────────────────── */
+    .search-bar {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      box-shadow: var(--shadow); margin-bottom: 24px; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-bar:focus-within { border-color: var(--brand); box-shadow: var(--shadow-lg); }
+    .search-icon { color: var(--brand-light); font-size: 18px; flex-shrink: 0; }
+    .search-bar input {
+      border: none; outline: none; font-size: 0.95rem; color: var(--text);
+      background: transparent; flex: 1; font-family: inherit;
+    }
+    .search-bar input::placeholder { color: #b0a8c9; }
+
+    /* ─── Category Pills ─────────────────────────────── */
+    .cat-scroll {
+      display: flex; gap: 10px; padding: 0 0 32px; overflow-x: auto;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .cat-scroll::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 28px; padding: 8px 20px; font-size: 0.85rem;
+      color: var(--text-secondary); white-space: nowrap; cursor: pointer;
+      font-weight: 500; transition: all 0.25s; font-family: inherit;
+    }
+    .cat-pill:hover { border-color: var(--brand); color: var(--brand); }
+    .cat-pill.active {
+      background: var(--brand); color: #fff; border-color: var(--brand);
+      box-shadow: 0 4px 16px rgba(109,83,244,0.3);
+    }
+
+    /* ─── Section ────────────────────────────────────── */
+    .sec { margin-bottom: 40px; }
+    .sec-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--brand); text-transform: uppercase; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sec-eyebrow::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(109,83,244,0.2), transparent);
+    }
+    .sec-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .sec-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .sec h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); }
+
+    /* ─── FAQ Items ───────────────────────────────────── */
+    .faq-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; margin-bottom: 12px; overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(109,83,244,0.25); box-shadow: var(--shadow); }
+    .faq-q {
+      padding: 18px 22px; display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 14px; cursor: pointer;
+      user-select: none;
+    }
+    .faq-q-text { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.5; flex: 1; }
+    .faq-toggle {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.08), rgba(109,83,244,0.15));
+      color: var(--brand); display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0; font-weight: 300;
+      transition: all 0.3s ease;
+    }
+    .faq-toggle.open { transform: rotate(45deg); background: var(--brand); color: #fff; }
+    .faq-a {
+      padding: 0 22px 20px; font-size: 0.9rem; color: var(--text-secondary);
+      line-height: 1.8; display: none; border-top: 1px solid rgba(109,83,244,0.08);
+      padding-top: 16px; margin-top: 0;
+    }
+    .faq-a.open { display: block; }
+    .faq-a ul { padding-left: 20px; margin-top: 8px; }
+    .faq-a ul li { margin-bottom: 6px; line-height: 1.75; }
+    .faq-a strong { color: var(--text); }
+
+    /* ─── Callout Boxes ──────────────────────────────── */
+    .warning-inline {
+      background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 12px;
+      padding: 14px 16px; margin-top: 12px;
+    }
+    .warning-inline p { font-size: 0.85rem; color: #92400E; line-height: 1.7; margin: 0; }
+    .warning-inline strong { color: #7C2D12; }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.1));
+      border: 1px solid rgba(109,83,244,0.15); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 12px;
+    }
+    .highlight-box p { font-size: 0.9rem; color: var(--brand-dark); line-height: 1.75; margin: 0; }
+
+    /* ─── Contact Card ───────────────────────────────── */
+    .contact-card {
+      margin-top: 48px;
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand) 60%, var(--brand-light) 100%);
+      border-radius: 24px; padding: 48px 36px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .contact-card::before {
+      content: ''; position: absolute; top: -60%; right: -20%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-card h3 {
+      color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;
+      position: relative;
+    }
+    .contact-card p {
+      color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 24px;
+      line-height: 1.7; position: relative;
+    }
+    .contact-btn {
+      display: inline-block; background: #fff; color: var(--brand);
+      font-size: 0.95rem; font-weight: 700; padding: 14px 32px;
+      border-radius: 28px; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s; position: relative;
+    }
+    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .footer {
+      background: #0d1b2a; padding: 60px 24px; text-align: center;
+    }
+    .footer-inner { max-width: 860px; margin: 0 auto; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+    .footer-logo img { height: 40px; filter: brightness(0) invert(1); }
+    .footer-logo span { font-weight: 500; letter-spacing: 0.2em; color: #fff; font-size: 1.1rem; }
+    .footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 24px; line-height: 1.7; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--brand-light); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+    /* ─── Mobile Hamburger & Drawer ─────────────────── */
+    .nav-hamburger {
+      display: none; background: none; border: none; color: var(--brand);
+      font-size: 26px; cursor: pointer; padding: 4px; align-items: center; justify-content: center;
+    }
+    .mobile-backdrop {
+      position: fixed; inset: 0; background: rgba(13, 27, 42, 0.4);
+      backdrop-filter: blur(4px); z-index: 1200; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-backdrop.active { opacity: 1; pointer-events: auto; }
+    .mobile-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: 280px; max-width: 85vw;
+      background: linear-gradient(180deg, #ffffff 0%, #F7F5FF 100%);
+      z-index: 1201; transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 24px 20px; display: flex; flex-direction: column;
+      box-shadow: -8px 0 32px rgba(109, 83, 244, 0.15);
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .mobile-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-close {
+      background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; padding: 4px;
+    }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 6px; }
+    .mobile-drawer-links a {
+      text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem;
+      padding: 10px 14px; border-radius: 12px; transition: all 0.2s ease;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a.active {
+      background: rgba(109, 83, 244, 0.08); color: var(--brand);
+    }
+    .mobile-drawer-cta { margin-top: auto; padding-top: 20px; }
+    .mobile-drawer-cta .nav-cta { width: 100%; justify-content: center; padding: 12px 24px; }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .navbar-inner { padding: 8px 16px; }
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 1.75rem; }
+      .content { padding: 32px 16px 60px; }
+      .contact-card { padding: 32px 20px; }
+      .sec h2 { font-size: 1.15rem; }
+    }
+
+    /* ─── Animations ─────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .sec { animation: fadeInUp 0.6s ease both; }
+    .sec:nth-child(2) { animation-delay: 0.1s; }
+    .sec:nth-child(3) { animation-delay: 0.15s; }
+    .sec:nth-child(4) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+<!-- ─── Navbar ─────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" />
+      <span>LABAKA</span>
+    </a>
+    <div class="nav-links">
+      <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+      <a href="/Labaka/Upgrade/">UPGRADE</a>
+      <a href="/Labaka/AboutUs/">ABOUT US</a>
+      <a href="/Labaka/ContactUs/">CONTACT US</a>
+    </div>
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Sub Navbar -->
+<div class="sub-navbar">
+  <div class="sub-navbar-inner">
+    <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+    <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+    <a href="/Labaka/Faqs/" class="active">FAQ</a>
+  </div>
+</div>
+
+<!-- Mobile Drawer -->
+<div class="mobile-backdrop" id="drawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-header">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" style="height:36px;" />
+      <span style="font-size:0.9rem;">LABAKA</span>
+    </a>
+    <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Menu">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+  <div class="mobile-drawer-links">
+    <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+    <div style="padding-left: 16px; display: flex; flex-direction: column; gap: 8px; margin: -4px 0 8px;">
+      <a href="/Labaka/PrivacyPolicy/" style="font-size: 0.85rem; opacity: 0.8;">• Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/" style="font-size: 0.85rem; opacity: 0.8;">• Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/" style="font-size: 0.85rem; color: var(--brand); font-weight: 600;">• FAQ</a>
+    </div>
+    <a href="/Labaka/Upgrade/">UPGRADE</a>
+    <a href="/Labaka/AboutUs/">ABOUT US</a>
+    <a href="/Labaka/ContactUs/">CONTACT US</a>
+  </div>
+  <div class="mobile-drawer-cta">
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+  </div>
+</aside>
+
+<!-- ─── Hero ───────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-badge">💬 Support Center</div>
+  <h1>Help & FAQs</h1>
+  <p>Everything you need to know about Labaka — answered clearly and quickly.</p>
+</section>
+
+<!-- ─── Content ────────────────────────────────────── -->
+<div class="content">
+
+  <!-- Search -->
+  <div class="search-bar">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" placeholder="Search FAQs..." id="faqSearch" oninput="filterFAQs(this.value)" />
+  </div>
+
+  <!-- Category Pills -->
+  <div class="cat-scroll">
+    <button class="cat-pill active" onclick="scrollCat('cat1', this)">👤 Account</button>
+    <button class="cat-pill" onclick="scrollCat('cat2', this)">📍 Features</button>
+    <button class="cat-pill" onclick="scrollCat('cat3', this)">💬 Chat & Stories</button>
+    <button class="cat-pill" onclick="scrollCat('cat4', this)">🪙 LBK Wallet</button>
+    <button class="cat-pill" onclick="scrollCat('cat5', this)">⭐ Plans</button>
+    <button class="cat-pill" onclick="scrollCat('cat6', this)">🛡️ Safety</button>
+    <button class="cat-pill" onclick="scrollCat('cat7', this)">🔒 Privacy</button>
+  </div>
+
+  <!-- ═══ CAT 1: ACCOUNT ═══ -->
+  <div class="sec" id="cat1">
+    <div class="sec-eyebrow">Category 01</div>
+    <div class="sec-header">
+      <div class="sec-icon">👤</div>
+      <h2>Account &amp; Profile</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I create a Labaka account?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Download the Labaka app, tap "Sign Up", and enter your phone number or email address. You'll receive a verification code to confirm your identity. Once verified, set up your profile with your name, photo, interests, profession, and what you're looking for. You're ready to connect!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What is the difference between Casual Mode and Formal Mode?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Labaka has two modes you can switch between at any time:
+        <ul>
+          <li><strong>Casual Mode</strong> — relaxed, social discovery. Meet people nearby, share stories, explore good vibes, and connect freely.</li>
+          <li><strong>Formal Mode</strong> — professional presence. Network, collaborate, find opportunities, and build meaningful professional relationships.</li>
+        </ul>
+        Your profile can be tailored differently for each mode, letting you show up the right way for every context.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I get my profile verified?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Go to your Profile → tap "Get Verified" → submit a valid government-issued ID for review. Once approved, a verified badge appears on your profile. Verification typically takes 24–48 hours. Note: verification confirms your identity document at the time of submission — it does not guarantee your character or intentions to other users.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I have more than one Labaka account?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. Each person is permitted only one active Labaka account. Creating multiple accounts — including to bypass a suspension or ban — violates our Terms &amp; Conditions and will result in permanent termination of all associated accounts without refund.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I delete my account?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Go to Settings → Account → Delete Account. Once confirmed, your public profile and content are removed immediately. Residual data is purged from our servers within 90 days. Please note: LBK coin balances and active subscriptions are non-refundable upon voluntary account deletion.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I share my profile using QR code?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Tap the QR icon on your profile page to generate your personal Labaka QR code. Anyone with the Labaka app can scan it to instantly view your profile and send a connect request. You can share your QR via screenshot, in person, or through any messaging app. Always share your QR only with people you intend to connect with.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 2: FEATURES ═══ -->
+  <div class="sec" id="cat2">
+    <div class="sec-eyebrow">Category 02</div>
+    <div class="sec-header">
+      <div class="sec-icon">📍</div>
+      <h2>Features — Nearby, Discovery &amp; Explore</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How does Real-Time Nearby People work?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Real-Time Nearby uses your device's GPS to show you other Labaka users who are physically near you right now. You can see their profile, send a Super Like, or send a Connect Request. Only your approximate location is shown to others — your exact GPS coordinates are never shared.
+        <div class="warning-inline">
+          <p><strong>Please note:</strong> Labaka is a location-based application. Core features including Real-Time Nearby, Explore Nearby, Events, and Offers rely on your device location to function. By using these features, you acknowledge and consent to location-based discovery as described in our Privacy Policy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What is Global Discovery?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Global Discovery lets you explore and connect with Labaka users from anywhere in the world — not just your immediate vicinity. Browse profiles globally, send Super Likes, and connect with people across cities and countries. It's perfect for expanding your network beyond your local area.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What can I find in Explore Nearby?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Explore Nearby is your local discovery feed. You'll find:
+        <ul>
+          <li><strong>Events</strong> — local gatherings, meetups, and community events near you</li>
+          <li><strong>Offers</strong> — deals and promotions from nearby businesses and users</li>
+          <li><strong>Opportunity Posts</strong> — user-posted requirements like car sales, flat listings, flatmate searches, job openings, and collaboration requests</li>
+        </ul>
+        All content is location-based and updates as you move.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I post an Opportunity?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Tap the "+" icon → select "Post Opportunity" → choose a category (e.g. flat for rent, car sale, collaboration request) → add your description, photos, and contact preference. Your post will be visible to nearby users in the Explore Nearby feed. You are responsible for ensuring your post is accurate, lawful, and free from prohibited content.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I connect with someone I find nearby or globally?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Tap on a profile → send a Connect Request (uses LBK coins) or a Super Like. If the other person accepts your Connect Request, you are connected and a private chat is unlocked for both of you. Super Likes notify the recipient and make your profile stand out — they can then choose to connect with you.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 3: CHAT & STORIES ═══ -->
+  <div class="sec" id="cat3">
+    <div class="sec-eyebrow">Category 03</div>
+    <div class="sec-header">
+      <div class="sec-icon">💬</div>
+      <h2>Chat, Video &amp; Stories</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">When can I chat with someone on Labaka?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Chat is unlocked automatically when both users are connected — meaning your Connect Request was accepted or both parties mutually connected. This applies in both Casual and Formal modes. You cannot chat with someone who has not accepted your connection.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I start a video call?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Once connected and in a chat, tap the video call icon at the top of the chat window. The other user will receive a video call request notification — <strong>both parties must mutually accept and enable the video call request before the call begins.</strong> Video calls are available in both Casual and Formal modes and are not recorded or stored by Labaka.
+        <div class="warning-inline">
+          <p><strong>By accepting a video call request, both users acknowledge and agree</strong> that they are voluntarily participating in a live video call with another Labaka user and that such interaction is governed by Labaka's Terms &amp; Conditions and Community Standards. Any prohibited conduct during a video call — including exposure of nudity or sexually explicit content — will result in immediate account termination.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Who can see my Stories?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Your Stories are visible exclusively to users who are in your connected circle or have super-liked you — not to the general public or all Labaka users. Stories expire after their set duration. While we limit story visibility to your circle, Labaka cannot prevent other users from screenshotting or capturing your story content during its active period.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I share my phone number or email in a post, description, or connect request?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. Sharing your mobile number, email address, or any personal contact details in post descriptions, opportunity listings, or connect request messages is <strong>strictly restricted</strong> on Labaka. This policy exists to protect both your privacy and your safety from potential misuse of personal contact information by unknown users.
+        <div class="warning-inline">
+          <p><strong>The right way to share contact details:</strong> First establish a mutual connection on Labaka. Once both parties are connected, you can privately and securely share your contact details through the one-to-one private chat. This ensures your information is only shared with people you have consciously chosen to connect with.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What content is not allowed in Stories, chats, or posts?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">The following are strictly prohibited everywhere on Labaka including Stories, chats, posts, and video calls:
+        <ul>
+          <li>Nudity or sexually explicit content of any kind</li>
+          <li>Vulgarity, obscene language, or sexual solicitation</li>
+          <li>Hate speech, threats, or harassment</li>
+          <li>Content involving minors in any inappropriate context</li>
+          <li>Spam, fraud, or misleading content</li>
+          <li>Personal contact details such as phone numbers or email addresses in public posts or connect requests</li>
+        </ul>
+        Violations will result in immediate account termination and may be reported to law enforcement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Does Labaka read my private chat messages?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. Labaka does not routinely monitor or read private chat messages. However, if a chat is reported for a violation, our Trust &amp; Safety team may review the relevant messages solely to investigate the report and enforce our Community Standards. This is limited, purpose-bound access only.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 4: LBK WALLET ═══ -->
+  <div class="sec" id="cat4">
+    <div class="sec-eyebrow">Category 04</div>
+    <div class="sec-header">
+      <div class="sec-icon">🪙</div>
+      <h2>LBK Wallet &amp; Coins</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What are LBK coins?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">LBK coins are Labaka's in-app virtual currency. They are used to power key connection features including Super Likes and Connect Requests. LBK coins have no real-world monetary value and cannot be exchanged or redeemed for cash under any circumstances.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I earn LBK coins?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">You can earn LBK coins through:
+        <ul>
+          <li>Daily login rewards</li>
+          <li>Completing profile milestones</li>
+          <li>Platform activity rewards and challenges</li>
+          <li>Referral bonuses when you invite friends to Labaka</li>
+          <li>Purchasing coins directly through the LBK Wallet in the app</li>
+        </ul>
+        Check the Wallet section in the app for current reward rates and active promotions.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What can I spend LBK coins on?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">LBK coins can be spent on:
+        <ul>
+          <li><strong>Super Like</strong> — stand out to a profile you're interested in</li>
+          <li><strong>Connect Requests</strong> — send connection requests beyond your free daily limit</li>
+        </ul>
+        More features powered by LBK coins may be added as the platform grows.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I transfer or gift LBK coins to another user?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. LBK coins are personal and non-transferable. They cannot be gifted, sent, traded, or sold to other users. Each user's LBK coin balance is exclusive to their own account.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What happens to my LBK coins if my account is deleted or terminated?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">All LBK coin balances are permanently forfeited upon account deletion or termination — whether voluntary or initiated by Labaka. No compensation or refund will be provided for unused coin balances. This applies regardless of the reason for account closure.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 5: SUBSCRIPTIONS ═══ -->
+  <div class="sec" id="cat5">
+    <div class="sec-eyebrow">Category 05</div>
+    <div class="sec-header">
+      <div class="sec-icon">⭐</div>
+      <h2>Subscription Plans</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What plans does Labaka offer?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Labaka offers three tiers:
+        <ul>
+          <li><strong>Free</strong> — basic access to all core features with standard limits</li>
+          <li><strong>Plus</strong> — expanded reach, more connect requests, and additional features</li>
+          <li><strong>Pro</strong> — full platform power with maximum limits and priority features</li>
+        </ul>
+        Visit the Subscription section in the app for current pricing and the full feature comparison.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I upgrade or downgrade my plan?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Go to Settings → Subscription → choose your desired plan. Upgrades take effect immediately. Downgrades take effect at the end of your current billing period. You will retain your current plan benefits until your billing period ends.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I get a refund on my subscription?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Subscription fees are non-refundable except where required by applicable Indian consumer protection law. If you believe you are entitled to a refund under applicable law, contact us at <strong>laabaakaa@gmail.com</strong> with your registered email and transaction details within 7 days of the charge.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 6: SAFETY ═══ -->
+  <div class="sec" id="cat6">
+    <div class="sec-eyebrow">Category 06</div>
+    <div class="sec-header">
+      <div class="sec-icon">🛡️</div>
+      <h2>Safety &amp; Reporting</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I report a user or content?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">You can report any user, story, post, chat, event, or listing directly within the app:
+        <ul>
+          <li>On a profile — tap the three-dot menu → Report</li>
+          <li>In a chat — tap the menu icon → Report Conversation</li>
+          <li>On a story or post — tap the three-dot menu → Report</li>
+        </ul>
+        All reports are reviewed by our Trust &amp; Safety team. Reports are confidential and the reported user is not notified of who filed the report.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What happens after I report someone?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Our Trust &amp; Safety team reviews all reports and takes action based on the severity of the violation. Actions range from a warning and content removal to temporary suspension or permanent account termination. We may not be able to share the outcome of a report with you due to user privacy, but every report is taken seriously and investigated thoroughly.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I block someone on Labaka?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Go to the user's profile → tap the three-dot menu → Block User. Once blocked, the user cannot view your profile, send you messages, or see you in Nearby results. Blocking is immediate and the blocked user is not notified. You can manage your block list in Settings → Privacy → Blocked Users.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Is Labaka safe for meeting people in person?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Labaka connects you with people nearby and globally, but does not conduct background checks on users. If you choose to meet someone in person, we strongly recommend:
+        <ul>
+          <li>Meeting in a public, well-populated place initially</li>
+          <li>Informing a trusted friend or family member of your plans</li>
+          <li>Trusting your instincts — if something feels off, leave</li>
+          <li>Never sharing financial information or sending money to someone you've just met</li>
+        </ul>
+        Labaka is not liable for any harm arising from in-person interactions arranged through the platform.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What content leads to immediate account termination?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">The following result in immediate, permanent termination without warning or appeal:
+        <ul>
+          <li>Posting, sharing, or soliciting nudity or sexually explicit content anywhere on the platform</li>
+          <li>Any sexual conduct directed at or involving minors</li>
+          <li>Financial fraud, scamming, or phishing</li>
+          <li>Creating fake accounts after a prior ban</li>
+          <li>Inciting violence or hate against any individual or group</li>
+        </ul>
+        Labaka may also report such violations to Indian law enforcement authorities.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAT 7: PRIVACY ═══ -->
+  <div class="sec" id="cat7">
+    <div class="sec-eyebrow">Category 07</div>
+    <div class="sec-header">
+      <div class="sec-icon">🔒</div>
+      <h2>Privacy &amp; Data</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What personal data does Labaka collect?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Labaka collects data necessary to operate the platform including your name, phone number or email, profile details (interests, profession, hobbies), location data (when using Nearby features), device information, usage data, chat messages, and payment/transaction history. We never sell your personal data to advertisers or third parties. Full details are in our Privacy Policy.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Does Labaka share my exact location with other users?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. Labaka never shares your exact GPS coordinates with other users. Only your approximate proximity (e.g. "500m away") is shown through Nearby features. As a location-based application, some features require location access to function. Full details on how we handle your location data are available in our Privacy Policy.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I request my personal data or ask for it to be deleted?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Under India's Digital Personal Data Protection Act (DPDP) 2023, you have the right to access, correct, and request deletion of your personal data. Email our Grievance Officer at <strong>laabaakaa@gmail.com</strong> with your registered email address and your specific request. We will respond within 30 days. You may also delete your account directly through the app to initiate data removal.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Does Labaka sell my data to advertisers?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No. Labaka does not sell, rent, or trade your personal data to advertisers or any third parties for commercial gain. Your data is used solely to operate, secure, and improve the Labaka platform. Our full data practices are described in our Privacy Policy.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How long does Labaka keep my data after I delete my account?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">When you delete your account, your public profile and content are removed immediately. Residual data is purged from our servers within 90 days. Transaction and payment records are retained for 7 years as required under Indian financial regulations. Any content under active investigation may be retained until the investigation is resolved.</div>
+    </div>
+  </div>
+
+  <!-- ═══ Contact Card ═══ -->
+  <div class="contact-card">
+    <h3>Still have a question?</h3>
+    <p>Our support team is here to help. Reach out and we'll get back to you as quickly as possible.</p>
+    <a href="mailto:laabaakaa@gmail.com" class="contact-btn">Contact Support → laabaakaa@gmail.com</a>
+  </div>
+
+</div>
+
+<!-- ─── Footer ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka" />
+      <span>LABAKA</span>
+    </div>
+    <div class="footer-tag">Help & FAQs · Last updated July 2, 2026<br>Operated by 369innovation</div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="/Labaka/home">Home</a>
+      <a href="/Labaka/AboutUs/">About Us</a>
+      <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/">FAQs</a>
+    </div>
+    <div class="footer-copy">© 2026 Labaka · 369innovation. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+function toggle(el) {
+  const answer = el.nextElementSibling;
+  const icon = el.querySelector('.faq-toggle');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-toggle').forEach(i => i.classList.remove('open'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    icon.classList.add('open');
+  }
+}
+
+function filterFAQs(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(q) ? '' : 'none';
+  });
+  document.querySelectorAll('.sec').forEach(sec => {
+    const visible = [...sec.querySelectorAll('.faq-item')].some(i => i.style.display !== 'none');
+    sec.style.display = visible ? '' : 'none';
+  });
+  if (!q) {
+    document.querySelectorAll('.faq-item, .sec').forEach(el => el.style.display = '');
+  }
+}
+
+function scrollCat(id, el) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+
+(function() {
+  const btn = document.getElementById('hamburgerBtn');
+  const closeBtn = document.getElementById('drawerCloseBtn');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const drawer = document.getElementById('mobileDrawer');
+  if (!btn || !drawer) return;
+
+  function openDrawer() {
+    drawer.classList.add('active');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+})();
+</script>
+</body>
+</html>

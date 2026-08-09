@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions — Labaka</title>
+  <meta name="description" content="Labaka Terms & Conditions — Please read these terms carefully before using Labaka. By using our app, you agree to be bound by these terms in full." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6D53F4;
+      --brand-light: #8B73FF;
+      --brand-dark: #5A3FD6;
+      --text: #0d1b2a;
+      --text-secondary: #5a6175;
+      --bg: #F7F5FF;
+      --white: #ffffff;
+      --border: rgba(109, 83, 244, 0.12);
+      --shadow: 0 2px 16px rgba(109, 83, 244, 0.08);
+      --shadow-lg: 0 8px 32px rgba(109, 83, 244, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white); color: var(--text); font-size: 15px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navbar ─────────────────────────────────────── */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1100; padding: 12px 24px; }
+    .navbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: 60px; padding: 10px 24px;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 4px 24px rgba(109,83,244,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo span { font-weight: 500; letter-spacing: 0.2em; color: #1a1a2e; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.06em; transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; border-radius: 1px; background: var(--brand); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--brand); }
+    .nav-links a:hover::after { width: 80%; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.active::after { width: 80%; }
+    .nav-cta {
+      display: inline-flex; align-items: center; background: var(--brand); color: #fff;
+      border: none; border-radius: 28px; padding: 8px 24px; font-weight: 700;
+      font-size: 0.88rem; cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(109,83,244,0.35); transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    /* ─── Sub Navbar ─────────────────────────────────── */
+    .sub-navbar {
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 1090; padding: 6px 24px;
+      display: flex; justify-content: center;
+    }
+    .sub-navbar-inner {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(109, 83, 244, 0.1);
+      border: 1px solid rgba(109, 83, 244, 0.15);
+    }
+    .sub-navbar-inner a {
+      text-decoration: none; font-weight: 600; font-size: 0.82rem;
+      padding: 6px 18px; border-radius: 20px; color: #5a6175;
+      transition: all 0.25s ease;
+    }
+    .sub-navbar-inner a:hover {
+      color: var(--brand); background: rgba(109, 83, 244, 0.06);
+    }
+    .sub-navbar-inner a.active {
+      color: #fff; background: var(--brand);
+      box-shadow: 0 2px 10px rgba(109, 83, 244, 0.3);
+    }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 160px 24px 80px; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #3a1f8e 0%, var(--brand-dark) 30%, var(--brand) 60%, var(--brand-light) 100%);
+    }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero-orb-1 { width: 400px; height: 400px; top: -120px; right: -100px; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); }
+    .hero-orb-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%); }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px; padding: 6px 20px; font-size: 0.85rem; color: rgba(255,255,255,0.8);
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    /* ─── Content ────────────────────────────────────── */
+    .content { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .effective-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.08), rgba(139,115,255,0.12));
+      border: 1px solid rgba(109,83,244,0.2); border-radius: 28px;
+      padding: 8px 20px; font-size: 0.85rem; color: var(--brand); font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* ─── Platform Box & Callout Boxes ───────────────── */
+    .platform-box {
+      background: linear-gradient(135deg, #1A1040 0%, #2D1A68 100%);
+      border-radius: 20px; padding: 28px 32px; margin-bottom: 32px;
+      box-shadow: 0 12px 40px rgba(26,16,64,0.2);
+    }
+    .platform-box h4 {
+      color: #C9BBFF; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .platform-box p { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin: 0; }
+    .platform-box strong { color: #fff; }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.1));
+      border: 1px solid rgba(109,83,244,0.15); border-radius: 16px;
+      padding: 24px; margin-bottom: 32px;
+    }
+    .highlight-box p { font-size: 0.9rem; color: var(--brand-dark); line-height: 1.8; margin: 0; }
+
+    .warning-box {
+      background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 14px;
+      padding: 20px 24px; margin-bottom: 16px;
+    }
+    .warning-box p { font-size: 0.9rem; color: #92400E; line-height: 1.75; margin: 0; }
+    .warning-box strong { color: #7C2D12; }
+
+    .red-box {
+      background: #FEF2F2; border: 1px solid #FECACA; border-radius: 16px;
+      padding: 24px; margin-bottom: 20px;
+    }
+    .red-box p { font-size: 0.9rem; color: #991B1B; line-height: 1.75; margin-bottom: 12px; }
+    .red-box strong { color: #7F1D1D; }
+    .red-box ul { padding-left: 20px; margin-top: 8px; }
+    .red-box ul li { font-size: 0.9rem; color: #991B1B; line-height: 1.75; margin-bottom: 6px; }
+
+    /* ─── TOC ────────────────────────────────────────── */
+    .toc {
+      background: var(--white); border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px; box-shadow: var(--shadow); margin-bottom: 40px;
+    }
+    .toc-title {
+      font-size: 0.75rem; font-weight: 700; color: var(--brand);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
+    }
+    .toc-list { display: flex; flex-direction: column; gap: 10px; }
+    .toc-item { font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px; }
+    .toc-num { font-size: 0.75rem; font-weight: 700; color: var(--brand-light); min-width: 28px; text-align: center; }
+
+    /* ─── Section & Clause ────────────────────────────── */
+    .sec { margin-bottom: 40px; }
+    .sec-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--brand); text-transform: uppercase; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sec-eyebrow::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(109,83,244,0.2), transparent); }
+    .sec h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+
+    .new-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 12px; border-radius: 20px; vertical-align: middle; margin-left: 8px;
+    }
+
+    .clause {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px; margin-bottom: 16px; transition: border-color 0.2s;
+    }
+    .clause:hover { border-color: rgba(109,83,244,0.25); }
+    .clause h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .clause-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(109,83,244,0.1), rgba(139,115,255,0.15));
+      color: var(--brand); font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .clause p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 10px; }
+    .clause p:last-child { margin-bottom: 0; }
+    .clause ul { padding-left: 20px; margin-top: 8px; }
+    .clause ul li { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .clause strong { color: var(--text); }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .footer { background: #0d1b2a; padding: 60px 24px; text-align: center; }
+    .footer-inner { max-width: 860px; margin: 0 auto; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+    .footer-logo img { height: 40px; filter: brightness(0) invert(1); }
+    .footer-logo span { font-weight: 500; letter-spacing: 0.2em; color: #fff; font-size: 1.1rem; }
+    .footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 24px; line-height: 1.7; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--brand-light); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+    /* ─── Mobile Hamburger & Drawer ─────────────────── */
+    .nav-hamburger {
+      display: none; background: none; border: none; color: var(--brand);
+      font-size: 26px; cursor: pointer; padding: 4px; align-items: center; justify-content: center;
+    }
+    .mobile-backdrop {
+      position: fixed; inset: 0; background: rgba(13, 27, 42, 0.4);
+      backdrop-filter: blur(4px); z-index: 1200; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-backdrop.active { opacity: 1; pointer-events: auto; }
+    .mobile-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: 280px; max-width: 85vw;
+      background: linear-gradient(180deg, #ffffff 0%, #F7F5FF 100%);
+      z-index: 1201; transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 24px 20px; display: flex; flex-direction: column;
+      box-shadow: -8px 0 32px rgba(109, 83, 244, 0.15);
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .mobile-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-close {
+      background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; padding: 4px;
+    }
+    .mobile-drawer-links { display: flex; flex-direction: column; gap: 6px; }
+    .mobile-drawer-links a {
+      text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem;
+      padding: 10px 14px; border-radius: 12px; transition: all 0.2s ease;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a.active {
+      background: rgba(109, 83, 244, 0.08); color: var(--brand);
+    }
+    .mobile-drawer-cta { margin-top: auto; padding-top: 20px; }
+    .mobile-drawer-cta .nav-cta { width: 100%; justify-content: center; padding: 12px 24px; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 1.75rem; }
+      .content { padding: 32px 16px 60px; }
+      .platform-box { padding: 20px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .sec { animation: fadeInUp 0.6s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" />
+      <span>LABAKA</span>
+    </a>
+    <div class="nav-links">
+      <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+      <a href="/Labaka/Upgrade/">UPGRADE</a>
+      <a href="/Labaka/AboutUs/">ABOUT US</a>
+      <a href="/Labaka/ContactUs/">CONTACT US</a>
+    </div>
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Sub Navbar -->
+<div class="sub-navbar">
+  <div class="sub-navbar-inner">
+    <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+    <a href="/Labaka/terms-and-conditions/" class="active">Terms &amp; Conditions</a>
+    <a href="/Labaka/Faqs/">FAQ</a>
+  </div>
+</div>
+
+<!-- Mobile Drawer -->
+<div class="mobile-backdrop" id="drawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-header">
+    <a href="/Labaka/home" class="nav-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka Logo" style="height:36px;" />
+      <span style="font-size:0.9rem;">LABAKA</span>
+    </a>
+    <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Menu">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+  <div class="mobile-drawer-links">
+    <a href="/Labaka/PrivacyPolicy/" class="active">POLICY &amp; FAQ</a>
+    <div style="padding-left: 16px; display: flex; flex-direction: column; gap: 8px; margin: -4px 0 8px;">
+      <a href="/Labaka/PrivacyPolicy/" style="font-size: 0.85rem; opacity: 0.8;">• Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/" style="font-size: 0.85rem; color: var(--brand); font-weight: 600;">• Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/" style="font-size: 0.85rem; opacity: 0.8;">• FAQ</a>
+    </div>
+    <a href="/Labaka/Upgrade/">UPGRADE</a>
+    <a href="/Labaka/AboutUs/">ABOUT US</a>
+    <a href="/Labaka/ContactUs/">CONTACT US</a>
+  </div>
+  <div class="mobile-drawer-cta">
+    <a href="/Labaka/home#download" class="nav-cta">Download App</a>
+  </div>
+</aside>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-badge">📜 Terms of Agreement</div>
+  <h1>Terms &amp; Conditions</h1>
+  <p>Please read these terms carefully before using Labaka. By using our app, you agree to be bound by these terms in full.</p>
+</section>
+
+<!-- Content -->
+<div class="content">
+
+  <div class="effective-badge">📅 Effective Date: July 2, 2026</div>
+
+  <div class="highlight-box">
+    <p><strong>These Terms &amp; Conditions ("Terms") constitute a legally binding agreement between you ("User") and Labaka ("Company", "we", "us", "our"), operated by 369innovation. By downloading, accessing, registering, or using the Labaka application in any way, you unconditionally accept and agree to be bound by these Terms in their entirety. If you do not agree, you must immediately cease use of this application.</strong></p>
+  </div>
+
+  <!-- PLATFORM DISCLAIMER -->
+  <div class="sec">
+    <div class="platform-box">
+      <h4>⚡ Important Platform Notice</h4>
+      <p><strong>Labaka is a profile-connecting platform provided as a technology service only.</strong> We facilitate connections between users but are not a party to any interaction, meetup, transaction, or relationship that results from those connections. <strong>Labaka bears absolutely no responsibility for any harm, loss, injury, dispute, or damage — physical or otherwise — that occurs during or as a result of any physical meetup, virtual meeting, video call, or any other interaction between users, whether arranged through the platform or facilitated by it.</strong> All such interactions are entirely at the users' own risk and discretion.</p>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="sec">
+    <div class="sec-eyebrow">Contents</div>
+    <div class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <div class="toc-list">
+        <div class="toc-item"><span class="toc-num">01</span> Eligibility &amp; Account Registration</div>
+        <div class="toc-item"><span class="toc-num">02</span> Profile Content &amp; Personal Information Rules</div>
+        <div class="toc-item"><span class="toc-num">03</span> Community Standards &amp; Prohibited Content</div>
+        <div class="toc-item"><span class="toc-num">04</span> Stories, Posts &amp; Opportunity Feature</div>
+        <div class="toc-item"><span class="toc-num">05</span> Events &amp; Offers Feature</div>
+        <div class="toc-item"><span class="toc-num">06</span> Chat, Video Calls &amp; Communications</div>
+        <div class="toc-item"><span class="toc-num">07</span> Content Ownership &amp; Responsibility</div>
+        <div class="toc-item"><span class="toc-num">08</span> LBK Wallet, Coins &amp; Payments</div>
+        <div class="toc-item"><span class="toc-num">09</span> Subscription Plans</div>
+        <div class="toc-item"><span class="toc-num">10</span> Connections, Matching &amp; Platform Liability</div>
+        <div class="toc-item"><span class="toc-num">11</span> Physical &amp; Virtual Meetup Disclaimer</div>
+        <div class="toc-item"><span class="toc-num">12</span> Push Notifications</div>
+        <div class="toc-item"><span class="toc-num">13</span> Appeals Process</div>
+        <div class="toc-item"><span class="toc-num">14</span> Limitation of Liability</div>
+        <div class="toc-item"><span class="toc-num">15</span> Disclaimer of Warranties</div>
+        <div class="toc-item"><span class="toc-num">16</span> Third-Party Services</div>
+        <div class="toc-item"><span class="toc-num">17</span> Reporting, Suspension &amp; Termination</div>
+        <div class="toc-item"><span class="toc-num">18</span> Governing Law &amp; Disputes</div>
+        <div class="toc-item"><span class="toc-num">19</span> Modifications to Terms</div>
+        <div class="toc-item"><span class="toc-num">20</span> Contact Us</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 01 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 01</div>
+    <h2>Eligibility &amp; Account Registration</h2>
+    <div class="clause">
+      <h3><span class="clause-num">1.1</span> Age Requirement</h3>
+      <p>You must be at least 18 years of age to create an account and use Labaka. By registering, you represent and warrant that you meet this requirement. We reserve the right to terminate accounts found to belong to minors, without prior notice and without any refund.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">1.2</span> Accurate Information</h3>
+      <p>You agree to provide accurate, truthful, current, and complete information during registration and to keep your profile updated at all times. Providing false information — including fake names, photos of other people, or misleading profession details — is a violation of these Terms and grounds for immediate termination.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">1.3</span> Account Security</h3>
+      <p>You are solely responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Labaka shall not be liable for any loss or damage arising from unauthorized access to your account due to your failure to secure your credentials. We recommend you log out of your account after each session, use a strong unique password, and never share your login credentials with anyone.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">1.4</span> One Account Per User</h3>
+      <p>Each user may hold only one active account. Creating multiple or duplicate accounts — including to evade a prior suspension or ban — is strictly prohibited and will result in permanent termination of all associated accounts without refund. Where a prior account was terminated for a violation, any new account created by the same user may also be terminated, and the user may be blocked from creating future accounts on Labaka.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">1.5</span> Account Restoration Grace Period <span class="new-badge">NEW</span></h3>
+      <p>If you choose to delete your account voluntarily, you may request account restoration within 28 days of deletion by contacting support at laabaakaa@gmail.com. After 28 days, account deletion becomes permanent and all associated data will be purged. This grace period does not apply to accounts terminated by Labaka for violations of these Terms.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">1.6</span> Profile Verification</h3>
+      <p>Labaka offers an optional profile verification feature. Verification confirms identity documents submitted at the time of verification only and does not constitute an endorsement or guarantee of any user's character, intentions, or trustworthiness. Users interact with others entirely at their own risk.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 02 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 02 — New</div>
+    <h2>Profile Content &amp; Personal Information Rules <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">2.1</span> No Personal Contact Details on Profiles</h3>
+      <p>You are strictly prohibited from including personal contact information in your public Labaka profile. This includes but is not limited to:</p>
+      <ul>
+        <li>Mobile phone numbers or telephone numbers of any kind</li>
+        <li>Email addresses — personal, business, or otherwise</li>
+        <li>External website URLs, social media handles, or profile links</li>
+        <li>Physical home or business addresses</li>
+        <li>Any other direct contact identifier that bypasses the Labaka platform</li>
+      </ul>
+      <p style="margin-top:10px;">This rule exists to protect your privacy and safety from misuse by unknown users. Once you have established a mutual connection on Labaka, you may share such details privately through the one-to-one chat feature at your own discretion and risk.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">2.2</span> Profile Visibility &amp; Public Sharing Risk</h3>
+      <p>Your Labaka profile — including your name, photo, bio, interests, and profession — is visible to other Labaka users who discover you through Nearby, Global Discovery, or QR code sharing. Content you make visible on your profile is shared at your own risk. By enabling the QR profile share feature, you acknowledge that your profile may be viewed by anyone the QR code is shared with. Labaka is not responsible for how other users or third parties use or share your profile content once it has been viewed.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">2.3</span> No Scraping or Automated Access <span class="new-badge">NEW</span></h3>
+      <p>You are strictly prohibited from using any automated tools, bots, scripts, crawlers, scrapers, or any other automated means to access, collect, extract, copy, or monitor any content or data from Labaka — including user profiles, posts, events, listings, or any other platform content. Violation of this clause will result in immediate permanent account termination and may result in legal action under applicable Indian law including the Information Technology Act, 2000.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 03 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 03</div>
+    <h2>Community Standards &amp; Prohibited Content</h2>
+    <div class="clause">
+      <h3><span class="clause-num">3.1</span> Zero Tolerance Policy</h3>
+      <p>Labaka is committed to maintaining a safe, respectful, and inclusive community. We operate a strict zero-tolerance policy against harmful, illegal, or offensive content and behavior across all platform features — including but not limited to profiles, stories, posts, opportunity listings, events, offers, chats, and video calls.</p>
+    </div>
+    <div class="red-box">
+      <p><strong>The following content is STRICTLY PROHIBITED across all features of Labaka and will result in immediate account termination without warning, without refund, and may be reported to law enforcement:</strong></p>
+      <ul>
+        <li>Nudity, sexually explicit content, or any sexual imagery of any kind</li>
+        <li>Vulgarity, obscene language, or graphic sexual descriptions in any form</li>
+        <li>Any content involving or targeting minors in a sexual, harmful, or exploitative manner</li>
+        <li>Hate speech, racial slurs, religious discrimination, or content inciting violence</li>
+        <li>Harassment, bullying, threatening, or intimidating other users</li>
+        <li>Sharing another user's private information without consent (doxxing)</li>
+        <li>Impersonation of any person, brand, or public figure</li>
+        <li>Spam, fraudulent listings, misleading offers, or scam activity</li>
+        <li>Content promoting illegal activities including drugs, weapons, or trafficking</li>
+        <li>Misinformation or content designed to deceive or manipulate users</li>
+        <li>Personal contact details (phone numbers, emails, URLs) in public profiles, posts, or connect requests</li>
+        <li>Any automated, bot-generated, or scraped content or activity</li>
+      </ul>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">3.2</span> Offline Conduct <span class="new-badge">NEW</span></h3>
+      <p>Labaka's Community Standards apply not only to in-app conduct but also to conduct that occurs outside the platform where it directly affects other Labaka users or the platform's integrity. If a user engages in behavior outside the app — including during physical meetups, via external messaging, or otherwise — that constitutes harassment, abuse, fraud, or harm directed at another Labaka user, Labaka reserves the right to investigate and take action against the offending account including suspension or permanent termination.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">3.3</span> Reporting Mechanism</h3>
+      <p>Any user may report prohibited content or behavior through the in-app reporting tool available on all profiles, stories, posts, chats, and event listings. Labaka reviews all reports and reserves the right to take action — including content removal and account termination — based solely on its own assessment.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">3.4</span> Consequence of Violations</h3>
+      <p>Violations of Community Standards will result in one or more of the following at Labaka's sole discretion: content removal, temporary suspension, permanent account termination, forfeiture of all LBK coins and subscription fees, and referral to relevant law enforcement authorities where applicable under Indian law.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 04 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 04</div>
+    <h2>Stories, Posts &amp; Opportunity Feature</h2>
+    <div class="clause">
+      <h3><span class="clause-num">4.1</span> Stories</h3>
+      <p>The Stories feature allows users to share time-limited content visible exclusively to super-liked and connected users. Stories must comply with Community Standards at all times. Any story containing nudity, sexual content, vulgarity, hate speech, or prohibited material will be removed immediately and the account suspended or terminated.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">4.2</span> Content Visible After Deletion <span class="new-badge">NEW</span></h3>
+      <p>When you delete a story, post, or any content from Labaka, it is removed from public view on the platform. However, <strong>Labaka cannot guarantee or control whether other users have already captured, copied, saved, screenshotted, or otherwise retained your content before deletion.</strong> Labaka is not responsible for the continued existence or redistribution of your content in any form after deletion where such content was already viewed or captured by other users prior to removal.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">4.3</span> Opportunity Posts &amp; Requests</h3>
+      <p>The Opportunity feature allows users to post requirements and requests — such as car sales, flat listings, flatmate searches, job postings, and collaboration requests — and connect with other users via chat and video call. Users are solely responsible for the accuracy, legality, and safety of all opportunity posts. Labaka does not verify, endorse, or guarantee any listing. Any transaction or arrangement made between users is entirely between those users — Labaka is not a party to any such arrangement and bears no liability for disputes, losses, or harm arising from user-to-user opportunity interactions.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>Disclaimer:</strong> Labaka provides the Opportunity feature as a discovery and connection tool only. We are not an employment agency, real estate broker, marketplace, or financial service. Users engage with opportunity listings entirely at their own risk.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 05 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 05</div>
+    <h2>Events &amp; Offers Feature</h2>
+    <div class="clause">
+      <h3><span class="clause-num">5.1</span> Nearby Events &amp; Offers</h3>
+      <p>Labaka's Explore Nearby feature displays local events, deals, and offers posted by users or third parties. Labaka does not organize, host, verify, or endorse any event or offer listed on the platform. Event and offer details are provided solely by the posting party.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">5.2</span> Attendance at Events</h3>
+      <p>Attendance at any event discovered through Labaka is entirely at your own risk. Labaka is not responsible for the quality, safety, cancellation, or any other aspect of events listed on the platform. We strongly encourage users to exercise personal judgment and appropriate safety precautions before attending any event arranged through the app.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">5.3</span> Offers &amp; Promotions</h3>
+      <p>Offers and promotions displayed on Labaka are posted by third-party users or businesses. Labaka makes no warranty regarding the accuracy, availability, or legitimacy of any offer. Users redeem offers at their own discretion and risk. Labaka is not liable for any loss arising from a failed, expired, or fraudulent offer listing.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 06 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 06</div>
+    <h2>Chat, Video Calls &amp; Communications</h2>
+    <div class="clause">
+      <h3><span class="clause-num">6.1</span> Chat Feature</h3>
+      <p>Chat is unlocked upon mutual connection in both Casual and Formal modes. All Community Standards apply in full to all chat messages, images, and files. You are solely responsible for all content you send via chat.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">6.2</span> Video Calls — Mutual Acceptance Required</h3>
+      <p>Video calls on Labaka require mutual acceptance from both parties. A video call request is sent by one user and must be explicitly accepted by the other user before the call begins. <strong>By accepting a video call, both parties acknowledge and agree that they are voluntarily entering a live video interaction governed in full by these Terms and Labaka's Community Standards.</strong> Video calls are available in both Casual and Formal modes and are not recorded or stored by Labaka.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">6.3</span> Prohibited Chat &amp; Call Conduct</h3>
+      <p>Strictly prohibited in all chat and video interactions:</p>
+      <ul>
+        <li>Sending or soliciting nudity, sexually explicit, or pornographic content</li>
+        <li>Using vulgar, abusive, or threatening language</li>
+        <li>Soliciting money, financial data, or sensitive personal information</li>
+        <li>Sharing links to harmful, illegal, or phishing websites</li>
+        <li>Recording video calls without the explicit consent of all parties</li>
+        <li>Any form of harassment, stalking, or coercion</li>
+        <li>Sharing personal contact details such as phone numbers or email addresses in connect requests or public areas</li>
+      </ul>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">6.4</span> No Routine Monitoring</h3>
+      <p>Labaka does not routinely monitor private communications. However, when a report is submitted, Labaka may review relevant chat content to investigate the reported violation. By using chat, you consent to this limited review in the context of reported violations.</p>
+    </div>
+    <div class="red-box">
+      <p><strong>Zero Tolerance in Communications:</strong> Any user found sending nudity, sexual content, or engaging in sexual solicitation via chat or video call will have their account permanently terminated immediately. Data associated with the violation may be preserved and reported to law enforcement under the IT Act, 2000 and POCSO, 2012.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 07 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 07</div>
+    <h2>Content Ownership &amp; Responsibility</h2>
+    <div class="clause">
+      <h3><span class="clause-num">7.1</span> Your Content</h3>
+      <p>You retain ownership of all content you post on Labaka. By posting content, you grant Labaka a non-exclusive, royalty-free, worldwide, sublicensable license to use, display, reproduce, and distribute your content solely for operating, improving, and promoting the platform.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">7.2</span> Sole Responsibility &amp; Profile at Own Risk <span class="new-badge">NEW</span></h3>
+      <p>You are solely and exclusively responsible for all content you post, share, or transmit on Labaka. <strong>Any information you choose to include on your profile — including your photo, interests, profession, location, and personal descriptions — is shared entirely at your own risk.</strong> Labaka does not control how other users may perceive, use, or react to your profile content. You agree to indemnify and hold Labaka harmless from any claims, damages, or expenses — including legal fees — arising from content you post or actions you take on the platform.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">7.3</span> Detailed Indemnification <span class="new-badge">NEW</span></h3>
+      <p>You agree to fully indemnify, defend, and hold harmless Labaka and 369innovation from and against any and all claims, liabilities, damages, losses, costs, and expenses arising from:</p>
+      <ul>
+        <li>Your negligent or wrongful acts or omissions on or off the platform</li>
+        <li>Any content you upload, post, share, or transmit through Labaka</li>
+        <li>Your breach of any provision of these Terms</li>
+        <li>Your violation of any third party's rights including intellectual property, privacy, or publicity rights</li>
+        <li>Any harm caused to another user or third party as a result of your conduct on or arising from use of the platform</li>
+        <li>Any claim that your content caused damage to a third party</li>
+      </ul>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">7.4</span> Content Removal</h3>
+      <p>Labaka reserves the right to review, modify, or remove any content at its sole discretion and without notice. Removal of content does not waive Labaka's right to take further action including account termination.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 08 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 08</div>
+    <h2>LBK Wallet, Coins &amp; Payments</h2>
+    <div class="clause">
+      <h3><span class="clause-num">8.1</span> LBK Coins</h3>
+      <p>LBK coins are virtual in-app currency with no real-world monetary value. They cannot be exchanged, transferred, or redeemed for cash under any circumstances. LBK coins are usable solely for designated in-app features including Super Likes and Connect Requests.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">8.2</span> Purchases &amp; Refunds</h3>
+      <p>All LBK coin purchases are final and non-refundable unless required by applicable law. Labaka reserves the right to modify coin earn rates, spend values, or eligible features at any time.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">8.3</span> No Coin Rollover <span class="new-badge">NEW</span></h3>
+      <p>LBK coins allocated or awarded as part of a subscription plan (Plus or Pro) do not roll over between billing periods. Any unspent coins that were part of a subscription benefit expire at the end of each billing period. Purchased coins (bought separately through the LBK Wallet) are retained in your wallet until used or until account termination, whichever comes first.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">8.4</span> Forfeiture on Termination</h3>
+      <p>All LBK coin balances are immediately and permanently forfeited upon account termination — whether voluntary or initiated by Labaka — for any reason. No compensation will be provided for forfeited coins.</p>
+    </div>
+    <div class="warning-box">
+      <p><strong>No Liability for Coin Loss:</strong> Labaka shall not be liable for any loss of LBK coins resulting from account hacking, unauthorized access, technical errors, platform downtime, or termination resulting from user misconduct.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 09 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 09</div>
+    <h2>Subscription Plans</h2>
+    <div class="clause">
+      <h3><span class="clause-num">9.1</span> Plans &amp; Billing</h3>
+      <p>Labaka offers Free, Plus, and Pro subscription tiers. Paid subscriptions are billed on a recurring basis as selected at purchase. You authorize Labaka to charge your payment method automatically at each renewal period unless cancelled in advance before the renewal date.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">9.2</span> Cancellation</h3>
+      <p>You may cancel your subscription at any time through the app. Cancellation takes effect at the end of the current billing period — you retain plan access until then. No partial refunds will be issued for unused subscription periods.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">9.3</span> Refunds</h3>
+      <p>Subscription fees are non-refundable except where required by applicable Indian consumer protection law. If you believe you are entitled to a refund under applicable law, contact us at laabaakaa@gmail.com with your registered email and transaction details within 7 days of the charge.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">9.4</span> Plan Modifications</h3>
+      <p>Labaka reserves the right to change subscription pricing, features, or availability at any time with reasonable notice. Continued use after changes constitutes acceptance of updated terms.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 10</div>
+    <h2>Connections, Matching &amp; Platform Liability</h2>
+    <div class="clause">
+      <h3><span class="clause-num">10.1</span> No Guarantee of Results</h3>
+      <p>Labaka does not guarantee that use of the platform will result in any particular connections, friendships, professional relationships, romantic outcomes, business deals, or opportunities. User experience varies based on individual behavior, location, and platform usage.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">10.2</span> User Interactions at Own Risk</h3>
+      <p>Labaka is a technology platform that facilitates connections between users. We do not conduct background checks, vet users for criminal history, or verify users' stated intentions beyond the optional verification feature. Any in-person meeting, collaboration, transaction, or other interaction between users arranged through Labaka is entirely at the users' own risk.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">10.3</span> Safety Recommendations</h3>
+      <p>Labaka strongly encourages users to exercise caution when meeting other users in person, to meet in public places initially, to inform trusted contacts of plans, and to trust their instincts. These are recommendations only and do not imply any duty of care on Labaka's part.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">10.4</span> QR Profile Share</h3>
+      <p>The one-tap QR profile share feature allows users to share their Labaka profile. You are solely responsible for controlling who you share your profile QR with. Labaka is not liable for any consequences arising from sharing your QR code with unintended parties.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 11 — New</div>
+    <h2>Physical &amp; Virtual Meetup Disclaimer <span class="new-badge">NEW</span></h2>
+    <div class="platform-box">
+      <h4>🛡️ Platform-as-a-Service — Meetup Liability Disclaimer</h4>
+      <p><strong>Labaka is a profile-connecting application provided strictly as a technology service.</strong> Our role is limited to providing a digital platform through which users may discover and connect with each other. We are not an event organizer, matchmaking service, employment agency, real estate agent, or any other regulated service provider.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.1</span> Physical Meetups</h3>
+      <p>Any physical meetup, in-person meeting, date, business meeting, collaboration session, or any other offline interaction arranged between users through Labaka — including those initiated via Nearby, Global Discovery, Explore Nearby, Events, Offers, or Opportunity features — is entirely the responsibility of the participating users. <strong>Labaka bears absolutely no responsibility, liability, or duty of care for any harm, injury, loss, assault, fraud, theft, dispute, or damage of any kind that occurs before, during, or after any physical meetup arranged through the platform.</strong></p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.2</span> Virtual Meetups &amp; Video Calls</h3>
+      <p>Virtual interactions including video calls, chat sessions, and any other real-time communication between users through Labaka are similarly the sole responsibility of the participating users. <strong>Labaka is not liable for any emotional distress, reputational harm, financial loss, privacy breach, or any other damage arising from virtual interactions between users, including those conducted through the in-app video call or chat features.</strong></p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">11.3</span> User Acknowledgement</h3>
+      <p>By using Labaka to connect and interact with other users — whether virtually or in person — you expressly acknowledge that: (a) Labaka's role ends at facilitating the initial connection; (b) all subsequent interactions are at your own risk; (c) Labaka has no control over the conduct, intentions, or actions of other users; and (d) you will not hold Labaka liable for any outcome of any interaction facilitated through the platform.</p>
+    </div>
+    <div class="red-box">
+      <p><strong>Important:</strong> If you experience an emergency or believe you are in immediate danger as a result of an interaction arranged through Labaka, please contact local emergency services (Police: 100, Emergency: 112) immediately. Labaka's support team is not an emergency response service.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 12 — New</div>
+    <h2>Push Notifications <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">12.1</span> Notification Opt-In</h3>
+      <p>Labaka may send you push notifications to your device relating to platform activity including new connect requests, messages, Super Likes, story activity, events, and offers near you, and platform updates. By enabling notifications on your device, you consent to receiving these communications.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">12.2</span> Opting Out</h3>
+      <p>You can manage and opt out of push notifications at any time through your device settings (Settings → Notifications → Labaka) or through the Labaka app settings. Opting out of notifications does not affect your ability to use the platform, but you may miss time-sensitive activity alerts.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">12.3</span> No Guarantee of Delivery</h3>
+      <p>Labaka does not guarantee the delivery of push notifications. Notification delivery depends on your device settings, operating system, internet connectivity, and third-party notification services. Labaka is not liable for any missed notifications or consequences arising from non-delivery of notifications.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 13 — New</div>
+    <h2>Appeals Process <span class="new-badge">NEW</span></h2>
+    <div class="clause">
+      <h3><span class="clause-num">13.1</span> Right to Appeal</h3>
+      <p>If your account has been suspended or restricted by Labaka and you believe the action was taken in error, you have the right to submit an appeal within 14 days of receiving notice of the action. Appeals must be submitted by email to laabaakaa@gmail.com with the subject line "Account Appeal — [Your Registered Email]", including a clear explanation of why you believe the action was incorrect and any supporting evidence.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">13.2</span> Review Process</h3>
+      <p>Labaka's Trust &amp; Safety team will review your appeal and respond within 21 days of receipt. Our decision following an appeal review is final. Appeals will not be considered for accounts terminated for the following reasons: posting nudity or sexually explicit content, any conduct involving minors, financial fraud or phishing, or creating fake accounts after a prior ban.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">13.3</span> No Reinstatement Guarantee</h3>
+      <p>Submission of an appeal does not guarantee reinstatement of your account. Labaka's decision on appeals is made at its sole discretion and is binding. During the appeal review period, your account will remain in its current suspended or restricted state.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 14</div>
+    <h2>Limitation of Liability</h2>
+    <div class="clause">
+      <h3><span class="clause-num">14.1</span> Maximum Liability Cap</h3>
+      <p>To the fullest extent permitted by applicable law, Labaka's total cumulative liability to you for any and all claims arising out of or relating to these Terms or your use of the platform shall not exceed the amount you paid to Labaka in the three (3) months preceding the event giving rise to the claim, or ₹500 (Indian Rupees Five Hundred), whichever is lower.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">14.2</span> Exclusion of Damages</h3>
+      <p>Under no circumstances shall Labaka be liable for: loss of data, profits, revenue, goodwill, or business opportunities; personal injury or property damage arising from user interactions; emotional distress or harm caused by other users; harm from physical or virtual meetups arranged via the platform; fraudulent listings or fake events; unauthorized account access; service interruptions or technical failures; actions of third-party services; or loss of LBK coins.</p>
+    </div>
+    <div class="red-box">
+      <p><strong>Critical Notice:</strong> Labaka is a connection platform and technology service only — not a regulated marketplace, dating service, employment agency, or financial platform. All risks arising from user-to-user connections, opportunity listings, events, offers, or any physical or virtual interactions are borne entirely by the users involved.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 15</div>
+    <h2>Disclaimer of Warranties</h2>
+    <div class="clause">
+      <h3><span class="clause-num">15.1</span> As-Is Basis</h3>
+      <p>Labaka is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, express or implied. We do not warrant that the platform will be uninterrupted, error-free, secure, or free of harmful components. We disclaim all implied warranties including merchantability, fitness for a particular purpose, and non-infringement.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">15.2</span> Location Services</h3>
+      <p>Real-Time Nearby and Explore Nearby features depend on device location services. Labaka does not guarantee location data accuracy. Users are responsible for managing their own location sharing settings. Labaka is not liable for consequences arising from inaccurate, delayed, or exposed location data.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 16 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 16</div>
+    <h2>Third-Party Services</h2>
+    <div class="clause">
+      <h3><span class="clause-num">16.1</span> Third-Party Links &amp; Integrations</h3>
+      <p>Labaka may integrate with or display content from third-party services provided for convenience only. Labaka does not endorse, control, or accept responsibility for any third-party content, privacy practices, or terms. Use of third-party services is at your own risk.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">16.2</span> Payment Processors</h3>
+      <p>Payments are processed through third-party payment gateways. Labaka does not store full payment card details. We are not responsible for errors, failures, or security incidents arising from third-party payment processing.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 17 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 17</div>
+    <h2>Reporting, Suspension &amp; Termination</h2>
+    <div class="clause">
+      <h3><span class="clause-num">17.1</span> Reporting</h3>
+      <p>Users can report violations using the in-app report feature on all profiles, stories, posts, chats, events, and listings. Labaka's determination following review is final subject to the appeals process in Section 13.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.2</span> Termination by Labaka</h3>
+      <p>Labaka reserves the right to suspend or permanently terminate any account at any time, with or without notice, for violations including but not limited to Community Standards breaches, fraudulent activity, abusive behavior, or harm to the platform or other users. No refund of subscription fees or LBK coins will be issued upon termination for cause.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.3</span> Immediate Termination Triggers</h3>
+      <p>The following actions result in immediate permanent termination without warning or appeal:</p>
+      <ul>
+        <li>Posting, sharing, or soliciting nudity or sexually explicit content</li>
+        <li>Any sexual conduct involving minors</li>
+        <li>Financial fraud, scamming, or phishing</li>
+        <li>Creating fake accounts after a prior ban</li>
+        <li>Inciting violence or hate against any individual or group</li>
+        <li>Automated scraping or bot activity on the platform</li>
+      </ul>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.4</span> Banned Account Restrictions <span class="new-badge">NEW</span></h3>
+      <p>Where an account has been permanently terminated for a violation, Labaka reserves the right to block that user from creating any new accounts on the platform. Attempts to circumvent a ban by creating new accounts using different credentials, devices, or phone numbers will result in all new accounts being terminated immediately. Labaka may use device identifiers, IP addresses, and other technical signals to identify and enforce ban circumvention.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.5</span> Voluntary Deletion</h3>
+      <p>You may delete your account at any time through app settings. Account restoration is available within 28 days (see Section 1.5). After 28 days, deletion is permanent and data is handled per our Privacy Policy.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">17.6</span> Survival of Terms</h3>
+      <p>Sections relating to Limitation of Liability, Disclaimer of Warranties, Content Responsibility, Indemnification, Meetup Disclaimer, and Governing Law shall survive termination of your account and these Terms indefinitely.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 18 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 18</div>
+    <h2>Governing Law &amp; Disputes</h2>
+    <div class="clause">
+      <h3><span class="clause-num">18.1</span> Governing Law</h3>
+      <p>These Terms shall be governed by the laws of India including the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and the Consumer Protection Act, 2019. Disputes shall be subject to the exclusive jurisdiction of courts in Puducherry, India.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">18.2</span> Dispute Resolution</h3>
+      <p>Before initiating legal proceedings, you agree to first contact Labaka at laabaakaa@gmail.com to attempt informal resolution within 30 days. Unresolved disputes shall be settled through binding arbitration under the Arbitration and Conciliation Act, 1996 (India), seated in Puducherry.</p>
+    </div>
+    <div class="clause">
+      <h3><span class="clause-num">18.3</span> Class Action Waiver</h3>
+      <p>You expressly waive any right to bring or participate in any class action lawsuit or class-wide arbitration against Labaka. All disputes must be brought solely on an individual basis.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 19 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 19</div>
+    <h2>Modifications to Terms</h2>
+    <div class="clause">
+      <h3><span class="clause-num">19.1</span> Right to Modify</h3>
+      <p>Labaka reserves the right to update or modify these Terms at any time. We will notify users of material changes via in-app notification or registered email. Your continued use of Labaka following any modification constitutes your unconditional acceptance of the updated Terms. If you do not agree with updated Terms, you must immediately stop using the platform and delete your account.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 20 -->
+  <div class="sec">
+    <div class="sec-eyebrow">Section 20</div>
+    <h2>Contact Us</h2>
+    <div class="clause">
+      <h3><span class="clause-num">20.1</span> Get in Touch</h3>
+      <p>For any questions, concerns, or notices regarding these Terms:</p>
+      <ul>
+        <li><strong>Email:</strong> laabaakaa@gmail.com</li>
+        <li><strong>Company:</strong> Labaka, operated by 369innovation</li>
+        <li><strong>Jurisdiction:</strong> Puducherry, India</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/LBK FINAL LOGO PNG (2) 3.svg" alt="Labaka" />
+      <span>LABAKA</span>
+    </div>
+    <div class="footer-tag">Terms &amp; Conditions · Effective July 2, 2026<br>Operated by 369innovation · 20 Sections</div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="/Labaka/home">Home</a>
+      <a href="/Labaka/AboutUs/">About Us</a>
+      <a href="/Labaka/PrivacyPolicy/">Privacy Policy</a>
+      <a href="/Labaka/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/Labaka/Faqs/">FAQs</a>
+    </div>
+    <div class="footer-copy">© 2026 Labaka · 369innovation. All rights reserved.<br>By using Labaka you agree to be bound by these Terms in full.</div>
+  </div>
+  <script>
+    (function() {
+      const btn = document.getElementById('hamburgerBtn');
+      const closeBtn = document.getElementById('drawerCloseBtn');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('mobileDrawer');
+      if (!btn || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+    })();
+  </script>
+</body>
+</html>

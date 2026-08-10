@@ -19,23 +19,9 @@ import {
   Close as CloseIcon,
   Apple as AppleIcon,
   Check as CheckIcon,
-  Close as XIcon,
   WorkspacePremium as CrownIcon,
   CardGiftcard as RibbonIcon,
   WorkOutline as BriefcaseIcon,
-  Star as StarIcon,
-  FavoriteBorder as FavoriteBorderIcon,
-  ChatBubbleOutline as ChatBubbleOutlineIcon,
-  ThumbUpOutlined as ThumbUpOutlinedIcon,
-  GroupAddOutlined as GroupAddOutlinedIcon,
-  QrCode2 as QrCode2Icon,
-  Tune as TuneIcon,
-  StarOutline as StarOutlineIcon,
-  History as HistoryIcon,
-  RocketLaunch as RocketLaunchIcon,
-  CheckCircle as CheckCircleIcon,
-  LocationOn as LocationOnIcon,
-  Phone as PhoneIcon,
   Instagram as InstagramIcon,
   Twitter as TwitterIcon,
   Facebook as FacebookIcon,
@@ -184,6 +170,112 @@ function DownloadAppModal({ open, onClose }) {
   );
 }
 
+// ─── Circle Badge Component for Comparison Table ───────────────────────
+const CircleBadge = ({ variant, text }) => {
+  if (variant === 'free') {
+    return (
+      <Box
+        sx={{
+          width: 28,
+          height: 28,
+          borderRadius: '50%',
+          border: '1.5px solid #A0AEC0',
+          color: '#718096',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '0.82rem',
+          fontWeight: 700,
+          mx: 'auto',
+        }}
+      >
+        {text}
+      </Box>
+    );
+  }
+  if (variant === 'plus') {
+    return (
+      <Box
+        sx={{
+          width: 28,
+          height: 28,
+          borderRadius: '50%',
+          backgroundColor: '#718096',
+          color: '#FFFFFF',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '0.82rem',
+          fontWeight: 700,
+          mx: 'auto',
+        }}
+      >
+        {text}
+      </Box>
+    );
+  }
+  return (
+    <Box
+      sx={{
+        width: 28,
+        height: 28,
+        borderRadius: '50%',
+        backgroundColor: BRAND,
+        color: '#FFFFFF',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '0.82rem',
+        fontWeight: 700,
+        boxShadow: '0 4px 10px rgba(109, 83, 244, 0.3)',
+        mx: 'auto',
+      }}
+    >
+      {text}
+    </Box>
+  );
+};
+
+// ─── Money Bag SVG for Referral Banner ────────────────────────────────
+const MoneyBagSVG = () => (
+  <Box
+    component="svg"
+    viewBox="0 0 140 140"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    sx={{ width: { xs: 90, sm: 120 }, height: { xs: 90, sm: 120 }, flexShrink: 0 }}
+  >
+    <defs>
+      <linearGradient id="bagGrad" x1="20" y1="20" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#6D53F4" />
+        <stop offset="1" stopColor="#FF8A7A" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M45 42C45 42 35 48 30 55C22 66 18 80 20 95C23 112 36 122 70 122C104 122 117 112 120 95C122 80 118 66 110 55C105 48 95 42 95 42L98 32C98 32 105 28 100 24C95 20 85 28 85 28C85 28 78 22 70 22C62 22 55 28 55 28C55 28 45 20 40 24C35 28 42 32 42 32L45 42Z"
+      stroke="url(#bagGrad)"
+      strokeWidth="2.5"
+      fill="#F5F2FF"
+      strokeLinejoin="round"
+    />
+    <path d="M42 42C55 46 85 46 98 42" stroke="url(#bagGrad)" strokeWidth="2.5" />
+    <g>
+      <circle cx="88" cy="85" r="22" fill="#E6C200" stroke="#B39700" strokeWidth="1.5" />
+      <circle cx="88" cy="85" r="18" fill="#F5D000" stroke="#CCAC00" strokeWidth="1" strokeDasharray="3 2" />
+      <circle cx="68" cy="88" r="22" fill="#ECD014" stroke="#C2A800" strokeWidth="1.5" />
+      <circle cx="68" cy="88" r="18" fill="#F8DF25" stroke="#D1B700" strokeWidth="1" strokeDasharray="3 2" />
+      <circle cx="54" cy="80" r="24" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
+      <circle cx="54" cy="80" r="20" fill="#FFE44D" stroke="#DAA520" strokeWidth="1" strokeDasharray="3 2" />
+      <path
+        d="M47 79C45.5 77.5 45.5 74.5 47 73C48.5 71.5 51.5 71.5 53 73L55.5 75.5M52.5 86.5C51 88 48 88 46.5 86.5C45 85 45 82 46.5 80.5L49 78M48.5 76L55.5 83"
+        stroke="#997000"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+    </g>
+  </Box>
+);
+
 // ─── Main Upgrade Page Component ────────────────────────────────────────
 export default function Upgrade() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -193,79 +285,67 @@ export default function Upgrade() {
 
   const featureRows = [
     {
-      icon: <FavoriteBorderIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'See Who Liked You',
-      desc: 'Someone shared interest, No - blurred profile in PRO',
-      free: '1',
-      plus: '5',
-      proType: 'check',
+      desc: 'Someone shared interest,\nNo - blurred profile in PRO',
+      free: <CircleBadge variant="free" text="1" />,
+      plus: <CircleBadge variant="plus" text="5" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <ChatBubbleOutlineIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Direct Message',
       desc: 'Message with connected users',
-      free: '5',
-      plusType: 'check_gray',
-      proType: 'check',
+      free: <CircleBadge variant="free" text="5" />,
+      plus: <CircleBadge variant="plus" text="✓" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <ThumbUpOutlinedIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Likes',
       desc: 'Share your interest',
-      free: '15',
-      plus: '30',
-      proType: 'check',
+      free: <CircleBadge variant="free" text="15" />,
+      plus: <CircleBadge variant="plus" text="30" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <GroupAddOutlinedIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Connect Requests',
       desc: 'Establish trust with a connect requests',
-      freeType: 'cross',
-      plus: '50',
-      plusSub: 'Per Week',
-      proType: 'check',
+      free: <CircleBadge variant="free" text="✕" />,
+      plus: <CircleBadge variant="plus" text="50" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <QrCode2Icon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'QR code profile share',
       desc: 'Quick share your profile',
-      freeType: 'check_gray',
-      plusType: 'check_gray',
-      proType: 'check',
+      free: <CircleBadge variant="plus" text="✓" />,
+      plus: <CircleBadge variant="plus" text="✓" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <TuneIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Advanced Filters',
       desc: 'Find the right people and events',
-      freeType: 'cross',
-      plusType: 'check_gray',
-      proType: 'check',
+      free: <CircleBadge variant="free" text="✕" />,
+      plus: <CircleBadge variant="plus" text="✓" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <StarOutlineIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Super Likes',
       desc: 'Show extra interest',
-      freeType: 'cross',
-      plus: '5',
-      proText: '10',
+      free: <CircleBadge variant="free" text="✕" />,
+      plus: <CircleBadge variant="plus" text="5" />,
+      pro: <CircleBadge variant="pro" text="10" />,
     },
     {
-      icon: <HistoryIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Rewinds',
       desc: 'Go back to skipped',
-      freeType: 'cross',
-      plus: '25',
-      proType: 'check',
+      free: <CircleBadge variant="free" text="✕" />,
+      plus: <CircleBadge variant="plus" text="25" />,
+      pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
-      icon: <RocketLaunchIcon sx={{ color: BRAND, fontSize: 20 }} />,
       name: 'Profile Boost',
       desc: 'Highlight your profile',
-      freeType: 'cross',
-      plus: '1',
-      plusSub: 'Per Month',
-      proText: '3',
-      proSub: 'Per Month',
+      free: <CircleBadge variant="free" text="✕" />,
+      plus: <CircleBadge variant="plus" text="1" />,
+      pro: <CircleBadge variant="pro" text="3" />,
     },
   ];
 
@@ -575,21 +655,34 @@ export default function Upgrade() {
 
       {/* ─── CHOOSE YOUR MEMBERSHIP (PRICING CARDS SECTION) ─────────────────── */}
       <Container maxWidth="lg" sx={{ mb: 10 }}>
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Typography
-            variant="h2"
+        {/* Top "Pro" Pill Badge */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 5 }}>
+          <Box
             sx={{
-              fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
-              fontWeight: 800,
-              color: '#0F172A',
-              mb: 1,
+              display: 'inline-flex',
+              alignItems: 'center',
+              p: '3px',
+              border: `1.5px solid ${BRAND}`,
+              borderRadius: '30px',
+              backgroundColor: '#ffffff',
+              boxShadow: '0 4px 14px rgba(109, 83, 244, 0.12)',
             }}
           >
-            Choose Your Membership
-          </Typography>
-          <Typography sx={{ fontSize: '0.95rem', color: '#64748B' }}>
-            All plans unlock powerful features to help you connect and grow.
-          </Typography>
+            <Box
+              sx={{
+                backgroundColor: BRAND,
+                color: '#ffffff',
+                px: 5,
+                py: 0.8,
+                borderRadius: '24px',
+                fontWeight: 700,
+                fontSize: '1.05rem',
+                letterSpacing: '0.5px',
+              }}
+            >
+              Pro
+            </Box>
+          </Box>
         </Box>
 
         {/* 3 Membership Cards */}
@@ -600,91 +693,44 @@ export default function Upgrade() {
               sx={{
                 height: '100%',
                 backgroundColor: '#ffffff',
-                borderRadius: '24px',
-                p: { xs: 3, sm: 3.5 },
+                borderRadius: '36px',
+                p: { xs: 3.5, sm: 4 },
                 textAlign: 'center',
                 border: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
+                boxShadow: '0 10px 35px rgba(0,0,0,0.04)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 '&:hover': {
                   transform: 'translateY(-4px)',
-                  boxShadow: '0 16px 36px rgba(0,0,0,0.06)',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.07)',
                 },
               }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                {/* Circular Icon */}
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    backgroundColor: '#F3F0FF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2.5,
-                  }}
-                >
-                  <BriefcaseIcon sx={{ fontSize: 28, color: '#8B5CF6' }} />
-                </Box>
-
-                <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#1E293B', mb: 0.5 }}>
-                  Starter
-                </Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: '#64748B', mb: 3 }}>
-                  Best for try
-                </Typography>
-
-                {/* Price */}
-                <Typography sx={{ fontSize: '2.5rem', fontWeight: 900, color: '#0F172A', lineHeight: 1 }}>
-                  ₹29
-                </Typography>
-                <Typography sx={{ fontSize: '0.85rem', color: '#64748B', mt: 1, mb: 4 }}>
-                  for 7 days
-                </Typography>
-              </Box>
-
-              {/* Button */}
-              <Button
-                fullWidth
-                variant="outlined"
-                sx={{
-                  borderColor: '#E2E8F0',
-                  color: BRAND,
-                  borderWidth: '1.5px',
-                  borderRadius: '14px',
-                  py: 1.3,
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  textTransform: 'none',
-                  '&:hover': {
-                    borderColor: BRAND,
-                    backgroundColor: 'rgba(109, 83, 244, 0.05)',
-                  },
-                }}
-              >
-                Choose Starter
-              </Button>
+              <BriefcaseIcon sx={{ fontSize: 40, color: '#94A3B8', mb: 3 }} />
+              <Typography sx={{ fontSize: '0.8rem', fontWeight: 800, color: '#94A3B8', letterSpacing: '1px', textTransform: 'uppercase', mb: 1 }}>
+                BEST FOR TRY
+              </Typography>
+              <Typography sx={{ fontSize: '0.85rem', fontWeight: 800, color: '#94A3B8', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                PRO - 7 DAYS
+              </Typography>
             </Box>
           </Grid>
 
-          {/* Card 2: Pro (Featured Card with FOUNDERS OFFER) */}
+          {/* Card 2: Pro (Featured Card with FOUNDERS - FREE) */}
           <Grid item xs={12} sm={4} md={3.8}>
             <Box
               sx={{
                 position: 'relative',
                 height: '100%',
-                backgroundColor: '#ffffff',
-                borderRadius: '24px',
-                p: { xs: 3, sm: 3.5 },
+                backgroundColor: 'rgba(109, 83, 244, 0.02)',
+                borderRadius: '36px',
+                p: { xs: 3.5, sm: 4 },
                 textAlign: 'center',
                 border: `2px solid ${BRAND}`,
-                boxShadow: '0 20px 40px rgba(109, 83, 244, 0.18)',
+                boxShadow: '0 15px 40px rgba(109, 83, 244, 0.15)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -692,11 +738,11 @@ export default function Upgrade() {
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 '&:hover': {
                   transform: 'translateY(-4px)',
-                  boxShadow: '0 24px 50px rgba(109, 83, 244, 0.25)',
+                  boxShadow: '0 20px 48px rgba(109, 83, 244, 0.22)',
                 },
               }}
             >
-              {/* Top Badge */}
+              {/* Top Floating Badge */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -707,82 +753,55 @@ export default function Upgrade() {
                   color: '#ffffff',
                   px: 2.5,
                   py: 0.6,
-                  borderRadius: '14px',
-                  fontSize: '0.72rem',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
                   fontWeight: 800,
-                  letterSpacing: '0.5px',
+                  letterSpacing: '1px',
                   whiteSpace: 'nowrap',
                   boxShadow: '0 4px 12px rgba(109, 83, 244, 0.4)',
                 }}
               >
-                FOUNDERS OFFER • LIMITED TIME
+                FOUNDERS - FREE
               </Box>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', pt: 1 }}>
-                {/* Circular Icon */}
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    backgroundColor: '#F3F0FF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2.5,
-                  }}
-                >
-                  <RibbonIcon sx={{ fontSize: 30, color: BRAND }} />
-                </Box>
+                <RibbonIcon sx={{ fontSize: 44, color: BRAND, mb: 2.5 }} />
 
-                <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#1E293B', mb: 0.5 }}>
-                  Pro
-                </Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: '#64748B', mb: 3 }}>
-                  3 Months FREE
-                </Typography>
-
-                {/* Price with strikethrough */}
-                <Typography sx={{ fontSize: '2.5rem', fontWeight: 900, color: '#0F172A', lineHeight: 1 }}>
+                <Typography sx={{ fontSize: '2.8rem', fontWeight: 900, color: '#0F172A', lineHeight: 1 }}>
                   ₹0
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: '1.1rem',
+                    fontSize: '1.15rem',
                     fontWeight: 700,
                     color: '#EF4444',
                     textDecoration: 'line-through',
                     mt: 0.5,
                   }}
                 >
-                  ₹199
+                  ₹1199
                 </Typography>
-                <Typography sx={{ fontSize: '0.85rem', color: '#64748B', mt: 0.5, mb: 4 }}>
-                  for 3 months
+                <Typography sx={{ fontSize: '0.75rem', fontWeight: 800, color: '#94A3B8', letterSpacing: '1px', mt: 1, mb: 3 }}>
+                  FOR 3 MONTHS
                 </Typography>
               </Box>
 
-              {/* Button */}
-              <Button
-                fullWidth
-                variant="contained"
+              {/* Bottom Purple Checkmark Circle */}
+              <Box
                 sx={{
-                  background: `linear-gradient(135deg, ${BRAND} 0%, ${BRAND_DARK} 100%)`,
+                  width: 30,
+                  height: 30,
+                  borderRadius: '50%',
+                  backgroundColor: BRAND,
                   color: '#ffffff',
-                  borderRadius: '14px',
-                  py: 1.3,
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  textTransform: 'none',
-                  boxShadow: '0 8px 20px rgba(109, 83, 244, 0.35)',
-                  '&:hover': {
-                    background: BRAND_DARK,
-                    boxShadow: '0 12px 28px rgba(109, 83, 244, 0.45)',
-                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 12px rgba(109, 83, 244, 0.35)',
                 }}
               >
-                Claim Free Now
-              </Button>
+                <CheckIcon sx={{ fontSize: 18 }} />
+              </Box>
             </Box>
           </Grid>
 
@@ -792,76 +811,29 @@ export default function Upgrade() {
               sx={{
                 height: '100%',
                 backgroundColor: '#ffffff',
-                borderRadius: '24px',
-                p: { xs: 3, sm: 3.5 },
+                borderRadius: '36px',
+                p: { xs: 3.5, sm: 4 },
                 textAlign: 'center',
                 border: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
+                boxShadow: '0 10px 35px rgba(0,0,0,0.04)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 '&:hover': {
                   transform: 'translateY(-4px)',
-                  boxShadow: '0 16px 36px rgba(0,0,0,0.06)',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.07)',
                 },
               }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                {/* Circular Icon */}
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(245, 158, 11, 0.12)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2.5,
-                  }}
-                >
-                  <CrownIcon sx={{ fontSize: 28, color: '#F59E0B' }} />
-                </Box>
-
-                <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#1E293B', mb: 0.5 }}>
-                  Pro Yearly
-                </Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: '#64748B', mb: 3 }}>
-                  Best value
-                </Typography>
-
-                {/* Price */}
-                <Typography sx={{ fontSize: '2.5rem', fontWeight: 900, color: '#0F172A', lineHeight: 1 }}>
-                  ₹499
-                </Typography>
-                <Typography sx={{ fontSize: '0.85rem', color: '#64748B', mt: 1, mb: 4 }}>
-                  per year
-                </Typography>
-              </Box>
-
-              {/* Button */}
-              <Button
-                fullWidth
-                variant="outlined"
-                sx={{
-                  borderColor: '#E2E8F0',
-                  color: BRAND,
-                  borderWidth: '1.5px',
-                  borderRadius: '14px',
-                  py: 1.3,
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  textTransform: 'none',
-                  '&:hover': {
-                    borderColor: BRAND,
-                    backgroundColor: 'rgba(109, 83, 244, 0.05)',
-                  },
-                }}
-              >
-                Choose Yearly
-              </Button>
+              <CrownIcon sx={{ fontSize: 40, color: '#94A3B8', mb: 3 }} />
+              <Typography sx={{ fontSize: '0.8rem', fontWeight: 800, color: '#94A3B8', letterSpacing: '1px', textTransform: 'uppercase', mb: 1 }}>
+                BEST VALUE
+              </Typography>
+              <Typography sx={{ fontSize: '0.85rem', fontWeight: 800, color: '#94A3B8', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                PRO - YEARLY
+              </Typography>
             </Box>
           </Grid>
         </Grid>
@@ -869,206 +841,181 @@ export default function Upgrade() {
 
       {/* ─── FEATURE COMPARISON TABLE SECTION ───────────────────────────────── */}
       <Container maxWidth="lg" sx={{ mb: 10 }}>
-        {/* Table Title & Note Bar */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2, px: 1 }}>
-          <Typography
-            sx={{
-              fontSize: '0.85rem',
-              fontWeight: 800,
-              color: BRAND,
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-            }}
-          >
-            FEATURE COMPARISON
-          </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8 }}>
-            <CheckCircleIcon sx={{ color: BRAND, fontSize: 18 }} />
-            <Typography sx={{ fontSize: '0.85rem', color: '#64748B', fontWeight: 500 }}>
-              Cancel anytime. No hidden charges.
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* Comparison Table Card */}
         <Box
           sx={{
             backgroundColor: '#ffffff',
             borderRadius: '24px',
-            p: { xs: 2, sm: 3.5 },
+            p: { xs: 2, sm: 4 },
             boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
             border: '1px solid #E2E8F0',
             overflowX: 'auto',
           }}
         >
-          <Box sx={{ minWidth: 680 }}>
-            {/* Header Row */}
-            <Grid container alignItems="center" sx={{ pb: 2, borderBottom: '1px solid #F1F5F9' }}>
-              <Grid item xs={5}>
-                <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, color: '#1E293B', pl: 1 }}>
-                  Features
-                </Typography>
-              </Grid>
-
-              <Grid item xs={2} sx={{ textAlign: 'center' }}>
-                <Typography sx={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B' }}>
-                  FREE
-                </Typography>
-                <Typography sx={{ fontSize: '0.75rem', color: '#64748B' }}>Limited</Typography>
-              </Grid>
-
-              <Grid item xs={2} sx={{ textAlign: 'center' }}>
-                <Typography sx={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B' }}>
-                  PLUS
-                </Typography>
-                <Typography sx={{ fontSize: '0.75rem', color: '#64748B' }}>Per Day</Typography>
-              </Grid>
-
-              {/* Highlighted PRO Header */}
-              <Grid item xs={3} sx={{ textAlign: 'center' }}>
-                <Box
-                  sx={{
-                    background: 'rgba(109, 83, 244, 0.08)',
-                    borderRadius: '16px 16px 0 0',
-                    py: 1,
-                    border: `2px solid ${BRAND}`,
-                    borderBottom: 'none',
-                    mb: -2.1,
-                  }}
-                >
-                  <Typography sx={{ fontSize: '0.95rem', fontWeight: 900, color: BRAND }}>
-                    PRO
-                  </Typography>
-                  <Typography sx={{ fontSize: '0.75rem', color: BRAND_LIGHT, fontWeight: 600 }}>
-                    Per Day
-                  </Typography>
+          <Box sx={{ minWidth: 650 }}>
+            <Box
+              component="table"
+              sx={{
+                width: '100%',
+                borderCollapse: 'separate',
+                borderSpacing: 0,
+              }}
+            >
+              <Box component="thead">
+                <Box component="tr">
+                  <Box
+                    component="th"
+                    sx={{
+                      textAlign: 'left',
+                      pl: 1,
+                      py: 2,
+                      pr: 2,
+                      borderBottom: '1px solid #F1F5F9',
+                      fontSize: '0.85rem',
+                      fontWeight: 800,
+                      color: '#94A3B8',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase',
+                      width: '44%',
+                    }}
+                  >
+                    FEATURES
+                  </Box>
+                  <Box
+                    component="th"
+                    sx={{
+                      textAlign: 'center',
+                      py: 2,
+                      px: 2,
+                      borderBottom: '1px solid #F1F5F9',
+                      fontSize: '0.85rem',
+                      fontWeight: 800,
+                      color: '#94A3B8',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase',
+                      width: '18%',
+                    }}
+                  >
+                    FREE
+                  </Box>
+                  <Box
+                    component="th"
+                    sx={{
+                      textAlign: 'center',
+                      py: 2,
+                      px: 2,
+                      borderBottom: '1px solid #F1F5F9',
+                      fontSize: '0.85rem',
+                      fontWeight: 800,
+                      color: '#718096',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase',
+                      width: '18%',
+                    }}
+                  >
+                    PLUS
+                    <Typography component="div" sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal' }}>
+                      Per Day
+                    </Typography>
+                  </Box>
+                  {/* PRO Header Cell */}
+                  <Box
+                    component="th"
+                    sx={{
+                      textAlign: 'center',
+                      py: 2,
+                      px: 2,
+                      width: '20%',
+                      backgroundColor: 'rgba(109, 83, 244, 0.04)',
+                      borderTop: `2px solid ${BRAND}`,
+                      borderLeft: `2px solid ${BRAND}`,
+                      borderRight: `2px solid ${BRAND}`,
+                      borderTopLeftRadius: '20px',
+                      borderTopRightRadius: '20px',
+                    }}
+                  >
+                    <Typography sx={{ fontSize: '0.95rem', fontWeight: 900, color: BRAND }}>
+                      PRO
+                    </Typography>
+                    <Typography sx={{ fontSize: '0.75rem', color: BRAND_LIGHT, fontWeight: 600 }}>
+                      Per Day
+                    </Typography>
+                  </Box>
                 </Box>
-              </Grid>
-            </Grid>
+              </Box>
 
-            {/* Feature Rows */}
-            {featureRows.map((row, index) => {
-              const isLast = index === featureRows.length - 1;
-              return (
-                <Grid
-                  container
-                  alignItems="center"
-                  key={row.name}
-                  sx={{
-                    py: 2,
-                    borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
-                  }}
-                >
-                  {/* Left Column: Icon + Name + Description */}
-                  <Grid item xs={5}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, pl: 1 }}>
+              <Box component="tbody">
+                {featureRows.map((row, index) => {
+                  const isLast = index === featureRows.length - 1;
+                  return (
+                    <Box component="tr" key={row.name}>
+                      {/* Name + Description */}
                       <Box
+                        component="td"
                         sx={{
-                          width: 40,
-                          height: 40,
-                          borderRadius: '50%',
-                          backgroundColor: '#F3F0FF',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
+                          py: 2,
+                          pl: 1,
+                          pr: 2,
+                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
                         }}
                       >
-                        {row.icon}
-                      </Box>
-                      <Box>
-                        <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
+                        <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, color: '#0F172A', mb: 0.3 }}>
                           {row.name}
                         </Typography>
-                        <Typography sx={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.4 }}>
+                        <Typography sx={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
                           {row.desc}
                         </Typography>
                       </Box>
-                    </Box>
-                  </Grid>
 
-                  {/* FREE Column */}
-                  <Grid item xs={2} sx={{ textAlign: 'center' }}>
-                    {row.freeType === 'cross' ? (
-                      <XIcon sx={{ color: '#94A3B8', fontSize: 18 }} />
-                    ) : row.freeType === 'check_gray' ? (
-                      <CheckIcon sx={{ color: '#475569', fontSize: 18 }} />
-                    ) : (
-                      <Typography sx={{ fontSize: '0.9rem', color: '#64748B', fontWeight: 600 }}>
+                      {/* FREE Column */}
+                      <Box
+                        component="td"
+                        sx={{
+                          py: 2,
+                          px: 2,
+                          textAlign: 'center',
+                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
+                        }}
+                      >
                         {row.free}
-                      </Typography>
-                    )}
-                  </Grid>
-
-                  {/* PLUS Column */}
-                  <Grid item xs={2} sx={{ textAlign: 'center' }}>
-                    {row.plusType === 'check_gray' ? (
-                      <CheckIcon sx={{ color: '#475569', fontSize: 18 }} />
-                    ) : (
-                      <Box>
-                        <Typography sx={{ fontSize: '0.9rem', color: '#334155', fontWeight: 700 }}>
-                          {row.plus}
-                        </Typography>
-                        {row.plusSub && (
-                          <Typography sx={{ fontSize: '0.7rem', color: '#64748B' }}>
-                            {row.plusSub}
-                          </Typography>
-                        )}
                       </Box>
-                    )}
-                  </Grid>
 
-                  {/* PRO Column (Highlighted Box Overlay) */}
-                  <Grid item xs={3} sx={{ textAlign: 'center' }}>
-                    <Box
-                      sx={{
-                        background: 'rgba(109, 83, 244, 0.04)',
-                        py: 1.5,
-                        borderLeft: `2px solid ${BRAND}`,
-                        borderRight: `2px solid ${BRAND}`,
-                        ...(isLast && {
-                          borderBottom: `2px solid ${BRAND}`,
-                          borderRadius: '0 0 16px 16px',
-                        }),
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      {row.proType === 'check' ? (
-                        <Box
-                          sx={{
-                            width: 26,
-                            height: 26,
-                            borderRadius: '50%',
-                            backgroundColor: BRAND,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: '#ffffff',
-                            boxShadow: '0 4px 10px rgba(109, 83, 244, 0.3)',
-                          }}
-                        >
-                          <CheckIcon sx={{ fontSize: 16 }} />
-                        </Box>
-                      ) : (
-                        <Box>
-                          <Typography sx={{ fontSize: '1.25rem', color: BRAND, fontWeight: 800, lineHeight: 1 }}>
-                            {row.proText}
-                          </Typography>
-                          {row.proSub && (
-                            <Typography sx={{ fontSize: '0.7rem', color: BRAND_LIGHT, fontWeight: 600, mt: 0.3 }}>
-                              {row.proSub}
-                            </Typography>
-                          )}
-                        </Box>
-                      )}
+                      {/* PLUS Column */}
+                      <Box
+                        component="td"
+                        sx={{
+                          py: 2,
+                          px: 2,
+                          textAlign: 'center',
+                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
+                        }}
+                      >
+                        {row.plus}
+                      </Box>
+
+                      {/* PRO Column */}
+                      <Box
+                        component="td"
+                        sx={{
+                          py: 2,
+                          px: 2,
+                          textAlign: 'center',
+                          backgroundColor: 'rgba(109, 83, 244, 0.04)',
+                          borderLeft: `2px solid ${BRAND}`,
+                          borderRight: `2px solid ${BRAND}`,
+                          ...(isLast && {
+                            borderBottom: `2px solid ${BRAND}`,
+                            borderBottomLeftRadius: '20px',
+                            borderBottomRightRadius: '20px',
+                          }),
+                        }}
+                      >
+                        {row.pro}
+                      </Box>
                     </Box>
-                  </Grid>
-                </Grid>
-              );
-            })}
+                  );
+                })}
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Container>
@@ -1078,37 +1025,23 @@ export default function Upgrade() {
         <Box
           sx={{
             borderRadius: '28px',
-            p: { xs: 3, sm: 5 },
-            border: `2px solid ${BRAND_LIGHT}`,
-            backgroundColor: '#F3F0FF',
+            p: { xs: 3.5, sm: 4.5 },
+            border: `1.5px solid ${BRAND}`,
+            backgroundColor: 'rgba(109, 83, 244, 0.03)',
             display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
+            flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: 3,
+            gap: 4,
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-            <Box
-              sx={{
-                width: 72,
-                height: 72,
-                borderRadius: '50%',
-                backgroundColor: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 8px 20px rgba(109, 83, 244, 0.15)',
-                fontSize: '2rem',
-              }}
-            >
-              💰
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3.5 }}>
+            <MoneyBagSVG />
             <Box>
               <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', mb: 0.5 }}>
                 Invite Friends & Earn Rewards
               </Typography>
-              <Typography sx={{ fontSize: '0.95rem', color: '#475569' }}>
+              <Typography sx={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.5 }}>
                 Earn{' '}
                 <Box component="span" sx={{ color: BRAND, fontWeight: 800 }}>
                   160 LBK
@@ -1123,14 +1056,15 @@ export default function Upgrade() {
             sx={{
               backgroundColor: BRAND,
               color: '#ffffff',
-              borderRadius: '24px',
-              px: 4,
-              py: 1.2,
-              fontSize: '0.95rem',
+              borderRadius: '30px',
+              px: { xs: 4, sm: 6 },
+              py: 1.4,
+              fontSize: '1rem',
               fontWeight: 800,
               textTransform: 'none',
               boxShadow: '0 8px 24px rgba(109, 83, 244, 0.3)',
               whiteSpace: 'nowrap',
+              width: { xs: '100%', md: 'auto' },
               '&:hover': { backgroundColor: BRAND_DARK },
             }}
           >
@@ -1159,7 +1093,7 @@ export default function Upgrade() {
                   component="img"
                   src="/LBK FINAL LOGO PNG (2) 3.svg"
                   alt="Labaka Logo"
-                  sx={{ height: 36, filter: 'brightness(0) invert(1)' }}
+                  sx={{ height: 36, filter: 'brightness(1.2)' }}
                 />
                 <Typography sx={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '1px' }}>
                   LABAKA

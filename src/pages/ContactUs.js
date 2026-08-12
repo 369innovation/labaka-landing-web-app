@@ -7,13 +7,6 @@ import {
   Grid,
   TextField,
   MenuItem,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Modal,
-  Fade,
   InputAdornment,
 } from '@mui/material';
 import {
@@ -21,31 +14,18 @@ import {
   EmailOutlined as EmailIcon,
   LocalOfferOutlined as TagIcon,
   CreateOutlined as PencilIcon,
-  Menu as HamburgerMenuIcon,
-  Close as CloseMenuIcon,
-  Close as CloseIcon,
-  Apple as AppleIcon,
-  Instagram as InstagramIcon,
-  Twitter as TwitterIcon,
-  Facebook as FacebookIcon,
-  LinkedIn as LinkedInIcon,
-  Phone as PhoneIcon,
-  LocationOn as LocationOnIcon,
 } from '@mui/icons-material';
 import { toast } from 'react-toastify';
 
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import DownloadAppButton from '../components/DownloadAppButton';
+import DownloadAppModal from '../components/DownloadAppModal';
+
 // ─── Brand Colors ───────────────────────────────────────────────────────
 const BRAND = '#6D53F4';
-const BRAND_LIGHT = '#8B73FF';
 const BRAND_DARK = '#5A3FD6';
 const CARD_BG = '#EFEFFE';
-
-const NAV_LINKS = [
-  { label: 'POLICY & FAQ', href: '/Labaka/PrivacyPolicy/', isScroll: false },
-  { label: 'UPGRADE', href: '/upgrade', isScroll: false },
-  { label: 'ABOUT US', href: '/Labaka/AboutUs/', isScroll: false },
-  { label: 'CONTACT US', href: '/contact', isScroll: false, active: true },
-];
 
 const SUBJECT_OPTIONS = [
   'General Enquiry',
@@ -57,131 +37,10 @@ const SUBJECT_OPTIONS = [
   'Feedback',
 ];
 
-// ─── Google Play SVG Icon ───────────────────────────────────────────────
-const PlayStoreIcon = ({ sx = {} }) => (
-  <Box
-    component="svg"
-    viewBox="0 0 24 24"
-    sx={{ width: 22, height: 22, fill: 'currentColor', ...sx }}
-  >
-    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-  </Box>
-);
 
-// ─── Download Modal Component ───────────────────────────────────────────
-function DownloadAppModal({ open, onClose }) {
-  const playStoreUrl = 'https://play.google.com/store';
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(playStoreUrl)}&bgcolor=ffffff&color=000000&margin=8`;
-
-  return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      closeAfterTransition
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backdropFilter: 'blur(8px)',
-      }}
-      BackdropProps={{
-        sx: { backgroundColor: 'rgba(109, 83, 244, 0.08)' },
-      }}
-    >
-      <Fade in={open}>
-        <Box
-          sx={{
-            position: 'relative',
-            width: { xs: '92%', sm: 520 },
-            maxWidth: 520,
-            mx: 'auto',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            boxShadow: '0 32px 80px rgba(109, 83, 244, 0.25)',
-            outline: 'none',
-            backgroundColor: '#ffffff',
-            p: { xs: 3, sm: 4 },
-          }}
-        >
-          <IconButton
-            onClick={onClose}
-            sx={{
-              position: 'absolute',
-              top: 16,
-              right: 16,
-              width: 36,
-              height: 36,
-              backgroundColor: 'rgba(0,0,0,0.04)',
-              '&:hover': { backgroundColor: 'rgba(109, 83, 244, 0.1)' },
-            }}
-          >
-            <CloseIcon sx={{ fontSize: 20, color: '#555' }} />
-          </IconButton>
-
-          <Typography sx={{ fontSize: '1.4rem', fontWeight: 800, color: '#1a1a2e', mb: 1 }}>
-            DOWNLOAD LABAKA
-          </Typography>
-          <Typography sx={{ fontSize: '0.9rem', color: '#666', mb: 3 }}>
-            Scan the QR code or use the links below to download the app directly to your mobile device.
-          </Typography>
-
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
-            <Box
-              component="img"
-              src={qrCodeUrl}
-              alt="Scan to download"
-              sx={{ width: 180, height: 180, borderRadius: '16px', border: '1px solid #eee', p: 1 }}
-            />
-          </Box>
-
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button
-              variant="contained"
-              onClick={onClose}
-              startIcon={<AppleIcon />}
-              sx={{
-                borderRadius: '50px',
-                backgroundColor: '#000',
-                color: '#fff',
-                px: 3,
-                py: 1.2,
-                textTransform: 'none',
-                fontWeight: 600,
-                '&:hover': { backgroundColor: '#222' },
-              }}
-            >
-              App Store
-            </Button>
-            <Button
-              component="a"
-              href={playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="contained"
-              startIcon={<PlayStoreIcon />}
-              sx={{
-                borderRadius: '50px',
-                backgroundColor: BRAND,
-                color: '#fff',
-                px: 3,
-                py: 1.2,
-                textTransform: 'none',
-                fontWeight: 600,
-                '&:hover': { backgroundColor: BRAND_DARK },
-              }}
-            >
-              Google Play
-            </Button>
-          </Box>
-        </Box>
-      </Fade>
-    </Modal>
-  );
-}
 
 // ─── MAIN CONTACT US PAGE COMPONENT ─────────────────────────────────────
 export default function ContactUs() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
   // Form State
@@ -228,174 +87,8 @@ export default function ContactUs() {
         flexDirection: 'column',
       }}
     >
-      {/* ─── HEADER / NAVBAR ────────────────────────────────────────────── */}
-      <Box
-        component="header"
-        sx={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1100,
-          backgroundColor: 'rgba(255, 255, 255, 0.92)',
-          backdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(0,0,0,0.06)',
-          py: 2,
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            {/* Brand Logo */}
-            <Box
-              component="a"
-              href="/"
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1.5,
-                textDecoration: 'none',
-              }}
-            >
-              <Box
-                component="img"
-                src="/LBK FINAL LOGO PNG (2) 3.svg"
-                alt="LABAKA Logo"
-                sx={{ height: 42, width: 'auto' }}
-              />
-              <Typography
-                sx={{
-                  fontWeight: 800,
-                  fontSize: '1.35rem',
-                  letterSpacing: '0.15em',
-                  color: '#1e1b4b',
-                  fontFamily: "'Outfit', sans-serif",
-                }}
-              >
-                LABAKA
-              </Typography>
-            </Box>
-
-            {/* Desktop Navigation Links */}
-            <Box
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                alignItems: 'center',
-                gap: 4,
-              }}
-            >
-              {NAV_LINKS.map((link) => (
-                <Typography
-                  key={link.label}
-                  component="a"
-                  href={link.href}
-                  sx={{
-                    fontSize: '0.875rem',
-                    fontWeight: link.active ? 800 : 700,
-                    letterSpacing: '0.05em',
-                    color: link.active ? BRAND : '#4c4d6d',
-                    textDecoration: 'none',
-                    position: 'relative',
-                    transition: 'all 0.2s ease',
-                    '&:hover': {
-                      color: BRAND,
-                    },
-                    '&::after': link.active
-                      ? {
-                          content: '""',
-                          position: 'absolute',
-                          bottom: -6,
-                          left: 0,
-                          right: 0,
-                          height: 2.5,
-                          borderRadius: 2,
-                          backgroundColor: BRAND,
-                        }
-                      : {},
-                  }}
-                >
-                  {link.label}
-                </Typography>
-              ))}
-            </Box>
-
-            {/* Header Right CTA */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Button
-                variant="contained"
-                onClick={() => setDownloadModalOpen(true)}
-                startIcon={
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <AppleIcon sx={{ fontSize: 18 }} />
-                    <PlayStoreIcon sx={{ width: 16, height: 16 }} />
-                  </Box>
-                }
-                sx={{
-                  borderRadius: '50px',
-                  backgroundColor: BRAND,
-                  color: '#fff',
-                  px: { xs: 2.5, sm: 3.5 },
-                  py: 1.1,
-                  textTransform: 'none',
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  boxShadow: '0 8px 20px rgba(109, 83, 244, 0.28)',
-                  '&:hover': {
-                    backgroundColor: BRAND_DARK,
-                    boxShadow: '0 12px 28px rgba(109, 83, 244, 0.4)',
-                    transform: 'translateY(-1px)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Download App
-              </Button>
-
-              {/* Mobile Hamburger Toggle */}
-              <IconButton
-                onClick={() => setMobileMenuOpen(true)}
-                sx={{ display: { xs: 'flex', md: 'none' }, color: '#1e1b4b' }}
-              >
-                <HamburgerMenuIcon />
-              </IconButton>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Mobile Nav Drawer */}
-      <Drawer
-        anchor="right"
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-        PaperProps={{ sx: { width: 280, p: 2 } }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
-          <IconButton onClick={() => setMobileMenuOpen(false)}>
-            <CloseMenuIcon />
-          </IconButton>
-        </Box>
-        <List>
-          {NAV_LINKS.map((link) => (
-            <ListItem
-              key={link.label}
-              component="a"
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              sx={{
-                borderRadius: '8px',
-                mb: 1,
-                backgroundColor: link.active ? 'rgba(109, 83, 244, 0.08)' : 'transparent',
-              }}
-            >
-              <ListItemText
-                primary={link.label}
-                primaryTypographyProps={{
-                  fontWeight: link.active ? 800 : 600,
-                  color: link.active ? BRAND : '#1e1b4b',
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      {/* Shared Navbar */}
+      <Navbar onOpenDownloadModal={() => setDownloadModalOpen(true)} />
 
       {/* ─── MAIN CONTENT SECTION ────────────────────────────────────────── */}
       <Box component="main" sx={{ flexGrow: 1, py: { xs: 5, md: 8 } }}>
@@ -462,11 +155,13 @@ export default function ContactUs() {
                 color: '#555870',
                 maxWidth: 580,
                 lineHeight: 1.6,
+                mb: 3,
               }}
             >
-              Whether you have a question, feedback, partnership inquiry, or simply want to say
-              hello – we’re here to listen, accept , correct & help.
+              Have a question, feedback, or need help? Reach out to our team and we'll get back to you as soon as possible.
             </Typography>
+
+            <DownloadAppButton onClick={() => setDownloadModalOpen(true)} />
           </Box>
 
           {/* Grid Layout: Left Form + Right Visuals */}
@@ -1125,150 +820,8 @@ export default function ContactUs() {
         </Container>
       </Box>
 
-      {/* ─── FOOTER ────────────────────────────────────────────────────── */}
-      <Box
-        component="footer"
-        sx={{
-          py: { xs: 4, md: 6 },
-          background: `linear-gradient(135deg, #3a1f8e 0%, ${BRAND_DARK} 30%, ${BRAND} 60%, ${BRAND_LIGHT} 100%)`,
-          position: 'relative',
-          overflow: 'hidden',
-          color: '#fff',
-          mt: 'auto',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '-50%',
-            right: '-20%',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            bottom: '-40%',
-            left: '-15%',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          },
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={{ xs: 3, md: 4 }}>
-            {/* Brand column */}
-            <Grid item xs={12} md={6}>
-              <Box
-                component="a"
-                href="/Labaka/home"
-                sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5, textDecoration: 'none' }}
-              >
-                <Box
-                  component="img"
-                  src="/LBK FINAL LOGO PNG (2) 3.svg"
-                  alt="Labaka Logo"
-                  sx={{ height: 38, width: 'auto', objectFit: 'contain', filter: 'brightness(1.2)' }}
-                />
-                <Typography
-                  sx={{
-                    fontWeight: 800,
-                    letterSpacing: '0.15em',
-                    fontSize: '1.2rem',
-                    color: '#fff',
-                    fontFamily: "'Outfit', sans-serif",
-                  }}
-                >
-                  LABAKA
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  color: 'rgba(255,255,255,0.8)',
-                  fontSize: '0.875rem',
-                  lineHeight: 1.6,
-                  mb: 2.5,
-                  maxWidth: 320,
-                }}
-              >
-                The all-in-one platform to meet people, discover events, find opportunities, and build communities.
-              </Typography>
-              {/* Social icons */}
-              <Box sx={{ display: 'flex', gap: 1.2 }}>
-                {[
-                  { icon: <InstagramIcon sx={{ fontSize: 18 }} />, href: '#', label: 'Instagram' },
-                  { icon: <TwitterIcon sx={{ fontSize: 18 }} />, href: '#', label: 'Twitter' },
-                  { icon: <FacebookIcon sx={{ fontSize: 18 }} />, href: '#', label: 'Facebook' },
-                  { icon: <LinkedInIcon sx={{ fontSize: 18 }} />, href: '#', label: 'LinkedIn' },
-                ].map((s) => (
-                  <IconButton
-                    key={s.label}
-                    component="a"
-                    href={s.href}
-                    aria-label={s.label}
-                    sx={{
-                      color: '#fff',
-                      backgroundColor: 'rgba(255,255,255,0.15)',
-                      borderRadius: '12px',
-                      width: 38,
-                      height: 38,
-                      '&:hover': {
-                        backgroundColor: 'rgba(255,255,255,0.3)',
-                        transform: 'translateY(-2px)',
-                      },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    {s.icon}
-                  </IconButton>
-                ))}
-              </Box>
-            </Grid>
-
-            {/* Quick Links Column */}
-            <Grid item xs={6} sm={3} md={3}>
-              <Typography sx={{ fontWeight: 700, fontSize: '0.95rem', mb: 2, color: '#fff' }}>
-                Quick Links
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.2 }}>
-                <Typography component="a" href="/Labaka/home#features" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>Features</Typography>
-                <Typography component="a" href="/Labaka/home#download" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>Download</Typography>
-              </Box>
-            </Grid>
-
-            {/* Legal Column */}
-            <Grid item xs={6} sm={3} md={3}>
-              <Typography sx={{ fontWeight: 700, fontSize: '0.95rem', mb: 2, color: '#fff' }}>
-                Legal
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.2 }}>
-                <Typography component="a" href="/Labaka/AboutUs/" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>About Us</Typography>
-                <Typography component="a" href="/Labaka/PrivacyPolicy/" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>Privacy Policy</Typography>
-                <Typography component="a" href="/Labaka/terms-and-conditions/" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>Terms &amp; Conditions</Typography>
-                <Typography component="a" href="/Labaka/Faqs/" sx={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff', textDecoration: 'underline' } }}>FAQ</Typography>
-              </Box>
-            </Grid>
-          </Grid>
-
-          {/* Bottom Bar */}
-          <Box
-            sx={{
-              mt: 4,
-              pt: 3,
-              borderTop: '1px solid rgba(255,255,255,0.15)',
-              textAlign: 'center',
-            }}
-          >
-            <Typography sx={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>
-              © 2026 Labaka. All rights reserved.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+      {/* Shared Footer */}
+      <Footer onOpenDownloadModal={() => setDownloadModalOpen(true)} />
 
       {/* Download Modal */}
       <DownloadAppModal open={downloadModalOpen} onClose={() => setDownloadModalOpen(false)} />

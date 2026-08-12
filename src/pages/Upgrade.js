@@ -5,170 +5,27 @@ import {
   Button,
   Container,
   Grid,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Modal,
-  Fade,
 } from '@mui/material';
 import {
-  Menu as HamburgerMenuIcon,
-  Close as CloseMenuIcon,
-  Close as CloseIcon,
-  Apple as AppleIcon,
   Check as CheckIcon,
   WorkspacePremium as CrownIcon,
   CardGiftcard as RibbonIcon,
   WorkOutline as BriefcaseIcon,
-  Instagram as InstagramIcon,
-  Twitter as TwitterIcon,
-  Facebook as FacebookIcon,
-  LinkedIn as LinkedInIcon,
 } from '@mui/icons-material';
+
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import DownloadAppButton from '../components/DownloadAppButton';
+import DownloadAppModal from '../components/DownloadAppModal';
 
 // ─── Brand Colors ───────────────────────────────────────────────────────
 const BRAND = '#6D53F4';
 const BRAND_LIGHT = '#8B73FF';
 const BRAND_DARK = '#5A3FD6';
 
-const NAV_LINKS = [
-  { label: 'POLICY & FAQ', href: '/Labaka/PrivacyPolicy/', isScroll: false },
-  { label: 'UPGRADE', href: '/upgrade', isScroll: false, active: true },
-  { label: 'ABOUT US', href: '/Labaka/AboutUs/', isScroll: false },
-  { label: 'CONTACT US', href: '/contact', isScroll: false },
-];
 
-// ─── Google Play SVG Icon ───────────────────────────────────────────────
-const PlayStoreIcon = ({ sx = {} }) => (
-  <Box
-    component="svg"
-    viewBox="0 0 24 24"
-    sx={{ width: 20, height: 20, fill: 'currentColor', ...sx }}
-  >
-    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-  </Box>
-);
 
-// ─── Download Modal Component ───────────────────────────────────────────
-function DownloadAppModal({ open, onClose }) {
-  const playStoreUrl = 'https://play.google.com/store';
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(playStoreUrl)}&bgcolor=ffffff&color=000000&margin=8`;
 
-  return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      closeAfterTransition
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backdropFilter: 'blur(8px)',
-      }}
-    >
-      <Fade in={open}>
-        <Box
-          sx={{
-            position: 'relative',
-            width: { xs: '92%', sm: 520 },
-            maxWidth: 520,
-            mx: 'auto',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            boxShadow: '0 32px 80px rgba(109, 83, 244, 0.25)',
-            background: '#ffffff',
-            p: { xs: 3, sm: 4 },
-            textAlign: 'center',
-          }}
-        >
-          <IconButton
-            onClick={onClose}
-            sx={{
-              position: 'absolute',
-              top: 16,
-              right: 16,
-              color: '#64748b',
-              backgroundColor: '#f1f5f9',
-              '&:hover': { backgroundColor: '#e2e8f0' },
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-
-          <Typography sx={{ fontSize: '1.5rem', fontWeight: 800, color: '#1e293b', mb: 1 }}>
-            Download Labaka App
-          </Typography>
-          <Typography sx={{ fontSize: '0.95rem', color: '#64748b', mb: 3 }}>
-            Scan the QR code or click below to get our app directly on your mobile device.
-          </Typography>
-
-          <Box
-            sx={{
-              display: 'inline-block',
-              p: 2,
-              borderRadius: '20px',
-              backgroundColor: '#f8fafc',
-              border: '2px dashed #cbd5e1',
-              mb: 3,
-            }}
-          >
-            <Box
-              component="img"
-              src={qrCodeUrl}
-              alt="Scan QR Code"
-              sx={{ width: 180, height: 180, borderRadius: '12px', display: 'block' }}
-            />
-          </Box>
-
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={12} sm={6}>
-              <Button
-                fullWidth
-                variant="contained"
-                href="https://apple.com/app-store/"
-                target="_blank"
-                startIcon={<AppleIcon />}
-                sx={{
-                  py: 1.2,
-                  borderRadius: '12px',
-                  backgroundColor: '#000000',
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  '&:hover': { backgroundColor: '#1e293b' },
-                }}
-              >
-                App Store
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Button
-                fullWidth
-                variant="contained"
-                href={playStoreUrl}
-                target="_blank"
-                startIcon={<PlayStoreIcon />}
-                sx={{
-                  py: 1.2,
-                  borderRadius: '12px',
-                  backgroundColor: BRAND,
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  '&:hover': { backgroundColor: BRAND_DARK },
-                }}
-              >
-                Google Play
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-      </Fade>
-    </Modal>
-  );
-}
 
 // ─── Circle Badge Component for Comparison Table ───────────────────────
 const CircleBadge = ({ variant, text }) => {
@@ -278,10 +135,7 @@ const MoneyBagSVG = () => (
 
 // ─── Main Upgrade Page Component ────────────────────────────────────────
 export default function Upgrade() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [downloadOpen, setDownloadOpen] = useState(false);
-
-  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   const featureRows = [
     {
@@ -359,165 +213,8 @@ export default function Upgrade() {
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      {/* ─── NAVBAR ────────────────────────────────────────────────────────── */}
-      <Box
-        component="header"
-        sx={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1100,
-          backgroundColor: 'rgba(255, 255, 255, 0.92)',
-          backdropFilter: 'blur(16px)',
-          borderBottom: '1px solid rgba(109, 83, 244, 0.1)',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              height: { xs: 68, md: 80 },
-            }}
-          >
-            {/* Logo */}
-            <Box
-              component="a"
-              href="/"
-              sx={{ display: 'flex', alignItems: 'center', gap: 1.5, textDecoration: 'none' }}
-            >
-              <Box
-                component="img"
-                src="/LBK FINAL LOGO PNG (2) 3.svg"
-                alt="Labaka Logo"
-                sx={{ height: { xs: 32, md: 40 }, width: 'auto' }}
-              />
-              <Typography
-                sx={{
-                  fontSize: { xs: '1.25rem', md: '1.4rem' },
-                  fontWeight: 900,
-                  letterSpacing: '1px',
-                  color: '#1E1B4B',
-                }}
-              >
-                LABAKA
-              </Typography>
-            </Box>
-
-            {/* Desktop Nav Links */}
-            <Box
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                alignItems: 'center',
-                gap: 4,
-              }}
-            >
-              {NAV_LINKS.map((link) => (
-                <Typography
-                  key={link.label}
-                  component="a"
-                  href={link.href}
-                  sx={{
-                    fontSize: '0.85rem',
-                    fontWeight: link.active ? 800 : 700,
-                    letterSpacing: '0.5px',
-                    color: link.active ? BRAND : '#475569',
-                    textDecoration: 'none',
-                    position: 'relative',
-                    transition: 'all 0.2s ease',
-                    '&:hover': { color: BRAND },
-                    ...(link.active && {
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        bottom: -4,
-                        left: 0,
-                        right: 0,
-                        height: 2,
-                        borderRadius: 1,
-                        backgroundColor: BRAND,
-                      },
-                    }),
-                  }}
-                >
-                  {link.label}
-                </Typography>
-              ))}
-            </Box>
-
-            {/* Right Action */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Button
-                variant="contained"
-                onClick={() => setDownloadOpen(true)}
-                sx={{
-                  backgroundColor: BRAND,
-                  color: '#ffffff',
-                  borderRadius: '30px',
-                  px: { xs: 2.5, md: 3 },
-                  py: 1,
-                  fontSize: '0.875rem',
-                  fontWeight: 700,
-                  textTransform: 'none',
-                  boxShadow: '0 8px 24px rgba(109, 83, 244, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  '&:hover': {
-                    backgroundColor: BRAND_DARK,
-                    boxShadow: '0 12px 28px rgba(109, 83, 244, 0.4)',
-                  },
-                }}
-              >
-                Download App
-                <AppleIcon sx={{ fontSize: 18 }} />
-                <PlayStoreIcon sx={{ width: 16, height: 16 }} />
-              </Button>
-
-              <IconButton
-                onClick={handleDrawerToggle}
-                sx={{ display: { md: 'none' }, color: '#1E1B4B' }}
-              >
-                <HamburgerMenuIcon />
-              </IconButton>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Mobile Navigation Drawer */}
-      <Drawer
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        PaperProps={{ sx: { width: 280, p: 2 } }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography sx={{ fontWeight: 800, color: BRAND }}>MENU</Typography>
-          <IconButton onClick={handleDrawerToggle}>
-            <CloseMenuIcon />
-          </IconButton>
-        </Box>
-        <List>
-          {NAV_LINKS.map((link) => (
-            <ListItem
-              button
-              key={link.label}
-              component="a"
-              href={link.href}
-              onClick={handleDrawerToggle}
-            >
-              <ListItemText
-                primary={link.label}
-                primaryTypographyProps={{
-                  fontWeight: link.active ? 800 : 600,
-                  color: link.active ? BRAND : '#334155',
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      {/* Shared Navbar */}
+      <Navbar onOpenDownloadModal={() => setDownloadOpen(true)} />
 
       {/* ─── HERO SECTION ─────────────────────────────────────────────────── */}
       <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 7 }, pb: { xs: 4, md: 6 } }}>
@@ -572,11 +269,15 @@ export default function Upgrade() {
                   color: '#475569',
                   maxWidth: 480,
                   lineHeight: 1.6,
-                  mb: 4,
+                  mb: 3,
                 }}
               >
                 Choose how you want to grow your network and unlock premium features.
               </Typography>
+
+              <Box sx={{ mb: 3 }}>
+                <DownloadAppButton onClick={() => setDownloadOpen(true)} />
+              </Box>
 
               {/* Social Proof */}
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -1073,107 +774,8 @@ export default function Upgrade() {
         </Box>
       </Container>
 
-      {/* ─── FOOTER ────────────────────────────────────────────────────────── */}
-      <Box
-        component="footer"
-        sx={{
-          backgroundColor: '#0F172A',
-          color: '#ffffff',
-          pt: 8,
-          pb: 6,
-          mt: 'auto',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid container spacing={4} sx={{ mb: 6 }}>
-            {/* Logo & Tagline */}
-            <Grid item xs={12} md={6}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
-                <Box
-                  component="img"
-                  src="/LBK FINAL LOGO PNG (2) 3.svg"
-                  alt="Labaka Logo"
-                  sx={{ height: 36, filter: 'brightness(1.2)' }}
-                />
-                <Typography sx={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '1px' }}>
-                  LABAKA
-                </Typography>
-              </Box>
-              <Typography sx={{ color: '#94A3B8', fontSize: '0.9rem', maxWidth: 300, lineHeight: 1.6, mb: 2 }}>
-                Connecting people, events, and opportunities in real time. Discover what's happening around you.
-              </Typography>
-              <Box sx={{ display: 'flex', gap: 1 }}>
-                <IconButton size="small" sx={{ color: '#94A3B8', '&:hover': { color: '#fff' } }}>
-                  <InstagramIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" sx={{ color: '#94A3B8', '&:hover': { color: '#fff' } }}>
-                  <TwitterIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" sx={{ color: '#94A3B8', '&:hover': { color: '#fff' } }}>
-                  <FacebookIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" sx={{ color: '#94A3B8', '&:hover': { color: '#fff' } }}>
-                  <LinkedInIcon fontSize="small" />
-                </IconButton>
-              </Box>
-            </Grid>
-
-            {/* Quick Links */}
-            <Grid item xs={6} sm={3} md={3}>
-              <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, mb: 2 }}>
-                Quick Links
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <Typography component="a" href="/Labaka/home" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  Home
-                </Typography>
-                <Typography component="a" href="/Labaka/PrivacyPolicy/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  Policy &amp; FAQ
-                </Typography>
-                <Typography component="a" href="/Labaka/Upgrade/" sx={{ color: '#fff', fontWeight: 700, textDecoration: 'none', fontSize: '0.875rem' }}>
-                  Upgrade
-                </Typography>
-                <Typography component="a" href="/Labaka/AboutUs/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  About Us
-                </Typography>
-                <Typography component="a" href="/Labaka/ContactUs/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  Contact Us
-                </Typography>
-              </Box>
-            </Grid>
-
-            {/* Legal */}
-            <Grid item xs={6} sm={3} md={3}>
-              <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, mb: 2 }}>
-                Legal
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <Typography component="a" href="/Labaka/PrivacyPolicy/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  Privacy Policy
-                </Typography>
-                <Typography component="a" href="/Labaka/terms-and-conditions/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  Terms &amp; Conditions
-                </Typography>
-                <Typography component="a" href="/Labaka/Faqs/" sx={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem', '&:hover': { color: '#fff' } }}>
-                  FAQs
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-
-          <Box
-            sx={{
-              pt: 3,
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-              textAlign: 'center',
-            }}
-          >
-            <Typography sx={{ color: '#64748B', fontSize: '0.8rem' }}>
-              © {new Date().getFullYear()} Labaka. All rights reserved.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+      {/* Shared Footer */}
+      <Footer onOpenDownloadModal={() => setDownloadOpen(true)} />
 
       {/* Download Modal */}
       <DownloadAppModal open={downloadOpen} onClose={() => setDownloadOpen(false)} />

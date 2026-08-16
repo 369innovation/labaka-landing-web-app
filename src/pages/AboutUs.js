@@ -146,7 +146,7 @@ export default function AboutUs() {
             Why We Built Labaka
           </Typography>
           <Typography sx={{ color: '#5a6175', fontSize: '1rem', lineHeight: 1.8, mb: 2 }}>
-            Traditional platforms separate personal socializing from professional networking. We noticed that real life doesn't work in silos—your next great project collaborator might be someone you meet at a casual coffee meetup, and your business partner might share your weekend passion for hiking.
+            Traditional platforms separate personal socializing from professional networking. We noticed that real life doesn't work in silos-your next great project collaborator might be someone you meet at a casual coffee meetup, and your business partner might share your weekend passion for hiking.
           </Typography>
           <Typography sx={{ color: '#5a6175', fontSize: '1rem', lineHeight: 1.8 }}>
             Labaka was created by 369innovation to unite both worlds. We empower people to seamlessly navigate between Casual and Formal modes, discovering nearby individuals, events, and opportunities in real time.
@@ -190,7 +190,7 @@ export default function AboutUs() {
               zIndex: 1,
             }}
           >
-            — Labaka Vision Statement
+            - Labaka Vision Statement
           </Typography>
         </Box>
 

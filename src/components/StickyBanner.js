@@ -36,7 +36,7 @@ export default function StickyBanner() {
           borderRadius: { xs: '20px', sm: '28px' },
           boxShadow: '0 12px 40px rgba(109, 40, 217, 0.4), 0 0 20px rgba(139, 92, 246, 0.25)',
           border: '1px solid rgba(196, 181, 253, 0.3)',
-          padding: { xs: '10px 16px', sm: '12px 24px' },
+          padding: { xs: '14px 16px 12px', sm: '12px 24px' },
           display: 'flex',
           alignItems: 'center',
           backdropFilter: 'blur(12px)',
@@ -46,10 +46,12 @@ export default function StickyBanner() {
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'center',
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'stretch', sm: 'center' },
             width: '100%',
             justifyContent: 'space-between',
-            gap: { xs: 1, sm: 2 },
+            gap: { xs: 1.5, sm: 2 },
+            position: 'relative',
           }}
         >
           {/* Left Side: Rocket + Text */}
@@ -59,19 +61,20 @@ export default function StickyBanner() {
               alignItems: 'center',
               gap: { xs: 1.5, sm: 2.5 },
               minWidth: 0,
+              pr: { xs: 4, sm: 0 },
             }}
           >
-              <Box
-                component="img"
-                src="/Rocket.png"
-                alt="Rocket"
-                sx={{
-                  width: { xs: 44, sm: 52 },
-                  height: { xs: 44, sm: 52 },
-                  objectFit: 'contain',
-                  flexShrink: 0,
-                }}
-              />
+            <Box
+              component="img"
+              src="/Rocket.png"
+              alt="Rocket"
+              sx={{
+                width: { xs: 44, sm: 52 },
+                height: { xs: 44, sm: 52 },
+                objectFit: 'contain',
+                flexShrink: 0,
+              }}
+            />
 
             {/* Headline & Subtitle */}
             <Box sx={{ minWidth: 0 }}>
@@ -82,7 +85,7 @@ export default function StickyBanner() {
                   fontWeight: 700,
                   fontSize: { xs: '0.95rem', sm: '1.15rem', md: '1.25rem' },
                   letterSpacing: '-0.01em',
-                  lineHeight: 1.2,
+                  lineHeight: 1.25,
                   display: 'flex',
                   alignItems: 'center',
                   flexWrap: 'wrap',
@@ -107,13 +110,13 @@ export default function StickyBanner() {
                 variant="body2"
                 sx={{
                   color: 'rgba(255, 255, 255, 0.78)',
-                  fontSize: { xs: '0.72rem', sm: '0.85rem', md: '0.9rem' },
+                  fontSize: { xs: '0.74rem', sm: '0.85rem', md: '0.9rem' },
                   fontWeight: 400,
-                  mt: 0.3,
-                  whiteSpace: 'nowrap',
+                  mt: 0.5,
+                  whiteSpace: { xs: 'normal', sm: 'nowrap' },
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                  display: { xs: 'none', sm: 'block' },
+                  display: 'block',
                 }}
               >
                 We&apos;re building the next way to connect in real time.
@@ -122,16 +125,25 @@ export default function StickyBanner() {
           </Box>
 
           {/* Right Side: Action Button + Close */}
-          <Box sx={{ flexShrink: 0, ml: 1, display: 'flex', alignItems: 'center', gap: { xs: 0.5, sm: 1.5 } }}>
+          <Box 
+            sx={{ 
+              flexShrink: 0, 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: { xs: 0.5, sm: 1.5 },
+              width: { xs: '100%', sm: 'auto' },
+            }}
+          >
             <Button
               onClick={handleOpen}
+              fullWidth
               sx={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%)',
                 color: '#FFFFFF',
                 fontWeight: 600,
-                fontSize: { xs: '0.78rem', sm: '0.88rem', md: '0.95rem' },
+                fontSize: { xs: '0.82rem', sm: '0.88rem', md: '0.95rem' },
                 textTransform: 'none',
-                padding: { xs: '8px 16px', sm: '10px 22px' },
+                padding: { xs: '10px 20px', sm: '10px 22px' },
                 borderRadius: '50px',
                 border: '1.5px solid rgba(255, 255, 255, 0.35)',
                 boxShadow: '0 0 12px rgba(192, 132, 252, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
@@ -139,16 +151,18 @@ export default function StickyBanner() {
                 transition: 'all 0.25s ease-in-out',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: 0.5,
                 backdropFilter: 'blur(8px)',
+                width: '100%',
                 '&:hover': {
                   background: 'linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.14) 100%)',
                   boxShadow: '0 0 20px rgba(192, 132, 252, 0.5), inset 0 1px 0 rgba(255,255,255,0.3)',
-                  transform: 'translateY(-1px) scale(1.02)',
+                  transform: 'translateY(-1px) scale(1.01)',
                   borderColor: 'rgba(255, 255, 255, 0.5)',
                 },
                 '&:active': {
-                  transform: 'translateY(0) scale(0.98)',
+                  transform: 'translateY(0) scale(0.99)',
                 },
               }}
             >
@@ -161,8 +175,11 @@ export default function StickyBanner() {
               aria-label="Dismiss banner"
               sx={{
                 color: 'rgba(255,255,255,0.7)',
-                width: { xs: 30, sm: 36 },
-                height: { xs: 30, sm: 36 },
+                position: { xs: 'absolute', sm: 'static' },
+                top: { xs: -2, sm: 'auto' },
+                right: { xs: -6, sm: 'auto' },
+                width: { xs: 32, sm: 36 },
+                height: { xs: 32, sm: 36 },
                 '&:hover': {
                   color: '#FFFFFF',
                   backgroundColor: 'rgba(255,255,255,0.1)',

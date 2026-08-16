@@ -20,31 +20,23 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   People as PeopleIcon,
-  LocationCity as CityIcon,
-  Handshake as HandshakeIcon,
-  Event as EventIcon,
   Explore as ExploreIcon,
   Groups as GroupsIcon,
   Work as WorkIcon,
   Security as SecurityIcon,
   Notifications as NotificationsIcon,
   Speed as SpeedIcon,
-  FormatQuote as QuoteIcon,
-  Apple as AppleIcon,
   Menu as MenuIcon,
   Close as CloseIcon,
-  Instagram as InstagramIcon,
-  Twitter as TwitterIcon,
-  Facebook as FacebookIcon,
-  LinkedIn as LinkedInIcon,
-  Email as EmailIcon,
-  Phone as PhoneIcon,
-  LocationOn as LocationOnIcon,
   CheckCircleOutline as CheckCircleOutlineIcon,
   CheckCircle as CheckCircleIcon,
   ArrowBack as ArrowBackIcon,
   ArrowForward as ArrowForwardIcon,
   Star as StarIcon,
+  Language as GlobeIcon,
+  AccountCircle as UserIcon,
+  Masks as MaskIcon,
+  VerifiedUser as ShieldIcon,
 } from '@mui/icons-material';
 
 import Navbar from '../components/Navbar';
@@ -108,10 +100,58 @@ const NAV_LINKS = [
 ];
 
 const STATS = [
-  { icon: <PeopleIcon />, value: 5, suffix: 'K+', label: 'Active Users' },
-  { icon: <CityIcon />, value: 2, suffix: '+', label: 'Cities' },
-  { icon: <HandshakeIcon />, value: 1, suffix: 'K+', label: 'Connections Made' },
-  { icon: <EventIcon />, value: 4, suffix: '+', label: 'Events Hosted' },
+  {
+    icon: (
+      <Box
+        component="img"
+        src="/ActiveUser.svg"
+        alt="Active Users"
+        sx={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+      />
+    ),
+    value: 5,
+    suffix: 'K+',
+    label: 'Active Users',
+  },
+  {
+    icon: (
+      <Box
+        component="img"
+        src="/Cities.svg"
+        alt="Cities"
+        sx={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+      />
+    ),
+    value: 2,
+    suffix: '+',
+    label: 'Cities',
+  },
+  {
+    icon: (
+      <Box
+        component="img"
+        src="/ConnectionsMade.svg"
+        alt="Connections Made"
+        sx={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+      />
+    ),
+    value: 1,
+    suffix: 'K+',
+    label: 'Connections Made',
+  },
+  {
+    icon: (
+      <Box
+        component="img"
+        src="/EventHosted.svg"
+        alt="Events Hosted"
+        sx={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+      />
+    ),
+    value: 4,
+    suffix: '+',
+    label: 'Events Hosted',
+  },
 ];
 
 const FEATURES = [
@@ -217,7 +257,7 @@ function LandingNavbar({ onOpenDownloadModal }) {
             border: '1px solid rgba(255,255,255,0.5)',
           }}
         >
-          {/* Left — Logo */}
+          {/* Left - Logo */}
           <Box
             component="a"
             href="/"
@@ -242,7 +282,7 @@ function LandingNavbar({ onOpenDownloadModal }) {
             </Typography>
           </Box>
 
-          {/* Center — Nav Links (desktop only) */}
+          {/* Center - Nav Links (desktop only) */}
           {!isMobile && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: { md: 3, lg: 4.5 } }}>
               {NAV_LINKS.map((link) => (
@@ -282,7 +322,7 @@ function LandingNavbar({ onOpenDownloadModal }) {
             </Box>
           )}
 
-          {/* Right — Download App + Store Icons (desktop) / Hamburger (mobile) */}
+          {/* Right - Download App + Store Icons (desktop) / Hamburger (mobile) */}
           {!isMobile ? (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0 }}>
               <Button
@@ -586,52 +626,32 @@ function HeroSection({ onOpenDownloadModal }) {
                 </Box>
               </Box>
 
-              {/* Mobile App Preview Image (shown on mobile screens only) */}
-              <Box
-                sx={{
-                  display: { xs: 'flex', md: 'none' },
-                  justifyContent: 'center',
-                  mt: 4,
-                  position: 'relative',
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/PhoneMockup.svg"
-                  alt="Labaka App Preview"
-                  sx={{
-                    width: '100%',
-                    maxWidth: { xs: 220, sm: 260 },
-                    height: 'auto',
-                    filter: 'drop-shadow(0 12px 28px rgba(109,83,244,0.2))',
-                  }}
-                />
-              </Box>
             </Box>
           </Grid>
 
-          {/* Right — Hero Collage with Phone, Banners & Location Profiles */}
+          {/* Right - Hero Collage with Phone, Banners & Location Profiles */}
           <Grid item xs={12} md={6}>
             <Box
               sx={{
                 position: 'relative',
-                display: { xs: 'none', md: 'block' },
-                minHeight: 560,
+                display: 'block',
+                minHeight: { xs: 400, sm: 500, md: 560 },
+                mt: { xs: 4, md: 0 },
                 opacity: heroInView ? 1 : 0,
                 transform: heroInView ? 'translateX(0)' : 'translateX(60px)',
                 transition: 'all 1s cubic-bezier(.4,0,.2,1) 0.3s',
               }}
             >
-              {/* ── MusicNight banner — top left ── */}
+              {/* ── MusicNight banner - top left ── */}
               <Box
                 component="img"
                 src="/MusicNight.svg"
                 alt="Music Night"
                 sx={{
                   position: 'absolute',
-                  width: 160,
-                  top: 20,
-                  left: -10,
+                  width: { xs: 110, sm: 140, md: 160 },
+                  top: { xs: 10, sm: 15, md: 20 },
+                  left: { xs: -5, sm: -10, md: -10 },
                   zIndex: 3,
                   filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
                   transition: 'transform 0.3s',
@@ -639,14 +659,14 @@ function HeroSection({ onOpenDownloadModal }) {
                 }}
               />
 
-              {/* ── Phone mockup — center ── */}
+              {/* ── Phone mockup - center ── */}
               <Box
                 component="img"
                 src="/PhoneMockup.svg"
                 alt="Labaka App Preview"
                 sx={{
                   position: 'absolute',
-                  width: 280,
+                  width: { xs: 180, sm: 240, md: 280 },
                   top: '50%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
@@ -654,16 +674,16 @@ function HeroSection({ onOpenDownloadModal }) {
                 }}
               />
 
-              {/* ── FreelanceTutor banner — top right ── */}
+              {/* ── FreelanceTutor banner - top right ── */}
               <Box
                 component="img"
                 src="/FreelanceTutor.svg"
                 alt="Freelance Tutor"
                 sx={{
                   position: 'absolute',
-                  width: 150,
-                  top: 10,
-                  right: -20,
+                  width: { xs: 105, sm: 130, md: 150 },
+                  top: { xs: 5, sm: 8, md: 10 },
+                  right: { xs: -5, sm: -10, md: -20 },
                   zIndex: 3,
                   filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
                   transition: 'transform 0.3s',
@@ -671,15 +691,15 @@ function HeroSection({ onOpenDownloadModal }) {
                 }}
               />
 
-              {/* ── Bike4Sale banner — bottom left ── */}
+              {/* ── Bike4Sale banner - bottom left ── */}
               <Box
                 component="img"
                 src="/Bike4Sale.svg"
                 alt="Bike For Sale"
                 sx={{
                   position: 'absolute',
-                  width: 140,
-                  bottom: 80,
+                  width: { xs: 100, sm: 125, md: 140 },
+                  bottom: { xs: 60, sm: 70, md: 80 },
                   left: 0,
                   zIndex: 3,
                   filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
@@ -688,16 +708,16 @@ function HeroSection({ onOpenDownloadModal }) {
                 }}
               />
 
-              {/* ── SpecialOffer banner — bottom right ── */}
+              {/* ── SpecialOffer banner - bottom right ── */}
               <Box
                 component="img"
                 src="/Specialoffer.svg"
                 alt="Special Offers"
                 sx={{
                   position: 'absolute',
-                  width: 160,
-                  bottom: 180,
-                  right: -10,
+                  width: { xs: 110, sm: 140, md: 160 },
+                  bottom: { xs: 120, sm: 150, md: 180 },
+                  right: { xs: -5, sm: -10, md: -10 },
                   zIndex: 3,
                   filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
                   transition: 'transform 0.3s',
@@ -712,9 +732,9 @@ function HeroSection({ onOpenDownloadModal }) {
                 alt="Location Profile"
                 sx={{
                   position: 'absolute',
-                  width: 48,
-                  top: 250,
-                  left: 60,
+                  width: { xs: 36, sm: 44, md: 48 },
+                  top: { xs: 180, sm: 220, md: 250 },
+                  left: { xs: 30, sm: 50, md: 60 },
                   zIndex: 4,
                   animation: 'float 3s ease-in-out infinite alternate',
                   '@keyframes float': {
@@ -729,9 +749,9 @@ function HeroSection({ onOpenDownloadModal }) {
                 alt="Location Profile 2"
                 sx={{
                   position: 'absolute',
-                  width: 48,
-                  top: 150,
-                  right: 50,
+                  width: { xs: 36, sm: 44, md: 48 },
+                  top: { xs: 110, sm: 130, md: 150 },
+                  right: { xs: 30, sm: 45, md: 50 },
                   zIndex: 4,
                   animation: 'float2 3.5s ease-in-out infinite alternate',
                   '@keyframes float2': {
@@ -746,9 +766,9 @@ function HeroSection({ onOpenDownloadModal }) {
                 alt="Location Profile 3"
                 sx={{
                   position: 'absolute',
-                  width: 48,
-                  bottom: 110,
-                  right: 110,
+                  width: { xs: 36, sm: 44, md: 48 },
+                  bottom: { xs: 80, sm: 100, md: 110 },
+                  right: { xs: 70, sm: 95, md: 110 },
                   zIndex: 4,
                   animation: 'float3 2.5s ease-in-out infinite alternate',
                   '@keyframes float3': {
@@ -857,13 +877,9 @@ function StatItem({ stat, index, inView }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: 40,
-          height: 40,
-          borderRadius: '12px',
-          backgroundColor: `rgba(109,83,244,0.08)`,
-          color: BRAND,
+          width: { xs: 44, md: 54 },
+          height: { xs: 44, md: 54 },
           flexShrink: 0,
-          '& .MuiSvgIcon-root': { fontSize: 20 },
         }}
       >
         {stat.icon}
@@ -902,8 +918,8 @@ function MeetPeopleSection({ onOpenDownloadModal }) {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const bulletPoints = [
-    'Live Location Discovery',
-    'Smart Matching',
+    'Real Time Location Discovery',
+    'Smart Connect',
     'Verified & Safe',
   ];
 
@@ -1384,6 +1400,59 @@ function TwoModesSection() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
+  // Slider dragging state variables and handlers
+  const containerRef = useRef(null);
+  const [dragLeft, setDragLeft] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handlePointerDown = (e) => {
+    setIsDragging(true);
+    updateDrag(e.clientX);
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e) => {
+    if (isDragging) {
+      updateDrag(e.clientX);
+    }
+  };
+
+  const handlePointerUp = (e) => {
+    if (isDragging) {
+      setIsDragging(false);
+      e.currentTarget.releasePointerCapture(e.pointerId);
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      if (x > rect.width / 2) {
+        setIsCasual(false);
+      } else {
+        setIsCasual(true);
+      }
+      setDragLeft(null);
+    }
+  };
+
+  const handlePointerCancel = (e) => {
+    if (isDragging) {
+      setIsDragging(false);
+      e.currentTarget.releasePointerCapture(e.pointerId);
+      setDragLeft(null);
+    }
+  };
+
+  const updateDrag = (clientX) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const pillWidth = rect.width / 2;
+    let leftPos = x - pillWidth / 2;
+    const minLeft = 4;
+    const maxLeft = rect.width - pillWidth - 4;
+    leftPos = Math.max(minLeft, Math.min(leftPos, maxLeft));
+    setDragLeft(leftPos);
+  };
+
   return (
     <Box
       ref={ref}
@@ -1454,6 +1523,11 @@ function TwoModesSection() {
 
               {/* Toggle Button Container */}
               <Box
+                ref={containerRef}
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerCancel}
                 sx={{
                   position: 'relative',
                   display: 'inline-flex',
@@ -1463,6 +1537,9 @@ function TwoModesSection() {
                   p: '4px',
                   boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.06)',
                   maxWidth: '100%',
+                  cursor: 'pointer',
+                  userSelect: 'none',
+                  touchAction: 'none',
                 }}
               >
                 {/* Sliding Background Pill */}
@@ -1471,19 +1548,24 @@ function TwoModesSection() {
                     position: 'absolute',
                     top: 4,
                     bottom: 4,
-                    left: isCasual ? 4 : 'calc(50%)',
+                    left: isDragging && dragLeft !== null ? `${dragLeft}px` : (isCasual ? 4 : 'calc(50%)'),
                     width: 'calc(50% - 4px)',
                     borderRadius: '50px',
                     backgroundColor: isCasual ? '#6D53F4' : '#1AF0D1',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transition: isDragging ? 'none' : 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     boxShadow: isCasual
                       ? '0 4px 16px rgba(109, 83, 244, 0.35)'
                       : '0 4px 16px rgba(26, 240, 209, 0.35)',
+                    cursor: 'grab',
+                    '&:active': {
+                      cursor: 'grabbing',
+                    },
                   }}
                 />
 
                 <Button
                   onClick={() => setIsCasual(true)}
+                  onMouseEnter={() => setIsCasual(true)}
                   sx={{
                     position: 'relative',
                     zIndex: 1,
@@ -1504,6 +1586,7 @@ function TwoModesSection() {
                 </Button>
                 <Button
                   onClick={() => setIsCasual(false)}
+                  onMouseEnter={() => setIsCasual(false)}
                   sx={{
                     position: 'relative',
                     zIndex: 1,
@@ -1607,7 +1690,10 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
           sx={{
             position: 'relative',
             borderRadius: '28px',
-            background: 'linear-gradient(135deg, #F5F0FF 0%, #EBE4FF 50%, #F6F1FF 100%)',
+            backgroundImage: 'url(/FoundingMmberBG.svg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
             border: '1px solid rgba(109, 83, 244, 0.25)',
             boxShadow: '0 20px 60px rgba(109, 83, 244, 0.1)',
             p: { xs: 3, sm: 5, md: 6 },
@@ -1617,20 +1703,6 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
             transition: 'all 0.7s cubic-bezier(.4,0,.2,1)',
           }}
         >
-          {/* Subtle Background Glows */}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '-30%',
-              right: '-10%',
-              width: '500px',
-              height: '500px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(109, 83, 244, 0.15) 0%, transparent 70%)',
-              pointerEvents: 'none',
-            }}
-          />
-
           <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 1 }}>
             {/* Left Content */}
             <Grid item xs={12} md={7}>
@@ -1640,24 +1712,32 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
                   sx={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: 1,
-                    px: 2,
-                    py: 0.8,
+                    gap: 1.5,
+                    px: 2.5,
+                    py: 1,
                     borderRadius: '50px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.85)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(109, 83, 244, 0.2)',
-                    boxShadow: '0 2px 10px rgba(109, 83, 244, 0.08)',
+                    backgroundColor: '#F5F3FF',
+                    border: '1px solid rgba(109, 83, 244, 0.08)',
+                    boxShadow: '0 2px 10px rgba(109, 83, 244, 0.04)',
                     mb: 3,
                   }}
                 >
-                  <Typography sx={{ fontSize: '0.85rem' }}>👑</Typography>
+                  <Box
+                    component="img"
+                    src="/smallCrown.svg"
+                    alt="Crown"
+                    sx={{
+                      width: 18,
+                      height: 16,
+                      filter: 'brightness(0) saturate(100%) invert(35%) sepia(87%) saturate(2970%) hue-rotate(238deg) brightness(99%) contrast(93%)',
+                    }}
+                  />
                   <Typography
                     sx={{
-                      fontSize: '0.75rem',
+                      fontSize: '0.8rem',
                       fontWeight: 800,
                       color: BRAND,
-                      letterSpacing: '0.12em',
+                      letterSpacing: '0.04em',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -1677,7 +1757,8 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
                     letterSpacing: '-0.02em',
                   }}
                 >
-                  Founding{' '}
+                  Founding
+                  <br />
                   <span
                     style={{
                       background: 'linear-gradient(135deg, #6D53F4 0%, #D946EF 100%)',
@@ -1698,7 +1779,9 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
                     lineHeight: 1.6,
                   }}
                 >
-                  Be among our first members and connect with people in{' '}
+                  Be among our first members and
+                  <br />
+                  connect with people in{' '}
                   <Typography
                     component="span"
                     sx={{ color: BRAND, fontWeight: 700, fontSize: 'inherit' }}
@@ -1707,139 +1790,112 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
                   </Typography>
                 </Typography>
 
-                {/* 3 MONTHS FREE Feature Card */}
+                {/* 3 MONTHS FREE Feature Card (MonthFree.svg) */}
                 <Box
+                  component="img"
+                  src="/MonthFree.svg"
+                  alt="3 Months Free on LaBaKa PRO"
                   sx={{
-                    position: 'relative',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '24px',
-                    p: { xs: 2, sm: 3.5 },
-                    boxShadow: '0 12px 36px rgba(109, 83, 244, 0.08)',
-                    border: '1px solid rgba(109, 83, 244, 0.12)',
-                    maxWidth: '100%',
+                    width: '100%',
+                    maxWidth: { xs: 380, sm: 420 },
+                    height: 'auto',
                     mb: { xs: 3, md: 4 },
+                    filter: 'drop-shadow(0 12px 36px rgba(109, 83, 244, 0.08))',
                   }}
-                >
-                  {/* 100% OFF Badge hanging at top right */}
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: -12,
-                      right: 16,
-                      backgroundColor: '#FFE4E6',
-                      color: '#E11D48',
-                      border: '1px solid #FECDD3',
-                      px: 1.5,
-                      py: 0.4,
-                      borderRadius: '50px',
-                      fontSize: '0.75rem',
-                      fontWeight: 800,
-                      boxShadow: '0 4px 12px rgba(225, 29, 72, 0.15)',
-                    }}
-                  >
-                    100% OFF
-                  </Box>
-
-                  {/* Giant 3 */}
-                  <Typography
-                    sx={{
-                      fontSize: { xs: '4.2rem', sm: '7rem' },
-                      fontWeight: 900,
-                      lineHeight: 0.9,
-                      mr: { xs: 1, sm: 2 },
-                      transform: 'translateY(-4px)',
-                      background: 'linear-gradient(180deg, #7C3AED 0%, #E056FD 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}
-                  >
-                    3
-                  </Typography>
-
-                  {/* Right side text of card */}
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: { xs: '1.05rem', sm: '1.6rem' },
-                        fontWeight: 800,
-                        color: '#150D3F',
-                        letterSpacing: '0.05em',
-                        lineHeight: 1.1,
-                      }}
-                    >
-                      MONTHS
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: { xs: '1.75rem', sm: '2.8rem' },
-                        fontWeight: 900,
-                        lineHeight: 1,
-                        background: 'linear-gradient(90deg, #6D53F4 0%, #EC4899 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        mb: 0.5,
-                      }}
-                    >
-                      FREE
-                    </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Typography sx={{ fontSize: '0.85rem', color: '#666', fontWeight: 600 }}>
-                        on LaBaKa
-                      </Typography>
-                      <Box
-                        sx={{
-                          backgroundColor: '#6D53F4',
-                          color: '#FFF',
-                          px: 1.2,
-                          py: 0.2,
-                          borderRadius: '8px',
-                          fontSize: '0.75rem',
-                          fontWeight: 800,
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 0.4,
-                        }}
-                      >
-                        PRO 👑
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
+                />
 
                 {/* Features Row */}
                 <Box
                   sx={{
                     display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: { xs: 1.5, sm: 2.5 },
+                    flexWrap: { xs: 'wrap', md: 'nowrap' },
+                    justifyContent: 'space-between',
                     alignItems: 'center',
+                    gap: { xs: 2, md: 0 },
+                    width: '100%',
+                    mt: 4,
                   }}
                 >
                   {[
-                    { icon: <PeopleIcon sx={{ fontSize: 18 }} />, label: 'Real-time Nearby People' },
-                    { icon: <ExploreIcon sx={{ fontSize: 18 }} />, label: 'Global Discovery' },
-                    { icon: <GroupsIcon sx={{ fontSize: 18 }} />, label: 'Real Users Nearby' },
-                    { icon: <SecurityIcon sx={{ fontSize: 18 }} />, label: 'Invisible Mode' },
-                    { icon: <CheckCircleOutlineIcon sx={{ fontSize: 18 }} />, label: 'Safe & Verified' },
-                  ].map((feat, idx) => (
-                    <Box
-                      key={idx}
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 0.8,
-                        color: '#4B4668',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                      }}
-                    >
-                      <Box sx={{ color: BRAND, display: 'flex' }}>{feat.icon}</Box>
-                      <Typography sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
-                        {feat.label}
-                      </Typography>
-                    </Box>
+                    {
+                      icon: <PeopleIcon sx={{ fontSize: { xs: 20, md: 24 } }} />,
+                      line1: 'Real-time',
+                      line2: 'Nearby People'
+                    },
+                    {
+                      icon: <GlobeIcon sx={{ fontSize: { xs: 20, md: 24 } }} />,
+                      line1: 'Global',
+                      line2: 'Discovery'
+                    },
+                    {
+                      icon: <UserIcon sx={{ fontSize: { xs: 20, md: 24 } }} />,
+                      line1: 'Real Users',
+                      line2: 'Nearby'
+                    },
+                    {
+                      icon: <MaskIcon sx={{ fontSize: { xs: 20, md: 24 } }} />,
+                      line1: 'Invisible',
+                      line2: 'Mode'
+                    },
+                    {
+                      icon: <ShieldIcon sx={{ fontSize: { xs: 20, md: 24 } }} />,
+                      line1: 'Safe &',
+                      line2: 'Verified'
+                    },
+                  ].map((feat, idx, arr) => (
+                    <React.Fragment key={idx}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 0.8,
+                          marginRight: { xs: 0, md: 1.2 },
+                          color: '#1A1A2E',
+                        }}
+                      >
+                        {/* Icon Container without background circle */}
+                        <Box sx={{ color: BRAND, display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+                          {feat.icon}
+                        </Box>
+
+                        {/* Text split in 2 lines without boldness */}
+                        <Box sx={{ display: 'flex', flexDirection: 'column', lineHeight: 1.25 }}>
+                          <Typography
+                            sx={{
+                              fontSize: { xs: '0.75rem', md: '0.82rem' },
+                              fontWeight: 500,
+                              color: '#2B2648',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {feat.line1}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: { xs: '0.75rem', md: '0.82rem' },
+                              fontWeight: 400,
+                              color: '#5C567A',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {feat.line2}
+                          </Typography>
+                        </Box>
+                      </Box>
+
+                      {/* Subtle Dotted Vertical Divider Line */}
+                      {idx < arr.length - 1 && (
+                        <Box
+                          sx={{
+                            display: { xs: 'none', md: 'block' },
+                            borderRight: '1.5px dotted rgba(109, 83, 244, 0.35)',
+                            height: '32px',
+                            alignSelf: 'center',
+                            mx: { md: 0.5, lg: 1 },
+                          }}
+                        />
+                      )}
+                    </React.Fragment>
                   ))}
                 </Box>
               </Box>
@@ -1853,206 +1909,135 @@ function FoundingMembersOfferSection({ onOpenDownloadModal }) {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: { xs: 320, sm: 400 },
+                  justifyContent: 'flex-end',
+                  minHeight: { xs: 480, sm: 560, md: 600 },
+                  width: '100%',
                 }}
               >
-                {/* Floating female avatar (top left) */}
+
+                {/* Main Founding Member Card (center-right) */}
                 <Box
+                  component="img"
+                  src="/FoundingMemberBanner.svg"
+                  alt="You're a Founding Member!"
                   sx={{
                     position: 'absolute',
-                    top: '5%',
-                    left: '5%',
-                    zIndex: 3,
-                    animation: 'floatSlow 4s ease-in-out infinite',
-                    '@keyframes floatSlow': {
-                      '0%, 100%': { transform: 'translateY(0)' },
-                      '50%': { transform: 'translateY(-10px)' },
-                    },
-                  }}
-                >
-                  <Box sx={{ position: 'relative' }}>
-                    <Box
-                      component="img"
-                      src="/FemaleAvatar.svg"
-                      alt="Founding Member"
-                      sx={{
-                        width: 70,
-                        height: 70,
-                        borderRadius: '50%',
-                        border: '3px solid #FFF',
-                        boxShadow: '0 8px 24px rgba(109,83,244,0.2)',
-                        objectFit: 'cover',
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 2,
-                        right: 2,
-                        width: 14,
-                        height: 14,
-                        backgroundColor: '#10B981',
-                        borderRadius: '50%',
-                        border: '2px solid #FFF',
-                      }}
-                    />
-                  </Box>
-                </Box>
-
-                {/* Floating male avatar (bottom right) */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    bottom: '18%',
-                    right: '2%',
-                    zIndex: 3,
-                    animation: 'floatSlow 4s ease-in-out infinite 2s',
-                  }}
-                >
-                  <Box sx={{ position: 'relative' }}>
-                    <Box
-                      component="img"
-                      src="/maleAvatar.svg"
-                      alt="Founding Member"
-                      sx={{
-                        width: 75,
-                        height: 75,
-                        borderRadius: '50%',
-                        border: '3px solid #FFF',
-                        boxShadow: '0 8px 24px rgba(109,83,244,0.2)',
-                        objectFit: 'cover',
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 2,
-                        right: 2,
-                        width: 14,
-                        height: 14,
-                        backgroundColor: '#10B981',
-                        borderRadius: '50%',
-                        border: '2px solid #FFF',
-                      }}
-                    />
-                  </Box>
-                </Box>
-
-                {/* Center Glass Card */}
-                <Box
-                  sx={{
-                    width: '90%',
-                    maxWidth: 340,
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                    backdropFilter: 'blur(16px)',
-                    borderRadius: '28px',
-                    p: 4,
-                    textAlign: 'center',
-                    boxShadow: '0 20px 50px rgba(109, 83, 244, 0.15)',
-                    border: '1px solid rgba(255, 255, 255, 0.9)',
-                    position: 'relative',
+                    width: { xs: 260, sm: 310, md: 540 },
+                    height: 'auto',
+                    top: { xs: '4%', sm: '2%', md: '1%' },
+                    right: { xs: '-20%', sm: '-18%', md: '-15%', lg: '-16%' },
                     zIndex: 2,
                     transform: 'rotate(2deg)',
+                    filter: 'drop-shadow(0 15px 35px rgba(109, 83, 244, 0.15))',
                   }}
-                >
+                />
+
+                {/* CTA Button & Download Text at bottom */}
+                <Box sx={{ position: 'relative', zIndex: 5, textAlign: 'center', mt: 'auto', width: '100%', pb: { xs: 1, md: 2 } }}>
                   <Box
                     sx={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: '16px',
-                      backgroundColor: 'rgba(109, 83, 244, 0.1)',
-                      color: BRAND,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mx: 'auto',
-                      mb: 2,
+                      position: 'relative',
+                      display: 'inline-block',
+                      // Background Glow Layer
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -35%)',
+                        width: '92%',
+                        height: '110%',
+                        background: 'linear-gradient(90deg, #6D53F4 0%, #A855F7 50%, #EC4899 100%)',
+                        filter: 'blur(22px)',
+                        opacity: 0.75,
+                        borderRadius: '50px',
+                        zIndex: 0,
+                      },
                     }}
                   >
-                    <GroupsIcon sx={{ fontSize: 32 }} />
+                    <Button
+                      onClick={handleClaimOffer}
+                      sx={{
+                        position: 'relative',
+                        zIndex: 1,
+                        background: 'linear-gradient(90deg, #5A3FD6 0%, #7E4BE8 45%, #D946EF 100%)',
+                        color: '#FFF',
+                        px: { xs: 3.5, sm: 4.5 },
+                        py: 1.5,
+                        borderRadius: '50px',
+                        fontSize: { xs: '0.95rem', sm: '1.05rem' },
+                        fontWeight: 800,
+                        textTransform: 'none',
+                        letterSpacing: '-0.01em',
+                        border: '1.5px solid rgba(255, 255, 255, 0.45)',
+                        // 3D Extended Bottom Lip & Glow Shadow
+                        boxShadow: `
+                          0 6px 0px #3D1E9E,
+                          0 7px 1px #5C32E2,
+                          0 16px 36px rgba(109, 83, 244, 0.5),
+                          0 24px 48px rgba(217, 70, 239, 0.35)
+                        `,
+                        '&:hover': {
+                          background: 'linear-gradient(90deg, #4F34C2 0%, #703DD4 45%, #C738DD 100%)',
+                          boxShadow: `
+                            0 4px 0px #3D1E9E,
+                            0 12px 30px rgba(109, 83, 244, 0.6),
+                            0 20px 40px rgba(217, 70, 239, 0.45)
+                          `,
+                          transform: 'translateY(2px)',
+                        },
+                        transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 1.5,
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src="/smallCrown.svg"
+                        alt="Crown"
+                        sx={{
+                          width: 20,
+                          height: 20,
+                          filter: 'brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                        }}
+                      />
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontWeight: 800,
+                          fontSize: 'inherit',
+                          letterSpacing: '-0.01em',
+                          textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+                        }}
+                      >
+                        Claim Your 3 Months Free Now
+                      </Typography>
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontWeight: 800,
+                          fontSize: '1.2rem',
+                          lineHeight: 1,
+                          ml: 0.5,
+                        }}
+                      >
+                        →
+                      </Typography>
+                    </Button>
                   </Box>
-
-                  <Typography sx={{ color: '#4B4668', fontSize: '0.95rem', fontWeight: 600 }}>
-                    You're a
-                  </Typography>
                   <Typography
                     sx={{
-                      fontSize: '1.4rem',
-                      fontWeight: 800,
-                      color: BRAND,
-                      mb: 1.5,
-                    }}
-                  >
-                    Founding Member!
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: '0.85rem',
+                      mt: 1.5,
+                      fontSize: '0.82rem',
                       color: '#6B7280',
-                      mb: 3,
-                      lineHeight: 1.5,
+                      fontWeight: 600,
+                      textAlign: 'center',
                     }}
                   >
-                    Thank you for being part of our journey.
+                    Download Labaka app
                   </Typography>
-
-                  <Box
-                    sx={{
-                      background: 'linear-gradient(135deg, #6D53F4 0%, #D946EF 100%)',
-                      color: '#FFF',
-                      py: 1.2,
-                      px: 2,
-                      borderRadius: '50px',
-                      fontSize: '0.85rem',
-                      fontWeight: 700,
-                      boxShadow: '0 6px 20px rgba(109, 83, 244, 0.3)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 0.8,
-                    }}
-                  >
-                    ★ 3 MONTHS FREE <span style={{ opacity: 0.8, fontSize: '0.75rem' }}>on PRO</span>
-                  </Box>
                 </Box>
-
-                {/* Bottom CTA Button */}
-                <Button
-                  onClick={handleClaimOffer}
-                  sx={{
-                    mt: 3,
-                    background: 'linear-gradient(135deg, #6D53F4 0%, #9061F9 50%, #E056FD 100%)',
-                    color: '#FFF',
-                    px: { xs: 3, sm: 4 },
-                    py: 1.8,
-                    borderRadius: '50px',
-                    fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                    fontWeight: 700,
-                    textTransform: 'none',
-                    boxShadow: '0 12px 36px rgba(109, 83, 244, 0.35)',
-                    '&:hover': {
-                      background: 'linear-gradient(135deg, #5B3FE2 0%, #7E4BE8 50%, #CF3EEA 100%)',
-                      boxShadow: '0 16px 44px rgba(109, 83, 244, 0.45)',
-                      transform: 'translateY(-2px) scale(1.02)',
-                    },
-                    transition: 'all 0.3s ease',
-                    zIndex: 4,
-                  }}
-                >
-                  👑 Claim Your 3 Months Free Now &nbsp; →
-                </Button>
-                <Typography
-                  sx={{
-                    mt: 1.2,
-                    fontSize: '0.8rem',
-                    color: '#6B7280',
-                    fontWeight: 600,
-                    textAlign: 'center',
-                    zIndex: 4,
-                  }}
-                >
-                  Download Labaka app
-                </Typography>
               </Box>
             </Grid>
           </Grid>
@@ -2127,7 +2112,7 @@ function LovedByThousandsSection() {
               fontSize: { xs: '1.35rem', sm: '1.6rem', md: '1.75rem' },
             }}
           >
-            Loved by Users
+            Loved by Beta Users
           </Typography>
 
           {/* Scrolling Container */}
@@ -2245,12 +2230,6 @@ function LandingFooter() {
     ],
   };
 
-  const socialLinks = [
-    { icon: <InstagramIcon />, href: '#', label: 'Instagram' },
-    { icon: <TwitterIcon />, href: '#', label: 'Twitter' },
-    { icon: <FacebookIcon />, href: '#', label: 'Facebook' },
-    { icon: <LinkedInIcon />, href: '#', label: 'LinkedIn' },
-  ];
 
   return (
     <Box
@@ -2296,16 +2275,30 @@ function LandingFooter() {
               sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5, textDecoration: 'none', cursor: 'pointer' }}
             >
               <Box
-                component="img"
-                src="/LBK FINAL LOGO PNG (2) 3.svg"
-                alt="Labaka Logo"
                 sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 40,
                   height: 40,
-                  width: 'auto',
-                  objectFit: 'contain',
-                  filter: 'brightness(1.2)',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(243, 243, 244, 0.5)',
+                  overflow: 'hidden',
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src="/FaviconIcon.svg"
+                  alt="Labaka Logo"
+                  sx={{
+                    height: '65%',
+                    width: '65%',
+                    objectFit: 'contain',
+                    filter: 'brightness(1.2)',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </Box>
               <Typography
                 sx={{
                   fontWeight: 800,
@@ -2329,32 +2322,7 @@ function LandingFooter() {
               The all-in-one platform to meet people, discover events, find opportunities, and build
               communities.
             </Typography>
-            {/* Social icons */}
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              {socialLinks.map((s) => (
-                <IconButton
-                  key={s.label}
-                  component="a"
-                  href={s.href}
-                  aria-label={s.label}
-                  sx={{
-                    color: 'rgba(255,255,255,0.75)',
-                    backgroundColor: 'rgba(255,255,255,0.1)',
-                    borderRadius: '12px',
-                    width: 36,
-                    height: 36,
-                    '&:hover': {
-                      backgroundColor: 'rgba(255,255,255,0.25)',
-                      color: '#fff',
-                      transform: 'translateY(-2px)',
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  {s.icon}
-                </IconButton>
-              ))}
-            </Box>
+
           </Grid>
 
           {/* Link columns */}

@@ -93,45 +93,7 @@ const CircleBadge = ({ variant, text }) => {
   );
 };
 
-// ─── Money Bag SVG for Referral Banner ────────────────────────────────
-const MoneyBagSVG = () => (
-  <Box
-    component="svg"
-    viewBox="0 0 140 140"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    sx={{ width: { xs: 90, sm: 120 }, height: { xs: 90, sm: 120 }, flexShrink: 0 }}
-  >
-    <defs>
-      <linearGradient id="bagGrad" x1="20" y1="20" x2="120" y2="120" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#6D53F4" />
-        <stop offset="1" stopColor="#FF8A7A" />
-      </linearGradient>
-    </defs>
-    <path
-      d="M45 42C45 42 35 48 30 55C22 66 18 80 20 95C23 112 36 122 70 122C104 122 117 112 120 95C122 80 118 66 110 55C105 48 95 42 95 42L98 32C98 32 105 28 100 24C95 20 85 28 85 28C85 28 78 22 70 22C62 22 55 28 55 28C55 28 45 20 40 24C35 28 42 32 42 32L45 42Z"
-      stroke="url(#bagGrad)"
-      strokeWidth="2.5"
-      fill="#F5F2FF"
-      strokeLinejoin="round"
-    />
-    <path d="M42 42C55 46 85 46 98 42" stroke="url(#bagGrad)" strokeWidth="2.5" />
-    <g>
-      <circle cx="88" cy="85" r="22" fill="#E6C200" stroke="#B39700" strokeWidth="1.5" />
-      <circle cx="88" cy="85" r="18" fill="#F5D000" stroke="#CCAC00" strokeWidth="1" strokeDasharray="3 2" />
-      <circle cx="68" cy="88" r="22" fill="#ECD014" stroke="#C2A800" strokeWidth="1.5" />
-      <circle cx="68" cy="88" r="18" fill="#F8DF25" stroke="#D1B700" strokeWidth="1" strokeDasharray="3 2" />
-      <circle cx="54" cy="80" r="24" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
-      <circle cx="54" cy="80" r="20" fill="#FFE44D" stroke="#DAA520" strokeWidth="1" strokeDasharray="3 2" />
-      <path
-        d="M47 79C45.5 77.5 45.5 74.5 47 73C48.5 71.5 51.5 71.5 53 73L55.5 75.5M52.5 86.5C51 88 48 88 46.5 86.5C45 85 45 82 46.5 80.5L49 78M48.5 76L55.5 83"
-        stroke="#997000"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-    </g>
-  </Box>
-);
+
 
 // ─── Main Upgrade Page Component ────────────────────────────────────────
 export default function Upgrade() {
@@ -210,7 +172,7 @@ export default function Upgrade() {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#F8F9FE',
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Poppins', sans-serif",
       }}
     >
       {/* Shared Navbar */}
@@ -737,7 +699,17 @@ export default function Upgrade() {
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 3.5 }}>
-            <MoneyBagSVG />
+            <Box
+              component="img"
+              src="/CoinPot.png"
+              alt="Coin Pot"
+              sx={{
+                width: { xs: 90, sm: 120 },
+                height: { xs: 90, sm: 120 },
+                objectFit: 'contain',
+                flexShrink: 0,
+              }}
+            />
             <Box>
               <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', mb: 0.5 }}>
                 Invite Friends & Earn Rewards

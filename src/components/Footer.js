@@ -5,14 +5,7 @@ import {
   Container,
   Grid,
   Typography,
-  IconButton,
 } from '@mui/material';
-import {
-  Instagram as InstagramIcon,
-  Twitter as TwitterIcon,
-  Facebook as FacebookIcon,
-  LinkedIn as LinkedInIcon,
-} from '@mui/icons-material';
 
 const BRAND = '#6D53F4';
 const BRAND_DARK = '#5A3FD6';
@@ -32,12 +25,7 @@ export default function Footer({ onOpenDownloadModal }) {
     ],
   };
 
-  const socialLinks = [
-    { icon: <InstagramIcon />, href: '#', label: 'Instagram' },
-    { icon: <TwitterIcon />, href: '#', label: 'Twitter' },
-    { icon: <FacebookIcon />, href: '#', label: 'Facebook' },
-    { icon: <LinkedInIcon />, href: '#', label: 'LinkedIn' },
-  ];
+
 
   return (
     <Box
@@ -83,16 +71,30 @@ export default function Footer({ onOpenDownloadModal }) {
               sx={{ display: 'flex', flexItem: 'center', gap: 1.5, mb: 1.5, textDecoration: 'none', cursor: 'pointer', alignItems: 'center' }}
             >
               <Box
-                component="img"
-                src="/LBK FINAL LOGO PNG (2) 3.svg"
-                alt="Labaka Logo"
                 sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 40,
                   height: 40,
-                  width: 'auto',
-                  objectFit: 'contain',
-                  filter: 'brightness(1.2)',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(243, 243, 244, 0.5)',
+                  overflow: 'hidden',
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src="/FaviconIcon.svg"
+                  alt="Labaka Logo"
+                  sx={{
+                    height: '65%',
+                    width: '65%',
+                    objectFit: 'contain',
+                    filter: 'brightness(1.2)',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </Box>
               <Typography
                 sx={{
                   fontWeight: 800,
@@ -116,32 +118,7 @@ export default function Footer({ onOpenDownloadModal }) {
               The all-in-one platform to meet people, discover events, find opportunities, and build
               communities.
             </Typography>
-            {/* Social icons */}
-            <Box sx={{ display: 'flex', gap: 1.25 }}>
-              {socialLinks.map((s) => (
-                <IconButton
-                  key={s.label}
-                  component="a"
-                  href={s.href}
-                  aria-label={s.label}
-                  sx={{
-                    color: 'rgba(255,255,255,0.85)',
-                    backgroundColor: 'rgba(255,255,255,0.12)',
-                    borderRadius: '12px',
-                    width: 38,
-                    height: 38,
-                    '&:hover': {
-                      backgroundColor: 'rgba(255,255,255,0.3)',
-                      color: '#fff',
-                      transform: 'translateY(-2px)',
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  {s.icon}
-                </IconButton>
-              ))}
-            </Box>
+
           </Grid>
 
           {/* Link columns */}

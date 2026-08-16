@@ -89,35 +89,53 @@ export default function DownloadAppQR({ title = 'DOWNLOAD LABAKA', subtitle = 'A
             </Box>
 
             {/* Google Play Badge */}
-            <Box
-              component="a"
-              href={playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 1,
-                backgroundColor: '#000',
-                color: '#fff',
-                borderRadius: '8px',
-                px: 2,
-                py: 0.8,
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-                '&:hover': { opacity: 0.85, transform: 'translateY(-1px)' },
-              }}
-            >
-              <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ height: 20, filter: 'brightness(0) invert(1)' }} />
-              <Box>
-                <Typography sx={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.05em' }}>GET IT ON</Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1.2 }}>Google Play</Typography>
+            {/* Google Play Badge */}
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+              <Box
+                component="a"
+                href={playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1.2,
+                  backgroundColor: '#fff',
+                  border: '1px solid #1F2937',
+                  color: '#111827',
+                  borderRadius: '8px',
+                  px: 2,
+                  py: 0.8,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  '&:hover': {
+                    backgroundColor: '#F9FAFB',
+                    borderColor: '#000',
+                    transform: 'translateY(-1px)',
+                  },
+                }}
+              >
+                <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ height: 20 }} />
+                <Box>
+                  <Typography sx={{ fontSize: '0.55rem', color: '#4B5563', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>GET IT ON</Typography>
+                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1.2, color: '#111827' }}>Google Play</Typography>
+                </Box>
               </Box>
+              <Typography
+                sx={{
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#6B7280',
+                  textAlign: 'center',
+                }}
+              >
+                Tap to Download
+              </Typography>
             </Box>
           </Box>
         </Grid>
 
-        {/* App Store — Coming Soon */}
+        {/* App Store - Coming Soon */}
         <Grid item xs={12} sm={6}>
           <Box
             sx={{
@@ -158,21 +176,30 @@ export default function DownloadAppQR({ title = 'DOWNLOAD LABAKA', subtitle = 'A
                 sx={{
                   width: 150,
                   height: 150,
-                  borderRadius: '8px',
-                  backgroundColor: 'rgba(0,0,0,0.03)',
+                  borderRadius: '16px',
+                  backgroundColor: '#F3F4F6',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: 1,
+                  p: 1.5,
                 }}
               >
-                <AppleLogoIcon size={36} color="rgba(0,0,0,0.2)" />
+                <Box
+                  component="img"
+                  src="/AppleComingSoon.svg"
+                  alt="App Store Coming Soon"
+                  sx={{
+                    width: 110,
+                    height: 'auto',
+                    mb: 1.5,
+                  }}
+                />
                 <Typography
                   sx={{
                     fontSize: '0.85rem',
-                    fontWeight: 700,
-                    color: 'rgba(0,0,0,0.35)',
+                    fontWeight: 600,
+                    color: '#374151',
                     letterSpacing: '0.02em',
                   }}
                 >
@@ -186,19 +213,20 @@ export default function DownloadAppQR({ title = 'DOWNLOAD LABAKA', subtitle = 'A
               sx={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 1,
-                backgroundColor: 'rgba(0,0,0,0.08)',
-                color: 'rgba(0,0,0,0.35)',
+                gap: 1.2,
+                backgroundColor: '#fff',
+                border: '1px solid #1F2937',
+                color: '#111827',
                 borderRadius: '8px',
                 px: 2,
                 py: 0.8,
                 cursor: 'default',
               }}
             >
-              <AppleLogoIcon size={20} color="rgba(0,0,0,0.4)" />
+              <AppleLogoIcon size={20} color="#111827" />
               <Box>
-                <Typography sx={{ fontSize: '0.55rem', color: 'rgba(0,0,0,0.3)', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Download on the</Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1.2, color: 'rgba(0,0,0,0.4)' }}>App Store</Typography>
+                <Typography sx={{ fontSize: '0.55rem', color: '#4B5563', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Download on the</Typography>
+                <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1.2, color: '#111827' }}>App Store</Typography>
               </Box>
             </Box>
           </Box>

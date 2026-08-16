@@ -112,7 +112,7 @@ export default function DownloadAppButton({
               '&:hover': { transform: 'scale(1.1)', opacity: 0.8 },
             }}
           >
-            <AppleLogoIcon size={24} color="#000000" />
+            <Box component="img" src="/Apple.svg" alt="App Store" sx={{ width: 24, height: 24, objectFit: 'contain' }} />
           </Box>
           <Box
             component="button"
@@ -129,7 +129,7 @@ export default function DownloadAppButton({
               '&:hover': { transform: 'scale(1.1)', opacity: 0.8 },
             }}
           >
-            <PlayStoreTriangleIcon size={24} />
+            <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ width: 24, height: 24, objectFit: 'contain' }} />
           </Box>
         </Box>
       )}

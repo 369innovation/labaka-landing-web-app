@@ -82,7 +82,7 @@ export default function ContactUs() {
         minHeight: '100vh',
         backgroundColor: '#FFFFFF',
         color: '#1a1a2e',
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Poppins', sans-serif",
         display: 'flex',
         flexDirection: 'column',
       }}
@@ -563,7 +563,7 @@ export default function ContactUs() {
                       fontSize: '1.1rem',
                       letterSpacing: '0.18em',
                       color: '#ffffff',
-                      fontFamily: "'Outfit', sans-serif",
+                      fontFamily: "'Poppins', sans-serif",
                     }}
                   >
                     LABAKA

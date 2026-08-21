@@ -49,6 +49,7 @@ export default function ContactUs() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -64,15 +65,38 @@ export default function ContactUs() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      toast.success("Thank you! Your message has been sent successfully. We'll get back to you soon.");
-      setFullName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-      setErrors({});
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    try {
+      const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${API_BASE_URL}/api/contact/public`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ fullName, email, subject, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        toast.success(data.message || "Thank you! Your message has been sent successfully. We'll get back to you soon.");
+        setFullName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        setErrors({});
+      } else {
+        toast.error(data.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      toast.error('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -358,6 +382,7 @@ export default function ContactUs() {
                     type="submit"
                     fullWidth
                     variant="contained"
+                    disabled={isSubmitting}
                     sx={{
                       borderRadius: '50px',
                       backgroundColor: BRAND,
@@ -375,7 +400,7 @@ export default function ContactUs() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
 
                   {/* Sub-label */}
@@ -700,11 +725,11 @@ export default function ContactUs() {
                     sx={{
                       position: 'absolute',
                       top: '6%',
-                      left: { xs: '2%', sm: '12%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      left: { xs: '2%', sm: '10%' },
+                      width: { xs: 52, sm: 68 },
+                      height: { xs: 52, sm: 68 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,
@@ -718,10 +743,10 @@ export default function ContactUs() {
                       position: 'absolute',
                       top: '40%',
                       left: { xs: '0%', sm: '14%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      width: { xs: 52, sm: 60 },
+                      height: { xs: 52, sm: 60 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,
@@ -735,10 +760,10 @@ export default function ContactUs() {
                       position: 'absolute',
                       bottom: '10%',
                       left: { xs: '2%', sm: '10%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      width: { xs: 52, sm: 68 },
+                      height: { xs: 52, sm: 68 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,
@@ -770,10 +795,10 @@ export default function ContactUs() {
                       position: 'absolute',
                       top: '18%',
                       right: { xs: '2%', sm: '4%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      width: { xs: 52, sm: 69 },
+                      height: { xs: 52, sm: 69 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,
@@ -787,10 +812,10 @@ export default function ContactUs() {
                       position: 'absolute',
                       top: '48%',
                       right: { xs: '0%', sm: '2%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      width: { xs: 52, sm: 68 },
+                      height: { xs: 52, sm: 68 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,
@@ -804,10 +829,10 @@ export default function ContactUs() {
                       position: 'absolute',
                       bottom: '12%',
                       right: { xs: '2%', sm: '4%' },
-                      width: { xs: 52, sm: 64 },
-                      height: { xs: 52, sm: 64 },
+                      width: { xs: 52, sm: 68 },
+                      height: { xs: 52, sm: 68 },
                       borderRadius: '50%',
-                      padding: '3px',
+                      padding: '1px',
                       background: 'linear-gradient(135deg, #C084FC 0%, #818CF8 100%)',
                       boxShadow: '0 0 24px rgba(192, 132, 252, 0.75)',
                       zIndex: 3,

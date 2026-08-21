@@ -186,11 +186,18 @@ export default function Footer({ onOpenDownloadModal }) {
             mt: 4,
             pt: 2.5,
             borderTop: '1px solid rgba(255,255,255,0.18)',
-            textAlign: 'center',
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 1.5,
           }}
         >
           <Typography sx={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.84rem' }}>
             © {new Date().getFullYear()} Labaka. All rights reserved.
+          </Typography>
+          <Typography sx={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.84rem', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            Made with <span>❤️</span> in India
           </Typography>
         </Box>
       </Container>

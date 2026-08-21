@@ -127,6 +127,7 @@ export default function ContactUs() {
                 py: 0.75,
                 borderRadius: '20px',
                 backgroundColor: 'rgba(109, 83, 244, 0.1)',
+                mt: { xs: 5, md: 5 },
                 mb: 2,
               }}
             >

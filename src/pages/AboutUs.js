@@ -8,6 +8,7 @@ import {
   CardContent,
   Chip,
   Button,
+  GroupsIcon
 } from '@mui/material';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -274,7 +275,7 @@ export default function AboutUs() {
         <Box sx={{ borderRadius: '20px', border: '1px solid rgba(109, 83, 244, 0.12)', overflow: 'hidden', mb: 5 }}>
           {coreValues.map((val, idx) => (
             <Box
-              key={val.num}
+              key={val.num}  
               sx={{
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -301,7 +302,166 @@ export default function AboutUs() {
           ))}
         </Box>
 
-        {/* Powered By Banner */}
+        {/* ─── OUR TEAM SECTION ──────────────────────────────────────────────── */}
+        <Box sx={{ mt: 8, mb: 6, textAlign: 'center' }}>
+          {/* Pill Badge */}
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 0.5,
+              px: 0.8,
+              py: 0.2,
+              borderRadius: '5px',
+              backgroundColor: 'rgba(109, 83, 244, 0.08)',
+              border: '1px solid rgba(37, 99, 235, 0.15)',
+              color: BRAND,
+              fontSize: '0.94rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              mb: 2,
+           }}
+          >
+            {/* Team SVG Icon from public directory */}
+            <Box
+              component="img"
+              src="/team-icon.svg" 
+              alt="Our Team Icon"
+              sx={{
+                width: 40,
+                height: 32,
+                objectFit: 'contain',
+              }}
+            />
+            Our Team
+         </Box>
+
+          {/* Main Heading */}
+          <Typography variant="h4" sx={{ fontWeight: 800, color: '#0F172A', mb: 1 }}>
+            The Team Behind <Box component="span" sx={{ color: BRAND }}>LaBaKa</Box>
+          </Typography>
+
+          <Typography sx={{ color: '#64748B', maxWidth: '600px', mx: 'auto', mb: 5, fontSize: '0.95rem' }}>
+            A passionate team working together to build real-time connections that bring people and opportunities closer - nearby or worldwide.
+          </Typography>
+
+          {/* Team Grid */}
+          <Grid container spacing={3} justifyContent="center">
+            {[
+              { name: 'Priyadhrishini', role: 'Project Manager', img: '/team/Priya.svg' },
+              { name: 'Vivek Vishwakarma', role: 'App Developer', img: '/team/Vivek.svg' },
+              { name: 'Shivam Patel', role: 'Software Developer', img: '/team/Shivam.svg' },
+              { name: 'Sakshi Jain', role: 'Co-Founder & UX Designer', img: '/team/Sakshi.svg' },
+              { name: 'Parthiban', role: 'Tech Head', img: '/team/Parthiban.svg' },
+              { name: 'Palaniraj', role: 'Founder', img: '/team/Palaniraj.svg' },
+              { name: 'Keshav Bhardwaj', role: 'Software Developer', img: '/team/Keshav.svg' },
+            ].map((member, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Box
+                  sx={{
+                    p: 3,
+                    borderRadius: '20px',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(226, 232, 240, 0.8)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    height: '100%',
+                    transition: 'transform 0.2s ease',
+                    '&:hover': { transform: 'translateY(-4px)' },
+                  }}
+               >
+                 {/* SVG / Image Container */}
+                <Box
+                  sx={{
+                    width: 90,
+                    height: 90,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(180deg, #E3DFF8 0%, #CABFF6 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    mb: 2,
+                    flexShrink: 0,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={member.img}
+                    alt={member.name}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
+                  <Typography sx={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A' }}>
+                    {member.name}
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.8rem', color: BRAND, fontWeight: 600, mt: 0.5 }}>
+                    {member.role}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* Bottom Mission Banner */}
+        <Box
+          sx={{
+            mt: 5,
+            p: 1.5,
+            pr: 4,
+            pl: 2,
+            borderRadius: '50px',
+            backgroundColor: 'rgba(109, 83, 244, 0.05)',
+            border: '1px solid rgba(37, 99, 235, 0.15)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 2.5,
+            maxWidth: '100%',
+          }}
+        >
+          {/* Circular Icon Container */}
+          <Box
+            sx={{
+              width: 56,
+              height: 56,
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+            }}
+          >
+            <Box
+                component="img"
+                src="/team-icon.svg"
+                alt="Team Mission Icon"
+                sx={{
+                  width: 56,
+                  height: 48,
+                  objectFit: 'contain',
+                }}
+              />
+            </Box>
+
+          {/* Stacked Text */}
+          <Box sx={{ textAlign: 'left' }}>
+            <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: '#383737', lineHeight: 1.3 }}>
+              Different strengths. One mission.
+            </Typography>
+            <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: BRAND, lineHeight: 1.3 }}>
+              Real connections. Real impact.
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
         <Box
           sx={{
             background: 'linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.12))',

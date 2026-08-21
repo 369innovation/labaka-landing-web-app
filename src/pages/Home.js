@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -214,15 +215,23 @@ function LandingNavbar({ onOpenDownloadModal }) {
   }, []);
 
   const handleNavClick = useCallback((e, link) => {
-    if (link.isScroll) {
-      e.preventDefault();
-      const target = document.querySelector(link.href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      setMobileOpen(false);
+  if (link.isScroll) {
+    e.preventDefault();
+    
+    // Standardize section ID target (strips out any leading '/')
+    const targetId = link.href.replace(/^\//, ''); 
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // If element isn't found on the current page, redirect to home with hash
+      window.location.href = `/${targetId}`;
     }
-  }, []);
+
+    setMobileOpen(false);
+  }
+}, []);
 
   return (
     <Box
@@ -2301,9 +2310,9 @@ function LandingFooter() {
               </Box>
               <Typography
                 sx={{
-                  fontWeight: 800,
+                  fontWeight: 500,
                   letterSpacing: '0.15em',
-                  fontSize: '1.1rem',
+                  fontSize: {xs: '1rem', md: '1.15rem'},
                   color: '#fff',
                 }}
               >
@@ -2390,6 +2399,21 @@ function Home() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const openDownloadModal = useCallback(() => setDownloadModalOpen(true), []);
   const closeDownloadModal = useCallback(() => setDownloadModalOpen(false), []);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.history.replaceState(null, '', location.pathname);
+        }, 100);
+      }
+    }
+  }, [location.hash, location.pathname]);
 
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: '#fff', overflowX: 'hidden' }}>

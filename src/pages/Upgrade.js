@@ -99,6 +99,13 @@ const CircleBadge = ({ variant, text }) => {
 export default function Upgrade() {
   const [downloadOpen, setDownloadOpen] = useState(false);
 
+  const handleReferClick = () => {
+    const shareUrl = 'https://labaka.app/download'; 
+    const shareText = `Hey! Join me on LaBaKa. Download the mobile app here: ${shareUrl}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const featureRows = [
     {
       name: 'See Who Liked You',
@@ -125,7 +132,14 @@ export default function Upgrade() {
       name: 'Connect Requests',
       desc: 'Establish trust with a connect requests',
       free: <CircleBadge variant="free" text="✕" />,
-      plus: <CircleBadge variant="plus" text="50" />,
+      plus: (
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <CircleBadge variant="plus" text="50" />
+          <Typography sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal', mt: 0.5 }}>
+            Per Week
+          </Typography>
+        </Box>
+      ),
       pro: <CircleBadge variant="pro" text="✓" />,
     },
     {
@@ -160,8 +174,22 @@ export default function Upgrade() {
       name: 'Profile Boost',
       desc: 'Highlight your profile',
       free: <CircleBadge variant="free" text="✕" />,
-      plus: <CircleBadge variant="plus" text="1" />,
-      pro: <CircleBadge variant="pro" text="3" />,
+      plus: (
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <CircleBadge variant="plus" text="50" />
+          <Typography sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal', mt: 0.5 }}>
+            Per Month
+          </Typography>
+        </Box>
+      ),
+      pro: (
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <CircleBadge variant="pro" text="3" />
+          <Typography sx={{ fontSize: '0.75rem', color: BRAND, fontWeight: 'normal', mt: 0.5 }}>
+            Per Month
+          </Typography>
+        </Box>
+      ),
     },
   ];
 
@@ -179,7 +207,7 @@ export default function Upgrade() {
       <Navbar onOpenDownloadModal={() => setDownloadOpen(true)} />
 
       {/* ─── HERO SECTION ─────────────────────────────────────────────────── */}
-      <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 7 }, pb: { xs: 4, md: 6 } }}>
+      <Container maxWidth="lg" sx={{ pt: { xs: 6, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} md={6}>
             <Box sx={{ mb: 2 }}>
@@ -195,6 +223,7 @@ export default function Upgrade() {
                   fontWeight: 800,
                   letterSpacing: '1px',
                   textTransform: 'uppercase',
+                  mt: { xs: 5, md: 5 },
                   mb: 2,
                 }}
               >
@@ -254,6 +283,7 @@ export default function Upgrade() {
                       borderRadius: '50%',
                       border: '2px solid #fff',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                      filter: 'blur(2px)',
                     }}
                   />
                   <Box
@@ -266,6 +296,7 @@ export default function Upgrade() {
                       borderRadius: '50%',
                       border: '2px solid #fff',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                      filter: 'blur(2px)',
                       ml: -1.5,
                     }}
                   />
@@ -279,6 +310,7 @@ export default function Upgrade() {
                       borderRadius: '50%',
                       border: '2px solid #fff',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                      filter: 'blur(2px)',
                       ml: -1.5,
                     }}
                   />
@@ -725,6 +757,7 @@ export default function Upgrade() {
           </Box>
 
           <Button
+          onClick={handleReferClick}
             variant="contained"
             sx={{
               backgroundColor: BRAND,

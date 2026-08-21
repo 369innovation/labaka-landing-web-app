@@ -721,7 +721,7 @@ export default function ContactUs() {
                   {/* Floating Avatars Left Side */}
                   <Box
                     component="img"
-                    src="/AboutUsAvatar1.svg"
+                    src="/AboutUsAvatar1a.svg"
                     alt="User Avatar 1"
                     sx={{
                       position: 'absolute',
@@ -738,7 +738,7 @@ export default function ContactUs() {
                   />
                   <Box
                     component="img"
-                    src="/AboutUsAvatar2.svg"
+                    src="/AboutUsAvatar2a.svg"
                     alt="User Avatar 2"
                     sx={{
                       position: 'absolute',
@@ -755,7 +755,7 @@ export default function ContactUs() {
                   />
                   <Box
                     component="img"
-                    src="/AboutUsAvatar3.svg"
+                    src="/AboutUsAvatar3a.svg"
                     alt="User Avatar 3"
                     sx={{
                       position: 'absolute',
@@ -790,7 +790,7 @@ export default function ContactUs() {
                   {/* Floating Avatars Right Side */}
                   <Box
                     component="img"
-                    src="/AboutUsAvatar4.svg"
+                    src="/AboutUsAvatar4a.svg"
                     alt="User Avatar 4"
                     sx={{
                       position: 'absolute',
@@ -807,7 +807,7 @@ export default function ContactUs() {
                   />
                   <Box
                     component="img"
-                    src="/AboutUsAvatar5.svg"
+                    src="/AboutUsAvatar5a.svg"
                     alt="User Avatar 5"
                     sx={{
                       position: 'absolute',
@@ -824,7 +824,7 @@ export default function ContactUs() {
                   />
                   <Box
                     component="img"
-                    src="/AboutUsAvatar6.svg"
+                    src="/AboutUsAvatar6a.svg"
                     alt="User Avatar 6"
                     sx={{
                       position: 'absolute',

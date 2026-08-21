@@ -7,9 +7,9 @@ import {
   Card,
   CardContent,
   Chip,
-  Button,
-  GroupsIcon
+  Button
 } from '@mui/material';
+import { RocketLaunch as RocketLaunchIcon } from '@mui/icons-material';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DownloadAppButton from '../components/DownloadAppButton';
@@ -275,7 +275,7 @@ export default function AboutUs() {
         <Box sx={{ borderRadius: '20px', border: '1px solid rgba(109, 83, 244, 0.12)', overflow: 'hidden', mb: 5 }}>
           {coreValues.map((val, idx) => (
             <Box
-              key={val.num}  
+              key={val.num}
               sx={{
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -320,12 +320,12 @@ export default function AboutUs() {
               fontWeight: 700,
               textTransform: 'uppercase',
               mb: 2,
-           }}
+            }}
           >
             {/* Team SVG Icon from public directory */}
             <Box
               component="img"
-              src="/team-icon.svg" 
+              src="/team-icon.svg"
               alt="Our Team Icon"
               sx={{
                 width: 40,
@@ -334,7 +334,7 @@ export default function AboutUs() {
               }}
             />
             Our Team
-         </Box>
+          </Box>
 
           {/* Main Heading */}
           <Typography variant="h4" sx={{ fontWeight: 800, color: '#0F172A', mb: 1 }}>
@@ -371,33 +371,33 @@ export default function AboutUs() {
                     transition: 'transform 0.2s ease',
                     '&:hover': { transform: 'translateY(-4px)' },
                   }}
-               >
-                 {/* SVG / Image Container */}
-                <Box
-                  sx={{
-                    width: 90,
-                    height: 90,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(180deg, #E3DFF8 0%, #CABFF6 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    overflow: 'hidden',
-                    mb: 2,
-                    flexShrink: 0,
-                  }}
                 >
+                  {/* SVG / Image Container */}
                   <Box
-                    component="img"
-                    src={member.img}
-                    alt={member.name}
                     sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
+                      width: 90,
+                      height: 90,
+                      borderRadius: '50%',
+                      background: 'linear-gradient(180deg, #E3DFF8 0%, #CABFF6 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      overflow: 'hidden',
+                      mb: 2,
+                      flexShrink: 0,
                     }}
-                  />
-                </Box>
+                  >
+                    <Box
+                      component="img"
+                      src={member.img}
+                      alt={member.name}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  </Box>
                   <Typography sx={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A' }}>
                     {member.name}
                   </Typography>
@@ -410,36 +410,36 @@ export default function AboutUs() {
           </Grid>
 
           {/* Bottom Mission Banner */}
-        <Box
-          sx={{
-            mt: 5,
-            p: 1.5,
-            pr: 4,
-            pl: 2,
-            borderRadius: '50px',
-            backgroundColor: 'rgba(109, 83, 244, 0.05)',
-            border: '1px solid rgba(37, 99, 235, 0.15)',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 2.5,
-            maxWidth: '100%',
-          }}
-        >
-          {/* Circular Icon Container */}
           <Box
             sx={{
-              width: 56,
-              height: 56,
-              borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              display: 'flex',
+              mt: 5,
+              p: 1.5,
+              pr: 4,
+              pl: 2,
+              borderRadius: '50px',
+              backgroundColor: 'rgba(109, 83, 244, 0.05)',
+              border: '1px solid rgba(37, 99, 235, 0.15)',
+              display: 'inline-flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              gap: 2.5,
+              maxWidth: '100%',
             }}
           >
+            {/* Circular Icon Container */}
             <Box
+              sx={{
+                width: 56,
+                height: 56,
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              }}
+            >
+              <Box
                 component="img"
                 src="/team-icon.svg"
                 alt="Team Mission Icon"
@@ -451,40 +451,83 @@ export default function AboutUs() {
               />
             </Box>
 
-          {/* Stacked Text */}
-          <Box sx={{ textAlign: 'left' }}>
-            <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: '#383737', lineHeight: 1.3 }}>
-              Different strengths. One mission.
-            </Typography>
-            <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: BRAND, lineHeight: 1.3 }}>
-              Real connections. Real impact.
-            </Typography>
+            {/* Stacked Text */}
+            <Box sx={{ textAlign: 'left' }}>
+              <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: '#383737', lineHeight: 1.3 }}>
+                Different strengths. One mission.
+              </Typography>
+              <Typography sx={{ fontSize: '0.95rem', fontWeight: 600, color: BRAND, lineHeight: 1.3 }}>
+                Real connections. Real impact.
+              </Typography>
+            </Box>
           </Box>
         </Box>
-      </Box>
+        {/* Powered By Banner */}
         <Box
           sx={{
-            background: 'linear-gradient(135deg, rgba(109,83,244,0.06), rgba(139,115,255,0.12))',
-            border: '1px solid rgba(109,83,244,0.18)',
-            borderRadius: '20px',
-            p: { xs: 3, md: 4 },
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
             alignItems: 'center',
             justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 2,
-            mb: 6,
+            gap: 3,
+            p: { xs: 3, md: 4 },
+            my: 6,
+            borderRadius: '24px',
+            background: 'linear-gradient(135deg, rgba(109, 83, 244, 0.03) 0%, rgba(109, 83, 244, 0.08) 100%)',
+            border: '1px solid rgba(109, 83, 244, 0.15)',
+            textAlign: { xs: 'center', sm: 'left' },
           }}
         >
           <Box>
-            <Typography variant="h6" sx={{ fontWeight: 800, color: '#0d1b2a', mb: 0.5 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 800,
+                color: '#0F172A',
+                fontSize: { xs: '1.1rem', md: '1.25rem' },
+                mb: 0.5,
+              }}
+            >
               Powered by 369innovation
             </Typography>
-            <Typography sx={{ fontSize: '0.9rem', color: '#5a6175' }}>
-              Building next-generation digital platforms for modern human connection.
+            <Typography
+              variant="body2"
+              sx={{
+                color: '#64748B',
+                fontSize: '0.9rem',
+                lineHeight: 1.5,
+              }}
+            >
+              Building next-generation digital platforms for global connections.
             </Typography>
           </Box>
-          <DownloadAppButton onClick={openDownloadModal} />
+          <Button
+            component="a"
+            href="https://www.369innovation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            startIcon={<RocketLaunchIcon sx={{ fontSize: '1.1rem' }} />}
+            sx={{
+              backgroundColor: BRAND,
+              color: '#fff',
+              fontWeight: 600,
+              textTransform: 'none',
+              borderRadius: '30px',
+              px: 3.5,
+              py: 1.2,
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 14px rgba(109, 83, 244, 0.25)',
+              '&:hover': {
+                backgroundColor: BRAND_DARK,
+                transform: 'translateY(-2px)',
+                boxShadow: '0 6px 20px rgba(109, 83, 244, 0.35)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            369innovation
+          </Button>
         </Box>
 
         {/* Ready To Connect CTA */}

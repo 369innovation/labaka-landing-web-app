@@ -5,6 +5,7 @@ import {
   Typography,
   Card,
   Divider,
+  Link,
 } from '@mui/material';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
@@ -56,6 +57,39 @@ export default function TermsAndConditions() {
       title: '7. Governing Law & Jurisdiction',
       content:
         'These Terms & Conditions shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles. Any disputes shall be subject to the exclusive jurisdiction of the courts located in Bengaluru, India.',
+    },
+    {
+      title: '8. Child Safety & CSAE Standards',
+      items: [
+        "LaBaKa's zero-tolerance policy toward CSAE/CSAM",
+        'Prohibition of child sexual exploitation, grooming and sexual solicitation',
+        'Prohibition on uploading, sharing or distributing CSAM',
+        'User reporting mechanism',
+        'Investigation/removal/enforcement process',
+        'Account suspension/termination for violations',
+        (
+          <span key="cs-contact">
+            Child-safety contact:{' '}
+            <Link
+              href="mailto:info@369innovation.com"
+              sx={{
+                color: BRAND,
+                textDecoration: 'underline',
+                fontWeight: 600,
+                '&:hover': { color: BRAND_DARK },
+              }}
+            >
+              info@369innovation.com
+            </Link>
+          </span>
+        ),
+      ],
+      footer: (
+        <>
+          Users can report child-safety concerns, inappropriate content, or suspicious activity directly through the{' '}
+          <strong style={{ fontWeight: 700, color: '#2d3142' }}>Settings &rarr; Report</strong> feature within the LaBaKa application.
+        </>
+      ),
     },
   ];
 
@@ -168,9 +202,36 @@ export default function TermsAndConditions() {
               >
                 {sec.title}
               </Typography>
-              <Typography sx={{ color: '#5a6175', fontSize: '0.96rem', lineHeight: 1.8 }}>
-                {sec.content}
-              </Typography>
+              {sec.content && (
+                <Typography sx={{ color: '#5a6175', fontSize: '0.96rem', lineHeight: 1.8 }}>
+                  {sec.content}
+                </Typography>
+              )}
+              {sec.items && (
+                <Box
+                  component="ul"
+                  sx={{
+                    mt: sec.content ? 1.5 : 0,
+                    mb: 0,
+                    pl: 3,
+                    '& li': {
+                      color: '#5a6175',
+                      fontSize: '0.96rem',
+                      lineHeight: 1.8,
+                      mb: 0.8,
+                    },
+                  }}
+                >
+                  {sec.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </Box>
+              )}
+              {sec.footer && (
+                <Typography sx={{ color: '#5a6175', fontSize: '0.96rem', lineHeight: 1.8, mt: 2 }}>
+                  {sec.footer}
+                </Typography>
+              )}
               {idx < sections.length - 1 && <Divider sx={{ mt: 3, opacity: 0.6 }} />}
             </Box>
           ))}

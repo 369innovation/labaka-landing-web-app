@@ -81,7 +81,7 @@ export default function AboutUs() {
               backdropFilter: 'blur(8px)',
             }}
           >
-            
+            Meet Labaka
           </Box>
           <Typography
             variant="h1"

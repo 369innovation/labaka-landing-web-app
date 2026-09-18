@@ -1,0 +1,38 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16.x'
+        
+    - name: Install dependencies
+      run: npm install
+        
+    - name: Build
+      run: |
+        export CI=false
+        npm run build
+        
+    - name: Deploy to server
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      with:
+        username: ${{ secrets.SFTP_USERNAME }}
+        server: ${{ secrets.SFTP_HOST }}
+        port: ${{ secrets.SFTP_PORT }}
+        password: ${{ secrets.SFTP_PASSWORD }}
+        local_path: './build/*'
+        remote_path: ${{ secrets.FRONTEND_DEPLOY_PATH }}

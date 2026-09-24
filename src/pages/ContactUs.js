@@ -671,7 +671,10 @@ export default function ContactUs() {
                   </Button>
 
                   <Button
-                    onClick={() => setDownloadModalOpen(true)}
+                    component="a"
+                    href="https://play.google.com/store/apps/details?id=in.labaka.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="contained"
                     startIcon={
                       <Box
@@ -688,6 +691,7 @@ export default function ContactUs() {
                       px: 3,
                       py: 1.2,
                       textTransform: 'none',
+                      textDecoration: 'none',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
                       '&:hover': {
                         backgroundColor: '#ffffff',

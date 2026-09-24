@@ -31,7 +31,20 @@ const FAQ_DATA = [
     questions: [
       {
         q: 'How do I create a Labaka account?',
-        a: 'Download the Labaka app on Google Play or Apple App Store, open the app, and sign up using your phone number or Google account. Follow the on-screen steps to set up your profile.',
+        a: (
+          <span>
+            Download the Labaka app on{' '}
+            <a
+              href="https://play.google.com/store/apps/details?id=in.labaka.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: BRAND, fontWeight: 700, textDecoration: 'underline' }}
+            >
+              Google Play
+            </a>
+            , open the app, and sign up using your phone number or Google account. Follow the on-screen steps to set up your profile.
+          </span>
+        ),
       },
       {
         q: 'Can I switch between Casual and Formal modes anytime?',

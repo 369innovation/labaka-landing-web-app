@@ -207,6 +207,31 @@ export default function Profile() {
                 Open in App
               </Button>
               <Button
+                component="a"
+                href="https://play.google.com/store/apps/details?id=in.labaka.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="contained"
+                startIcon={
+                  <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ width: 20, height: 20 }} />
+                }
+                sx={{
+                  width: '100%',
+                  borderRadius: '24px',
+                  py: 1.2,
+                  backgroundColor: '#111827',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  textTransform: 'none',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                  '&:hover': { backgroundColor: '#000000' },
+                }}
+              >
+                Download on Google Play
+              </Button>
+              <Button
                 variant="outlined"
                 onClick={viewInBrowser}
                 sx={{

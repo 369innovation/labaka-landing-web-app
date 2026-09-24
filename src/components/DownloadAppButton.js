@@ -27,6 +27,8 @@ export const PlayStoreTriangleIcon = ({ size = 22 }) => (
   </Box>
 );
 
+export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=in.labaka.app';
+
 export default function DownloadAppButton({
   onClick,
   showIcons = true,
@@ -115,8 +117,10 @@ export default function DownloadAppButton({
             <Box component="img" src="/Apple.svg" alt="App Store" sx={{ width: 24, height: 24, objectFit: 'contain' }} />
           </Box>
           <Box
-            component="button"
-            onClick={onClick}
+            component="a"
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Get it on Google Play"
             sx={{
               background: 'none',
@@ -125,6 +129,7 @@ export default function DownloadAppButton({
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
+              textDecoration: 'none',
               transition: 'transform 0.2s ease, opacity 0.2s ease',
               '&:hover': { transform: 'scale(1.1)', opacity: 0.8 },
             }}

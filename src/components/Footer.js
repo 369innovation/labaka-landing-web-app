@@ -119,6 +119,39 @@ export default function Footer({ onOpenDownloadModal }) {
               communities.
             </Typography>
 
+            {/* Google Play Store Badge */}
+            <Box sx={{ mb: 1, display: 'inline-flex' }}>
+              <Box
+                component="a"
+                href="https://play.google.com/store/apps/details?id=in.labaka.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1.2,
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.28)',
+                  color: '#ffffff',
+                  borderRadius: '10px',
+                  px: 2,
+                  py: 0.8,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                    transform: 'translateY(-1px)',
+                    borderColor: '#ffffff',
+                  },
+                }}
+              >
+                <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ height: 20 }} />
+                <Box>
+                  <Typography sx={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>GET IT ON</Typography>
+                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1.2, color: '#ffffff' }}>Google Play</Typography>
+                </Box>
+              </Box>
+            </Box>
           </Grid>
 
           {/* Link columns */}

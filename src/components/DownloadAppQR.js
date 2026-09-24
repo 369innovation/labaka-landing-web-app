@@ -5,7 +5,7 @@ import { AppleLogoIcon } from './DownloadAppButton';
 const BRAND = '#6D53F4';
 
 export default function DownloadAppQR({ title = 'DOWNLOAD LABAKA', subtitle = 'Available on Android and iOS' }) {
-  const playStoreUrl = 'https://play.google.com/store';
+  const playStoreUrl = 'https://play.google.com/store/apps/details?id=in.labaka.app';
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(playStoreUrl)}&bgcolor=ffffff&color=000000&margin=8`;
 
   return (

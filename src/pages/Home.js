@@ -369,8 +369,9 @@ function LandingNavbar({ onOpenDownloadModal }) {
               {/* Google Play icon */}
               <Box
                 component="a"
-                href="#"
-                onClick={(e) => { e.preventDefault(); onOpenDownloadModal?.(); }}
+                href="https://play.google.com/store/apps/details?id=in.labaka.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Google Play"
                 sx={{ display: 'flex', alignItems: 'center', transition: 'opacity 0.2s', '&:hover': { opacity: 0.7 }, cursor: 'pointer' }}
               >
@@ -442,7 +443,7 @@ function LandingNavbar({ onOpenDownloadModal }) {
             <Box component="a" href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onOpenDownloadModal?.(); }} sx={{ display: 'flex', cursor: 'pointer' }}>
               <Box component="img" src="/Apple.svg" alt="Apple" sx={{ height: 24 }} />
             </Box>
-            <Box component="a" href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onOpenDownloadModal?.(); }} sx={{ display: 'flex', cursor: 'pointer' }}>
+            <Box component="a" href="https://play.google.com/store/apps/details?id=in.labaka.app" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} sx={{ display: 'flex', cursor: 'pointer' }}>
               <Box component="img" src="/GooglePlayLogo.svg" alt="Google Play" sx={{ height: 24 }} />
             </Box>
           </ListItem>
@@ -612,8 +613,9 @@ function HeroSection({ onOpenDownloadModal }) {
                   </Box>
                   <Box
                     component="a"
-                    href="#"
-                    onClick={(e) => { e.preventDefault(); onOpenDownloadModal?.(); }}
+                    href="https://play.google.com/store/apps/details?id=in.labaka.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
                       display: 'inline-flex',
                       alignItems: 'center',

@@ -100,8 +100,8 @@ export default function Upgrade() {
   const [downloadOpen, setDownloadOpen] = useState(false);
 
   const handleReferClick = () => {
-    const shareUrl = 'https://labaka.app/download'; 
-    const shareText = `Hey! Join me on LaBaKa. Download the mobile app here: ${shareUrl}`;
+    const shareUrl = 'https://play.google.com/store/apps/details?id=in.labaka.app'; 
+    const shareText = `Hey! Join me on LaBaKa. Download the mobile app on Play Store here: ${shareUrl}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
     window.open(whatsappUrl, '_blank');
   };

@@ -17,6 +17,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DownloadAppButton from '../components/DownloadAppButton';
 import DownloadAppModal from '../components/DownloadAppModal';
+import FairUseModal from '../components/FairUseModal';
 
 // ─── Brand Colors ───────────────────────────────────────────────────────
 const BRAND = '#6D53F4';
@@ -98,9 +99,10 @@ const CircleBadge = ({ variant, text }) => {
 // ─── Main Upgrade Page Component ────────────────────────────────────────
 export default function Upgrade() {
   const [downloadOpen, setDownloadOpen] = useState(false);
+  const [fairUseOpen, setFairUseOpen] = useState(false);
 
   const handleReferClick = () => {
-    const shareUrl = 'https://play.google.com/store/apps/details?id=in.labaka.app'; 
+    const shareUrl = 'https://play.google.com/store/apps/details?id=in.labaka.app';
     const shareText = `Hey! Join me on LaBaKa. Download the mobile app on Play Store here: ${shareUrl}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
     window.open(whatsappUrl, '_blank');
@@ -176,7 +178,7 @@ export default function Upgrade() {
       free: <CircleBadge variant="free" text="✕" />,
       plus: (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <CircleBadge variant="plus" text="50" />
+          <CircleBadge variant="plus" text="1" />
           <Typography sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal', mt: 0.5 }}>
             Per Month
           </Typography>
@@ -543,239 +545,294 @@ export default function Upgrade() {
             p: { xs: 2, sm: 4 },
             boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
             border: '1px solid #E2E8F0',
-            overflowX: 'auto',
           }}
         >
-          <Box sx={{ minWidth: 650 }}>
-            <Box
-              component="table"
-              sx={{
-                width: '100%',
-                borderCollapse: 'separate',
-                borderSpacing: 0,
-              }}
-            >
-              <Box component="thead">
-                <Box component="tr">
-                  <Box
-                    component="th"
-                    sx={{
-                      textAlign: 'left',
-                      pl: 1,
-                      py: 2,
-                      pr: 2,
-                      borderBottom: '1px solid #F1F5F9',
-                      fontSize: '0.85rem',
-                      fontWeight: 800,
-                      color: '#94A3B8',
-                      letterSpacing: '1px',
-                      textTransform: 'uppercase',
-                      width: '44%',
-                    }}
-                  >
-                    FEATURES
-                  </Box>
-                  <Box
-                    component="th"
-                    sx={{
-                      textAlign: 'center',
-                      py: 2,
-                      px: 2,
-                      borderBottom: '1px solid #F1F5F9',
-                      fontSize: '0.85rem',
-                      fontWeight: 800,
-                      color: '#94A3B8',
-                      letterSpacing: '1px',
-                      textTransform: 'uppercase',
-                      width: '18%',
-                    }}
-                  >
-                    FREE
-                  </Box>
-                  <Box
-                    component="th"
-                    sx={{
-                      textAlign: 'center',
-                      py: 2,
-                      px: 2,
-                      borderBottom: '1px solid #F1F5F9',
-                      fontSize: '0.85rem',
-                      fontWeight: 800,
-                      color: '#718096',
-                      letterSpacing: '1px',
-                      textTransform: 'uppercase',
-                      width: '18%',
-                    }}
-                  >
-                    PLUS
-                    <Typography component="div" sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal' }}>
-                      Per Day
-                    </Typography>
-                  </Box>
-                  {/* PRO Header Cell */}
-                  <Box
-                    component="th"
-                    sx={{
-                      textAlign: 'center',
-                      py: 2,
-                      px: 2,
-                      width: '20%',
-                      backgroundColor: 'rgba(109, 83, 244, 0.04)',
-                      borderTop: `2px solid ${BRAND}`,
-                      borderLeft: `2px solid ${BRAND}`,
-                      borderRight: `2px solid ${BRAND}`,
-                      borderTopLeftRadius: '20px',
-                      borderTopRightRadius: '20px',
-                    }}
-                  >
-                    <Typography sx={{ fontSize: '0.95rem', fontWeight: 900, color: BRAND }}>
-                      PRO
-                    </Typography>
-                    <Typography sx={{ fontSize: '0.75rem', color: BRAND_LIGHT, fontWeight: 600 }}>
-                      Per Day
-                    </Typography>
+          {/* Scrollable Table Area */}
+          <Box sx={{ overflowX: 'auto', width: '100%' }}>
+            <Box sx={{ minWidth: 650 }}>
+              <Box
+                component="table"
+                sx={{
+                  width: '100%',
+                  borderCollapse: 'separate',
+                  borderSpacing: 0,
+                }}
+              >
+                <Box component="thead">
+                  <Box component="tr">
+                    <Box
+                      component="th"
+                      sx={{
+                        textAlign: 'left',
+                        pl: 1,
+                        py: 2,
+                        pr: 2,
+                        borderBottom: '1px solid #F1F5F9',
+                        fontSize: '0.85rem',
+                        fontWeight: 800,
+                        color: '#94A3B8',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase',
+                        width: '44%',
+                      }}
+                    >
+                      FEATURES
+                    </Box>
+                    <Box
+                      component="th"
+                      sx={{
+                        textAlign: 'center',
+                        py: 2,
+                        px: 2,
+                        borderBottom: '1px solid #F1F5F9',
+                        fontSize: '0.85rem',
+                        fontWeight: 800,
+                        color: '#94A3B8',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase',
+                        width: '18%',
+                      }}
+                    >
+                      FREE
+                    </Box>
+                    <Box
+                      component="th"
+                      sx={{
+                        textAlign: 'center',
+                        py: 2,
+                        px: 2,
+                        borderBottom: '1px solid #F1F5F9',
+                        fontSize: '0.85rem',
+                        fontWeight: 800,
+                        color: '#718096',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase',
+                        width: '18%',
+                      }}
+                    >
+                      PLUS
+                      <Typography component="div" sx={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 'normal' }}>
+                        Per Day
+                      </Typography>
+                    </Box>
+                    {/* PRO Header Cell */}
+                    <Box
+                      component="th"
+                      sx={{
+                        textAlign: 'center',
+                        py: 2,
+                        px: 2,
+                        width: '20%',
+                        backgroundColor: 'rgba(109, 83, 244, 0.04)',
+                        borderTop: `2px solid ${BRAND}`,
+                        borderLeft: `2px solid ${BRAND}`,
+                        borderRight: `2px solid ${BRAND}`,
+                        borderTopLeftRadius: '20px',
+                        borderTopRightRadius: '20px',
+                      }}
+                    >
+                      <Box
+                        onClick={() => setFairUseOpen(true)}
+                        sx={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: 0.6,
+                          cursor: 'pointer',
+                          transition: 'opacity 0.2s ease',
+                          '&:hover': { opacity: 0.8 },
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src="/I_icon.svg"
+                          alt="Pro limits info"
+                          sx={{
+                            width: 16,
+                            height: 16,
+                            objectFit: 'contain',
+                          }}
+                        />
+                        <Typography sx={{ fontSize: '0.95rem', fontWeight: 900, color: BRAND }}>
+                          PRO
+                        </Typography>
+                      </Box>
+                      <Typography sx={{ fontSize: '0.75rem', color: BRAND_LIGHT, fontWeight: 600 }}>
+                        Per Day
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
 
-              <Box component="tbody">
-                {featureRows.map((row, index) => {
-                  const isLast = index === featureRows.length - 1;
-                  return (
-                    <Box component="tr" key={row.name}>
-                      {/* Name + Description */}
-                      <Box
-                        component="td"
-                        sx={{
-                          py: 2,
-                          pl: 1,
-                          pr: 2,
-                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
-                        }}
-                      >
-                        <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, color: '#0F172A', mb: 0.3 }}>
-                          {row.name}
-                        </Typography>
-                        <Typography sx={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
-                          {row.desc}
-                        </Typography>
-                      </Box>
+                <Box component="tbody">
+                  {featureRows.map((row, index) => {
+                    const isLast = index === featureRows.length - 1;
+                    return (
+                      <Box component="tr" key={row.name}>
+                        {/* Name + Description */}
+                        <Box
+                          component="td"
+                          sx={{
+                            py: 2,
+                            pl: 1,
+                            pr: 2,
+                            borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
+                          }}
+                        >
+                          <Typography sx={{ fontSize: '0.95rem', fontWeight: 800, color: '#0F172A', mb: 0.3 }}>
+                            {row.name}
+                          </Typography>
+                          <Typography sx={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                            {row.desc}
+                          </Typography>
+                        </Box>
 
-                      {/* FREE Column */}
-                      <Box
-                        component="td"
-                        sx={{
-                          py: 2,
-                          px: 2,
-                          textAlign: 'center',
-                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
-                        }}
-                      >
-                        {row.free}
-                      </Box>
+                        {/* FREE Column */}
+                        <Box
+                          component="td"
+                          sx={{
+                            py: 2,
+                            px: 2,
+                            textAlign: 'center',
+                            borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
+                          }}
+                        >
+                          {row.free}
+                        </Box>
 
-                      {/* PLUS Column */}
-                      <Box
-                        component="td"
-                        sx={{
-                          py: 2,
-                          px: 2,
-                          textAlign: 'center',
-                          borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
-                        }}
-                      >
-                        {row.plus}
-                      </Box>
+                        {/* PLUS Column */}
+                        <Box
+                          component="td"
+                          sx={{
+                            py: 2,
+                            px: 2,
+                            textAlign: 'center',
+                            borderBottom: !isLast ? '1px solid #F8FAFC' : 'none',
+                          }}
+                        >
+                          {row.plus}
+                        </Box>
 
-                      {/* PRO Column */}
-                      <Box
-                        component="td"
-                        sx={{
-                          py: 2,
-                          px: 2,
-                          textAlign: 'center',
-                          backgroundColor: 'rgba(109, 83, 244, 0.04)',
-                          borderLeft: `2px solid ${BRAND}`,
-                          borderRight: `2px solid ${BRAND}`,
-                          ...(isLast && {
-                            borderBottom: `2px solid ${BRAND}`,
-                            borderBottomLeftRadius: '20px',
-                            borderBottomRightRadius: '20px',
-                          }),
-                        }}
-                      >
-                        {row.pro}
+                        {/* PRO Column */}
+                        <Box
+                          component="td"
+                          sx={{
+                            py: 2,
+                            px: 2,
+                            textAlign: 'center',
+                            backgroundColor: 'rgba(109, 83, 244, 0.04)',
+                            borderLeft: `2px solid ${BRAND}`,
+                            borderRight: `2px solid ${BRAND}`,
+                            ...(isLast && {
+                              borderBottom: `2px solid ${BRAND}`,
+                              borderBottomLeftRadius: '20px',
+                              borderBottomRightRadius: '20px',
+                            }),
+                          }}
+                        >
+                          {row.pro}
+                        </Box>
                       </Box>
-                    </Box>
-                  );
-                })}
+                    );
+                  })}
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
 
-      {/* ─── INVITE FRIENDS REWARD CARD ─────────────────────────────────────── */}
-      <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box
-          sx={{
-            borderRadius: '28px',
-            p: { xs: 3.5, sm: 4.5 },
-            border: `1.5px solid ${BRAND}`,
-            backgroundColor: 'rgba(109, 83, 244, 0.03)',
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 4,
-          }}
-        >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3.5 }}>
+          {/* Centered Referral & Fair-Use Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              pt: { xs: 3.5, sm: 4 },
+              pb: { xs: 2, sm: 3 },
+              px: { xs: 1, sm: 2 },
+            }}
+          >
+            {/* Fair-use disclaimer link */}
+            <Typography
+              onClick={() => setFairUseOpen(true)}
+              sx={{
+                fontSize: { xs: '0.82rem', sm: '0.88rem' },
+                color: BRAND,
+                fontWeight: 600,
+                textDecoration: 'underline',
+                textAlign: 'center',
+                cursor: 'pointer',
+                lineHeight: 1.45,
+                maxWidth: 360,
+                mx: 'auto',
+                mb: 2.5,
+                transition: 'all 0.2s ease',
+                '&:hover': {
+                  color: BRAND_DARK,
+                  opacity: 0.85,
+                },
+              }}
+            >
+              * Fair-use limits apply. Tap ⓘ to view daily caps and reset times.
+            </Typography>
+
+            {/* Refer Friends Button */}
+            <Button
+              onClick={handleReferClick}
+              variant="contained"
+              sx={{
+                backgroundColor: BRAND,
+                color: '#ffffff',
+                borderRadius: '30px',
+                px: { xs: 4, sm: 6 },
+                py: 1.5,
+                fontSize: '1.05rem',
+                fontWeight: 800,
+                textTransform: 'none',
+                boxShadow: '0 8px 24px rgba(109, 83, 244, 0.3)',
+                whiteSpace: 'nowrap',
+                width: { xs: '100%', sm: 380, md: 440 },
+                maxWidth: '100%',
+                mx: 'auto',
+                mb: 2.2,
+                '&:hover': { backgroundColor: BRAND_DARK },
+              }}
+            >
+              Refer Friends
+            </Button>
+
+            {/* Coin reward text */}
+            <Typography
+              sx={{
+                fontSize: { xs: '0.9rem', sm: '0.95rem' },
+                color: '#475569',
+                textAlign: 'center',
+                lineHeight: 1.5,
+                maxWidth: 420,
+                mx: 'auto',
+                mb: 2.5,
+              }}
+            >
+              Earn{' '}
+              <Box component="span" sx={{ color: BRAND, fontWeight: 800 }}>
+                160 LBK
+              </Box>{' '}
+              Coins in your wallet for every successful referral.
+            </Typography>
+
+            {/* Coin Pot Image */}
             <Box
               component="img"
               src="/CoinPot.png"
               alt="Coin Pot"
               sx={{
-                width: { xs: 90, sm: 120 },
-                height: { xs: 90, sm: 120 },
+                width: { xs: 80, sm: 100 },
+                height: { xs: 80, sm: 100 },
                 objectFit: 'contain',
-                flexShrink: 0,
+                mx: 'auto',
               }}
             />
-            <Box>
-              <Typography sx={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', mb: 0.5 }}>
-                Invite Friends & Earn Rewards
-              </Typography>
-              <Typography sx={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.5 }}>
-                Earn{' '}
-                <Box component="span" sx={{ color: BRAND, fontWeight: 800 }}>
-                  160 LBK
-                </Box>{' '}
-                Coins in your wallet for every successful referral.
-              </Typography>
-            </Box>
           </Box>
-
-          <Button
-          onClick={handleReferClick}
-            variant="contained"
-            sx={{
-              backgroundColor: BRAND,
-              color: '#ffffff',
-              borderRadius: '30px',
-              px: { xs: 4, sm: 6 },
-              py: 1.4,
-              fontSize: '1rem',
-              fontWeight: 800,
-              textTransform: 'none',
-              boxShadow: '0 8px 24px rgba(109, 83, 244, 0.3)',
-              whiteSpace: 'nowrap',
-              width: { xs: '100%', md: 'auto' },
-              '&:hover': { backgroundColor: BRAND_DARK },
-            }}
-          >
-            Refer Friends
-          </Button>
         </Box>
       </Container>
 
@@ -784,6 +841,9 @@ export default function Upgrade() {
 
       {/* Download Modal */}
       <DownloadAppModal open={downloadOpen} onClose={() => setDownloadOpen(false)} />
+
+      {/* Fair-Use Limits Modal */}
+      <FairUseModal open={fairUseOpen} onClose={() => setFairUseOpen(false)} />
     </Box>
   );
 }

@@ -773,7 +773,7 @@ export default function Upgrade() {
                 },
               }}
             >
-              * Fair-use limits apply. Tap ⓘ to view daily caps and reset times.
+              * Fair-use limits apply. Tap ⓘ to view daily caps and reset times. testing
             </Typography>
 
             {/* Refer Friends Button */}

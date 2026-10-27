@@ -35,4 +35,4 @@ jobs:
         port: ${{ secrets.SFTP_PORT }}
         password: ${{ secrets.SFTP_PASSWORD }}
         local_path: './build/*'
-        remote_path: ${{ secrets.FRONTEND_DEPLOY_PATH }}
+        remote_path: '/var/www/labaka.in/website/'
